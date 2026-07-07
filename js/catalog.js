@@ -1,6 +1,6 @@
 /* ============================================================
    Maanvik — full catalog (products.html)
-   Depends on window.productData from js/data.js
+   Depends on the global `productData` array from js/data.js
    ============================================================ */
 (function () {
     "use strict";
@@ -8,7 +8,10 @@
     const WHATSAPP_URL = "https://wa.link/tvhqvx";
     const PAGE_SIZE = 24;
 
-    const all = Array.isArray(window.productData) ? window.productData : [];
+    // data.js declares `const productData` (a lexical global, not a window property),
+    // so reference it directly rather than via window.
+    const source = (typeof productData !== "undefined") ? productData : [];
+    const all = Array.isArray(source) ? source.slice() : [];
     let filtered = all.slice();
     let shown = 0;
 
