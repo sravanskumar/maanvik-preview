@@ -1129,6 +1129,207 @@ a {
     font-size: 0.68rem;
 }
 
+/* ---------- Catalog page ---------- */
+.page-hero {
+    background: var(--ink);
+    color: var(--ivory);
+    padding-block: clamp(5rem, 10vw, 8rem) clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--line-dark);
+}
+
+.page-hero__title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.2rem;
+}
+
+.page-hero__lede {
+    max-width: 54ch;
+    color: rgba(247, 244, 238, 0.7);
+    font-size: 1.05rem;
+}
+
+.catalog {
+    background: var(--ivory);
+    color: var(--ink);
+    padding-block: clamp(2.5rem, 5vw, 4rem) var(--sec-y);
+}
+
+.catalog__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #fff;
+    border: 1px solid var(--line-light);
+    border-radius: 50px;
+    padding: 0.6rem 1.1rem;
+    color: var(--muted-light);
+    min-width: min(360px, 100%);
+    transition: border-color 0.3s;
+}
+
+.search:focus-within {
+    border-color: var(--gold);
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink);
+    width: 100%;
+}
+
+.catalog__count {
+    font-size: 0.85rem;
+    color: var(--muted-light);
+    letter-spacing: 0.02em;
+}
+
+.catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.pcard {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.pcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 40px -28px rgba(20, 20, 24, 0.4);
+}
+
+.pcard__img {
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line-light);
+}
+
+.pcard__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12%;
+    transition: transform 0.5s var(--ease);
+}
+
+.pcard:hover .pcard__img img {
+    transform: scale(1.06);
+}
+
+.pcard__body {
+    padding: 1.1rem 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex: 1;
+}
+
+.pcard__code {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+}
+
+.pcard__price {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+}
+
+.pcard__sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.1rem;
+}
+
+.pcard__sizes .size {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.3rem 0.55rem;
+    border-radius: 4px;
+    border: 1px solid var(--line-light);
+    background: transparent;
+    color: var(--muted-light);
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+}
+
+.pcard__sizes .size:hover {
+    border-color: var(--gold);
+    color: var(--gold-deep);
+}
+
+.pcard__sizes .size.is-active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--ivory);
+}
+
+.pcard__cta {
+    margin-top: auto;
+}
+
+.catalog__more {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.catalog__empty {
+    text-align: center;
+    color: var(--muted-light);
+    margin-top: 2rem;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+}
+
+.cta-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-band .section__title {
+    margin-block: 0.4rem 0.8rem;
+}
+
+.cta-band .muted {
+    max-width: 46ch;
+}
+
 /* ---------- WhatsApp float ---------- */
 .wa-float {
     position: fixed;
@@ -1180,7 +1381,8 @@ a {
 @media (max-width: 1024px) {
 
     .cat__grid,
-    .products {
+    .products,
+    .catalog__grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -1250,6 +1452,7 @@ a {
 
     .cat__grid,
     .products,
+    .catalog__grid,
     .why__grid,
     .about__list {
         grid-template-columns: 1fr 1fr;
@@ -1278,5 +1481,9 @@ a {
     .products,
     .why__grid {
         grid-template-columns: 1fr;
+    }
+
+    .catalog__grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
