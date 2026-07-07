@@ -81,14 +81,25 @@
             nav.classList.remove("is-open");
             toggle.classList.remove("is-open");
             toggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("menu-open");
         };
         toggle.addEventListener("click", function () {
             const open = nav.classList.toggle("is-open");
             toggle.classList.toggle("is-open", open);
             toggle.setAttribute("aria-expanded", String(open));
+            document.body.classList.toggle("menu-open", open);
         });
         nav.querySelectorAll("a").forEach(function (a) {
             a.addEventListener("click", close);
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") close();
+        });
+        document.addEventListener("click", function (e) {
+            if (nav.classList.contains("is-open") &&
+                !nav.contains(e.target) && !toggle.contains(e.target)) {
+                close();
+            }
         });
     }
 
