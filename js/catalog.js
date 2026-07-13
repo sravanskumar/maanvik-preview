@@ -21,8 +21,11 @@
     const moreBtn = document.getElementById("loadMore");
     const searchEl = document.getElementById("search");
 
-    function inr(n) {
-        return "₹" + Number(n).toLocaleString("en-IN");
+    function formatPrice(price) {
+        if (price === "POA" || price === 0 || price === "0") {
+            return '<span class="price-poa">Price on request</span>';
+        }
+        return '<span class="price">₹' + Number(price).toLocaleString("en-IN") + "</span>";
     }
 
     function assetPath(img) {
@@ -46,7 +49,7 @@
             '" alt="' + item.name + '"></div>' +
             '<div class="pcard__body">' +
             '<span class="pcard__code">' + item.name + "</span>" +
-            '<span class="pcard__price" data-price>' + inr(first.price) + "</span>" +
+            '<span class="pcard__price" data-price>' + formatPrice(first.price) + "</span>" +
             '<div class="pcard__sizes">' + sizes + "</div>" +
             '<a class="btn btn--gold btn--sm btn--block pcard__cta" target="_blank" rel="noopener" href="' +
             WHATSAPP_URL + '">Enquire</a>' +
@@ -84,7 +87,7 @@
                 b.classList.toggle("is-active", b === size);
             });
             const priceEl = card.querySelector("[data-price]");
-            if (priceEl) priceEl.textContent = inr(size.dataset.price);
+            if (priceEl) priceEl.innerHTML = formatPrice(size.dataset.price);
         });
     }
 

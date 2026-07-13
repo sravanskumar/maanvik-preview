@@ -1266,6 +1266,12 @@ a {
     line-height: 1;
 }
 
+.price-poa {
+    color: #B8860B;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
 .pcard__sizes {
     display: flex;
     flex-wrap: wrap;
