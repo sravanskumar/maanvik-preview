@@ -155,15 +155,32 @@ a {
 
 .topbar__inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    gap: 0.75rem 1rem;
-    padding-block: 0.6rem;
+    gap: 0.75rem 1.25rem;
+    padding-block: 0.55rem;
 }
 
 .topbar__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.12rem;
+    line-height: 1.35;
     justify-self: start;
-    min-width: 0;
+}
+
+.topbar__contact a {
+    white-space: nowrap;
+}
+
+.topbar__email {
+    font-size: 0.74rem;
+}
+
+.topbar__phone {
+    font-size: 0.76rem;
+    color: rgba(247, 244, 238, 0.88);
 }
 
 .topbar a {
@@ -1448,12 +1465,12 @@ a {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1280px) {
-    .topbar__contact a:first-child {
+    .topbar__email {
         display: none;
     }
 
-    .topbar__contact .topbar__sep {
-        display: none;
+    .topbar__contact {
+        flex-direction: row;
     }
 }
 
@@ -1542,10 +1559,6 @@ a {
 }
 
 @media (max-width: 860px) {
-    .topbar__contact .topbar__sep+a {
-        display: none;
-    }
-
     .hero__inner,
     .about__grid,
     .band__inner,
