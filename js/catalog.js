@@ -5,8 +5,18 @@
 (function () {
     "use strict";
 
-    const WHATSAPP_URL = "https://wa.link/tvhqvx";
+    const cfg = window.MaanvikConfig || {};
+    const WHATSAPP_PHONE = cfg.whatsappPhone || "919133441188";
+    const SHOW_PRICES = cfg.showIndicativePrices === true;
     const PAGE_SIZE = 24;
+
+    function getWhatsAppEnquiryURL(productName, sku, selectedSize) {
+        const message =
+            "Hi Maanvik! I am interested in " + productName +
+            " (SKU: " + sku + ", Size: " + selectedSize +
+            "). Please share pricing and availability.";
+        return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
+    }
 
     // data.js declares `const productData` (a lexical global, not a window property),
     // so reference it directly rather than via window.
@@ -22,7 +32,7 @@
     const searchEl = document.getElementById("search");
 
     function formatPrice(price) {
-        if (price === "POA" || price === 0 || price === "0") {
+        if (!SHOW_PRICES || price === "POA" || price === 0 || price === "0") {
             return '<span class="price-poa">Price on request</span>';
         }
         return '<span class="price">₹' + Number(price).toLocaleString("en-IN") + "</span>";
@@ -43,17 +53,24 @@
                 );
             })
             .join("");
+        const waUrl = getWhatsAppEnquiryURL(item.name, item.name, first.label);
+        const imgPath = assetPath(item.img);
         return (
-            '<article class="pcard reveal" data-id="' + item.id + '">' +
-            '<div class="pcard__img"><img loading="lazy" src="' + assetPath(item.img) +
+            '<article class="pcard reveal" data-id="' + item.id + '" data-sku="' + item.name + '">' +
+            '<div class="pcard__img"><img loading="lazy" src="' + imgPath +
             '" alt="' + item.name + '"></div>' +
             '<div class="pcard__body">' +
             '<span class="pcard__code">' + item.name + "</span>" +
             '<span class="pcard__price" data-price>' + formatPrice(first.price) + "</span>" +
+            '<p class="pcard__moq">Bulk pricing from 26+ pieces · custom engraving available</p>' +
             '<div class="pcard__sizes">' + sizes + "</div>" +
-            '<a class="btn btn--gold btn--sm btn--block pcard__cta" target="_blank" rel="noopener" href="' +
-            WHATSAPP_URL + '">Enquire</a>' +
-            "</div></article>"
+            '<div class="pcard__actions">' +
+            '<button type="button" class="btn btn--gold btn--sm btn--block pcard__quote" data-quote-open' +
+            ' data-sku="' + item.name + '" data-size="' + first.label + '" data-img="' + imgPath + '">' +
+            "Request Quote</button>" +
+            '<a class="btn btn--ghost btn--sm btn--block pcard__cta" target="_blank" rel="noopener" href="' +
+            waUrl + '">Enquire on WhatsApp</a>' +
+            "</div></div></article>"
         );
     }
 
@@ -77,7 +94,7 @@
         else grid.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
     }
 
-    /* Size selection updates the displayed price */
+    /* Size selection updates price and WhatsApp pre-fill */
     function initSizeAndCta() {
         grid.addEventListener("click", function (e) {
             const size = e.target.closest(".size");
@@ -88,6 +105,16 @@
             });
             const priceEl = card.querySelector("[data-price]");
             if (priceEl) priceEl.innerHTML = formatPrice(size.dataset.price);
+            const sku = card.dataset.sku || "";
+            const sizeLabel = size.textContent.trim();
+            const cta = card.querySelector(".pcard__cta");
+            if (cta) {
+                cta.href = getWhatsAppEnquiryURL(sku, sku, sizeLabel);
+            }
+            const quoteBtn = card.querySelector(".pcard__quote");
+            if (quoteBtn) {
+                quoteBtn.dataset.size = sizeLabel;
+            }
         });
     }
 

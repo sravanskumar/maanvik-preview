@@ -181,6 +181,21 @@ a {
     letter-spacing: 0.05em;
 }
 
+.topbar__creds {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 0.04em;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.topbar__creds strong {
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+}
+
 /* ---------- Header ---------- */
 .header {
     position: sticky;
@@ -738,12 +753,16 @@ a {
 }
 
 .product__enquire {
+    font-family: var(--sans);
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted-light);
+    border: none;
     border-bottom: 1px solid var(--gold);
-    padding-bottom: 2px;
+    padding: 0 0 2px;
+    background: transparent;
+    cursor: pointer;
     white-space: nowrap;
     transition: color 0.3s;
 }
@@ -1122,11 +1141,16 @@ a {
     font-size: 0.78rem;
 }
 
-.footer__credit {
+.footer__credit,
+.footer__cred {
     color: var(--gold-deep);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.06em;
     font-size: 0.68rem;
+}
+
+.footer__credit {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 /* ---------- Catalog page ---------- */
@@ -1304,7 +1328,25 @@ a {
 }
 
 .pcard__cta {
+    margin-top: 0;
+}
+
+.pcard__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
     margin-top: auto;
+}
+
+.pcard__quote {
+    margin-top: 0.35rem;
+}
+
+.section__note {
+    margin-top: 0.45rem;
+    font-size: 0.88rem;
+    color: var(--muted-light);
+    font-style: italic;
 }
 
 .catalog__more {
@@ -1411,6 +1453,10 @@ a {
 
 @media (max-width: 860px) {
     .topbar__contact .topbar__sep+a {
+        display: none;
+    }
+
+    .topbar__creds {
         display: none;
     }
 
@@ -1538,3 +1584,231 @@ a {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+/* ---------- Bulk enquiry form ---------- */
+.bulk-form {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.bulk-form .form-row {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.bulk-form .field {
+    flex: 1;
+    min-width: min(100%, 240px);
+    grid-column: auto;
+}
+
+.bulk-form .field--half {
+    grid-column: auto;
+}
+
+.bulk-form select {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.bulk-form select:focus,
+.bulk-form input:focus,
+.bulk-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.bulk-form input,
+.bulk-form textarea {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+    resize: vertical;
+}
+
+.bulk-form .field label {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.bulk-form .form__note {
+    text-align: center;
+    color: #0F6E56;
+    background: #e4f0ee;
+    border-left: 4px solid #0F6E56;
+    border-radius: var(--radius);
+    padding: 1rem;
+}
+
+.pcard__moq {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin: 0.25rem 0 0.5rem;
+    line-height: 1.4;
+}
+
+.contact__form select {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ivory);
+    background: var(--ink-2);
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    width: 100%;
+}
+
+/* ---------- Product quote modal ---------- */
+body.quote-open {
+    overflow: hidden;
+}
+
+.quote-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.quote-modal[hidden] {
+    display: none;
+}
+
+.quote-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 8, 10, 0.72);
+    backdrop-filter: blur(4px);
+}
+
+.quote-modal__dialog {
+    position: relative;
+    width: min(920px, 100%);
+    max-height: calc(100vh - 2.5rem);
+    overflow: auto;
+    background: var(--paper);
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.55);
+    border: 1px solid var(--line-light);
+}
+
+.quote-modal__close {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.95rem;
+    z-index: 2;
+    border: none;
+    background: transparent;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--muted-light);
+    cursor: pointer;
+}
+
+.quote-modal__layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+}
+
+.quote-modal__product {
+    padding: 2rem 1.5rem;
+    background: #fff;
+    border-right: 1px solid var(--line-light);
+}
+
+.quote-modal__img {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.quote-modal__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.quote-modal__sku {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+}
+
+.quote-modal__size,
+.quote-modal__cat {
+    font-size: 0.82rem;
+    color: var(--muted-light);
+    margin-bottom: 0.25rem;
+}
+
+.quote-modal__poa {
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: #B8860B;
+}
+
+.quote-modal__form-wrap {
+    padding: 2rem 2rem 2.25rem;
+}
+
+.quote-modal__title {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    margin: 0.35rem 0 0.5rem;
+    color: var(--ink);
+}
+
+.quote-modal__lede {
+    font-size: 0.92rem;
+    color: var(--muted-light);
+    margin-bottom: 1.25rem;
+}
+
+.quote-modal__form {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 720px) {
+    .quote-modal__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-modal__product {
+        border-right: none;
+        border-bottom: 1px solid var(--line-light);
+        padding: 1.25rem 1.25rem 1rem;
+    }
+
+    .quote-modal__form-wrap {
+        padding: 1.25rem;
+    }
+}
+

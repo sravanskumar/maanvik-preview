@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) — Maanvik GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2N8LMEL164"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-2N8LMEL164");
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maanvik — Bespoke Trophies, Medals & Awards | Crafted in Gold</title>
@@ -32,9 +40,14 @@
     <div class="topbar">
         <div class="container topbar__inner">
             <div class="topbar__contact">
-                <a href="mailto:maanvikhandicrafts@gmail.com">maanvikhandicrafts@gmail.com</a>
+                <a href="mailto:bhagyaraju.gurram@maanvikhandicrafts.com">bhagyaraju.gurram@maanvikhandicrafts.com</a>
                 <span class="topbar__sep">·</span>
                 <a href="tel:+919133441188">+91 91 33 44 11 88</a>
+            </div>
+            <div class="topbar__creds">
+                <span>GST <strong>37AXPPG4759A1ZC</strong></span>
+                <span class="topbar__sep">·</span>
+                <span>Udyam <strong>UDYAM-AP-04-0033053</strong></span>
             </div>
             <div class="topbar__social">
                 <a href="https://wa.link/tvhqvx" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
@@ -62,6 +75,7 @@
                 <a href="#about">About</a>
                 <a href="#why">Why Maanvik</a>
                 <a href="#testimonials">Clients</a>
+                <a href="#bulk-enquiry">Bulk Quote</a>
                 <a href="#locations">Locations</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -89,6 +103,7 @@
                     </p>
                     <div class="hero__cta">
                         <a href="products.html" class="btn btn--gold">Explore the Collection</a>
+                        <a href="#bulk-enquiry" class="btn btn--ghost">Request a Bulk Quote</a>
                         <a href="https://wa.link/tvhqvx" target="_blank" rel="noopener" class="btn btn--ghost">Talk on
                             WhatsApp</a>
                     </div>
@@ -191,6 +206,7 @@
                     <div>
                         <span class="overline overline--dark">Featured collection</span>
                         <h2 class="section__title">Handpicked pieces</h2>
+                        <p class="section__note">Browse our range — pricing confirmed on enquiry.</p>
                     </div>
                     <div class="filters" id="filters">
                         <button class="filter is-active" data-filter="all">All</button>
@@ -332,6 +348,93 @@
             </div>
         </section>
 
+        <!-- Bulk enquiry -->
+        <section class="section section--light bulk-enquiry" id="bulk-enquiry">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="overline overline--dark">Bulk &amp; Event Orders</span>
+                    <h2 class="section__title">Planning an event?<br><em>Tell us what you need.</em></h2>
+                    <p class="muted">Share your requirements — we will respond with designs and a quote within 24 hours.</p>
+                </div>
+                <form class="bulk-form reveal" id="bulkForm" action="https://formspree.io/f/maqrqnqw"
+                    method="POST" novalidate>
+                    <div class="form-row">
+                        <div class="field field--half">
+                            <label for="event-type">Event Type *</label>
+                            <select id="event-type" name="event_type" required>
+                                <option value="">Select event type</option>
+                                <option value="graduation">Graduation / Convocation</option>
+                                <option value="sports">Sports Day / Tournament</option>
+                                <option value="annual_day">Annual Day / Cultural Event</option>
+                                <option value="corporate_awards">Corporate Awards Night</option>
+                                <option value="government">Government / Institutional Function</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="field field--half">
+                            <label for="quantity">Quantity Required *</label>
+                            <select id="quantity" name="quantity" required>
+                                <option value="">Approximate quantity</option>
+                                <option value="1-25">1 – 25 pieces</option>
+                                <option value="26-50">26 – 50 pieces</option>
+                                <option value="51-100">51 – 100 pieces</option>
+                                <option value="101-250">101 – 250 pieces</option>
+                                <option value="250+">250+ pieces</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field field--half">
+                            <label for="budget">Approximate Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select budget range</option>
+                                <option value="under-10k">Under ₹10,000</option>
+                                <option value="10k-25k">₹10,000 – ₹25,000</option>
+                                <option value="25k-50k">₹25,000 – ₹50,000</option>
+                                <option value="50k-1lakh">₹50,000 – ₹1,00,000</option>
+                                <option value="above-1lakh">Above ₹1,00,000</option>
+                            </select>
+                        </div>
+                        <div class="field field--half">
+                            <label for="delivery-date">Delivery Needed By *</label>
+                            <input type="date" id="delivery-date" name="delivery_date" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="customisation">Customisation Requirements</label>
+                        <textarea id="customisation" name="customisation" rows="3"
+                            placeholder="Engraving details, logo, colour preferences, specific design requirements..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="field field--half">
+                            <label for="bulk-name">Your Name *</label>
+                            <input type="text" id="bulk-name" name="name" required placeholder="Full name">
+                        </div>
+                        <div class="field field--half">
+                            <label for="bulk-org">Organisation *</label>
+                            <input type="text" id="bulk-org" name="organisation" required
+                                placeholder="School / Company name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field field--half">
+                            <label for="bulk-phone">Phone / WhatsApp *</label>
+                            <input type="tel" id="bulk-phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="field field--half">
+                            <label for="bulk-email">Email</label>
+                            <input type="email" id="bulk-email" name="email" placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="_subject" value="New Bulk Enquiry — Maanvik">
+                    <button type="submit" class="btn btn--gold btn--block">Request a Quote</button>
+                    <p class="form__note" id="bulkFormNote" hidden>Thank you! We have received your bulk enquiry. Bhagya
+                        Raju will respond with designs and pricing within 24 hours.</p>
+                </form>
+            </div>
+        </section>
+
         <!-- Contact -->
         <section class="section section--dark contact" id="contact">
             <div class="container contact__grid">
@@ -341,14 +444,15 @@
                     <p class="muted">Tell us about your event and quantity — we'll respond with designs and a quote.</p>
                     <ul class="contact__details">
                         <li><span>Email</span><a
-                                href="mailto:maanvikhandicrafts@gmail.com">maanvikhandicrafts@gmail.com</a></li>
+                                href="mailto:bhagyaraju.gurram@maanvikhandicrafts.com">bhagyaraju.gurram@maanvikhandicrafts.com</a></li>
                         <li><span>Phone</span><a href="tel:+919133441188">+91 91 33 44 11 88</a></li>
                         <li><span>WhatsApp</span><a href="https://wa.link/tvhqvx" target="_blank"
                                 rel="noopener">Message us instantly</a></li>
                         <li><span>Studio</span>Mangalagiri, Andhra Pradesh</li>
                     </ul>
                 </div>
-                <form class="contact__form reveal" id="contactForm" novalidate>
+                <form class="contact__form reveal" id="contactForm"
+                    action="https://formspree.io/f/mnjejnny" method="POST" novalidate>
                     <div class="field">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -366,8 +470,10 @@
                         <textarea id="message" name="message" rows="4"
                             placeholder="e.g. 50 trophies and 200 medals for our annual sports day"></textarea>
                     </div>
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="_subject" value="New Maanvik Enquiry from Website">
                     <button type="submit" class="btn btn--gold btn--block">Send enquiry</button>
-                    <p class="form__note" id="formNote" hidden>Thank you — we'll be in touch shortly.</p>
+                    <p class="form__note" id="formNote" hidden>Thank you — we'll be in touch within 24 hours.</p>
                 </form>
             </div>
         </section>
@@ -395,7 +501,7 @@
         </div>
         <div class="container footer__bottom">
             <span>© <span id="year"></span> Maanvik Handicrafts. All rights reserved.</span>
-            <span class="footer__credit">Concept redesign</span>
+            <span class="footer__cred">GST 37AXPPG4759A1ZC · Udyam UDYAM-AP-04-0033053</span>
         </div>
     </footer>
 
@@ -405,6 +511,9 @@
         </svg>
     </a>
 
+    <script src="js/site-config.js"></script>
+    <script src="js/ga4.js"></script>
+    <script src="js/quote-modal.js"></script>
     <script src="js/main.js"></script>
 </body>
 

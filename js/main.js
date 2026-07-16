@@ -4,20 +4,20 @@
 (function () {
     "use strict";
 
-    /* ---- Featured products (curated demo set) ---- */
+    /* ---- Featured products (mock catalogue — real SKUs from data.js) ---- */
     const PRODUCTS = [
-        { img: "prd-1.jpg", name: "Laurel Trophy", cat: "trophies" },
-        { img: "prd-2.jpg", name: "Crest Trophy", cat: "trophies" },
-        { img: "prd-11.jpg", name: "Summit Award", cat: "trophies" },
-        { img: "prd-14.jpg", name: "Pinnacle Cup", cat: "trophies" },
-        { img: "prd-6.jpg", name: "Victory Medal", cat: "medals" },
-        { img: "prd-7.jpg", name: "Honour Medal", cat: "medals" },
-        { img: "prd-8.jpg", name: "Merit Medal", cat: "medals" },
-        { img: "prd-9.jpg", name: "Champion Medal", cat: "medals" },
-        { img: "prd-3.jpg", name: "Heritage Memento", cat: "mementoes" },
-        { img: "prd-5.jpg", name: "Crystal Keepsake", cat: "mementoes" },
-        { img: "prd-12.jpg", name: "Felicitation Shield", cat: "mementoes" },
-        { img: "prd-16.jpg", name: "Legacy Plaque", cat: "mementoes" },
+        { sku: "E-X334", img: "prd-1.jpg", cat: "trophies", size: "7.5 inch" },
+        { sku: "E-X335", img: "prd-2.jpg", cat: "trophies", size: "8 inch" },
+        { sku: "E-X344", img: "prd-11.jpg", cat: "trophies", size: "4 inch" },
+        { sku: "E-X347", img: "prd-14.jpg", cat: "trophies", size: "4 inch" },
+        { sku: "E-X339", img: "prd-6.jpg", cat: "medals", size: "7.5 inch" },
+        { sku: "E-X340", img: "prd-7.jpg", cat: "medals", size: "7.5 inch" },
+        { sku: "E-X341", img: "prd-8.jpg", cat: "medals", size: "7.5 inch" },
+        { sku: "E-X342", img: "prd-9.jpg", cat: "medals", size: "4 inch" },
+        { sku: "E-X336", img: "prd-3.jpg", cat: "mementoes", size: "7.5 inch" },
+        { sku: "E-X338", img: "prd-5.jpg", cat: "mementoes", size: "7.5 inch" },
+        { sku: "E-X345", img: "prd-12.jpg", cat: "mementoes", size: "4 inch" },
+        { sku: "E-X349", img: "prd-16.jpg", cat: "mementoes", size: "4 inch" },
     ];
 
     const CAT_LABEL = {
@@ -30,13 +30,16 @@
         const grid = document.getElementById("products");
         if (!grid) return;
         grid.innerHTML = PRODUCTS.map(function (p) {
+            const imgPath = "assets/img/product/" + p.img;
             return (
-                '<article class="product reveal" data-cat="' + p.cat + '">' +
-                '<div class="product__img"><img loading="lazy" src="assets/img/product/' + p.img + '" alt="' + p.name + '"></div>' +
+                '<article class="product reveal" data-cat="' + p.cat + '" data-sku="' + p.sku + '">' +
+                '<div class="product__img"><img loading="lazy" src="' + imgPath + '" alt="' + p.sku + '"></div>' +
                 '<div class="product__body">' +
                 '<div><span class="product__cat">' + CAT_LABEL[p.cat] + '</span>' +
-                '<span class="product__name">' + p.name + '</span></div>' +
-                '<a class="product__enquire" href="#contact">Enquire</a>' +
+                '<span class="product__name">' + p.sku + '</span></div>' +
+                '<button type="button" class="product__enquire" data-quote-open data-sku="' + p.sku +
+                '" data-size="' + p.size + '" data-img="' + imgPath + '" data-category="' + CAT_LABEL[p.cat] +
+                '">Request Quote</button>' +
                 '</div></article>'
             );
         }).join("");
@@ -124,7 +127,30 @@
         els.forEach(function (el) { revealObserver.observe(el); });
     }
 
-    /* ---- Contact form (demo) ---- */
+    /* ---- Formspree AJAX submit helper ---- */
+    function submitFormspree(form, noteId, onSuccess) {
+        const note = document.getElementById(noteId);
+        const action = form.getAttribute("action") || "";
+        if (!action || action.indexOf("[FORMSPREE") !== -1) {
+            if (note) {
+                note.textContent = "Form is not yet connected — replace the Formspree ID placeholder.";
+                note.hidden = false;
+            }
+            return Promise.reject(new Error("Formspree placeholder"));
+        }
+        return fetch(action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+        }).then(function (res) {
+            if (!res.ok) throw new Error("Form submission failed");
+            if (note) note.hidden = false;
+            form.reset();
+            if (onSuccess) onSuccess();
+        });
+    }
+
+    /* ---- Contact form (Formspree) ---- */
     function initForm() {
         const form = document.getElementById("contactForm");
         if (!form) return;
@@ -134,21 +160,55 @@
                 form.reportValidity();
                 return;
             }
-            const data = new FormData(form);
-            const body =
-                "Name: " + (data.get("name") || "") + "%0D%0A" +
-                "Phone: " + (data.get("phone") || "") + "%0D%0A%0D%0A" +
-                (data.get("message") || "");
-            // Opens the user's mail client pre-filled — swap for a backend/Formspree in production.
-            window.location.href =
-                "mailto:maanvikhandicrafts@gmail.com" +
-                "?subject=" + encodeURIComponent("Enquiry from " + (data.get("name") || "website")) +
-                "&body=" + body;
-            const note = document.getElementById("formNote");
-            if (note) note.hidden = false;
-            form.reset();
+            const btn = form.querySelector('button[type="submit"]');
+            if (btn) btn.disabled = true;
+            submitFormspree(form, "formNote", function () {
+                if (typeof gtag === "function") {
+                    gtag("event", "form_submit", {
+                        event_category: "conversion",
+                        event_label: "contact_form",
+                    });
+                }
+            }).catch(function () {}).finally(function () {
+                if (btn) btn.disabled = false;
+            });
         });
     }
+
+    /* ---- Bulk enquiry form (Formspree) ---- */
+    function initBulkForm() {
+        const form = document.getElementById("bulkForm");
+        if (!form) return;
+        const deliveryDateInput = document.getElementById("delivery-date");
+        if (deliveryDateInput) {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            deliveryDateInput.min = tomorrow.toISOString().split("T")[0];
+        }
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            const btn = form.querySelector('button[type="submit"]');
+            if (btn) btn.disabled = true;
+            submitFormspree(form, "bulkFormNote", function () {
+                if (typeof gtag === "function") {
+                    gtag("event", "bulk_enquiry_submit", {
+                        event_category: "conversion",
+                        event_label: "bulk_form",
+                        event_type: document.getElementById("event-type").value,
+                        quantity: document.getElementById("quantity").value,
+                    });
+                }
+            }).catch(function () {}).finally(function () {
+                if (btn) btn.disabled = false;
+            });
+        });
+    }
+
+    /* ---- GA4 conversion clicks: js/ga4.js (shared) ---- */
 
     /* ---- Footer year ---- */
     function initYear() {
@@ -162,6 +222,7 @@
         initHeader();
         initNav();
         initForm();
+        initBulkForm();
         initYear();
         observeReveals();
     });
