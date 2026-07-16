@@ -154,11 +154,16 @@ a {
 }
 
 .topbar__inner {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem 1rem;
     padding-block: 0.6rem;
+}
+
+.topbar__contact {
+    justify-self: start;
+    min-width: 0;
 }
 
 .topbar a {
@@ -175,25 +180,29 @@ a {
     opacity: 0.5;
 }
 
-.topbar__social {
-    display: flex;
-    gap: 1.4rem;
-    letter-spacing: 0.05em;
-}
-
 .topbar__creds {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.35rem;
+    justify-self: center;
     letter-spacing: 0.04em;
     font-size: 0.72rem;
     color: rgba(255, 255, 255, 0.55);
+    white-space: nowrap;
 }
 
 .topbar__creds strong {
     color: var(--gold);
     font-weight: 500;
     letter-spacing: 0.06em;
+}
+
+.topbar__social {
+    display: flex;
+    gap: 1.4rem;
+    letter-spacing: 0.05em;
+    justify-self: end;
 }
 
 /* ---------- Header ---------- */
@@ -217,9 +226,17 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1.5rem;
     padding-block: 1.1rem;
     transition: padding 0.4s var(--ease);
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 1.75rem);
+    margin-left: auto;
+    flex-shrink: 0;
 }
 
 .header.is-scrolled .header__inner {
@@ -230,6 +247,7 @@ a {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    flex-shrink: 0;
 }
 
 .brand__mark {
@@ -267,17 +285,19 @@ a {
 
 .nav {
     display: flex;
-    gap: 2.2rem;
-    margin-left: auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: clamp(1rem, 1.8vw, 2rem);
 }
 
 .nav a {
     position: relative;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 400;
     letter-spacing: 0.04em;
     color: rgba(247, 244, 238, 0.82);
     padding-block: 0.3rem;
+    white-space: nowrap;
     transition: color 0.3s;
 }
 
@@ -303,7 +323,8 @@ a {
 .header__actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
+    flex-shrink: 0;
 }
 
 .nav-toggle {
@@ -1426,6 +1447,16 @@ a {
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1280px) {
+    .topbar__contact a:first-child {
+        display: none;
+    }
+
+    .topbar__contact .topbar__sep {
+        display: none;
+    }
+}
+
 @media (max-width: 1024px) {
 
     .cat__grid,
@@ -1437,27 +1468,15 @@ a {
     .why__grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .header__inner {
-        gap: 1rem;
-    }
-
-    .nav {
-        gap: 1.4rem;
-    }
-
-    .nav a {
-        font-size: 0.8rem;
-    }
 }
 
-@media (max-width: 860px) {
-    .topbar__contact .topbar__sep+a {
+@media (max-width: 1080px) {
+    .topbar__creds {
         display: none;
     }
 
-    .topbar__creds {
-        display: none;
+    .topbar__inner {
+        grid-template-columns: 1fr auto;
     }
 
     /* Remove backdrop-filter so the fixed menu is positioned to the viewport,
@@ -1489,7 +1508,6 @@ a {
         padding: 5.5rem 1.75rem 2rem;
         transform: translateX(100%);
         transition: transform 0.4s var(--ease);
-        margin-left: 0;
         overflow-y: auto;
     }
 
@@ -1509,6 +1527,7 @@ a {
     }
 
     .nav-toggle {
+        display: flex;
         position: relative;
         z-index: 101;
     }
@@ -1517,11 +1536,13 @@ a {
         overflow: hidden;
     }
 
-    .nav-toggle {
-        display: flex;
-    }
-
     .header__actions .btn {
+        display: none;
+    }
+}
+
+@media (max-width: 860px) {
+    .topbar__contact .topbar__sep+a {
         display: none;
     }
 
