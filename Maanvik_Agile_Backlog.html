@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maanvik — Agile Product Backlog</title>
+<style>
+  @media print { .no-print { display: none; } body { margin: 0; } }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 1020px; margin: 40px auto; padding: 0 24px 60px;
+    color: #1a1a1a; line-height: 1.55; background: #fdfcfa;
+  }
+  .header { border-bottom: 3px solid #B8860B; padding-bottom: 16px; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; margin: 0 0 4px; }
+  .header .meta { color: #666; font-size: 13px; }
+  .intro { background: #faf7f0; border-left: 4px solid #B8860B; padding: 14px 18px; margin: 20px 0 28px; font-size: 14px; color: #444; }
+
+  /* EPIC */
+  .epic {
+    border: 2px solid #B8860B; border-radius: 10px;
+    margin-bottom: 32px; overflow: hidden;
+  }
+  .epic-header {
+    background: #B8860B; color: white;
+    padding: 14px 20px; display: flex; align-items: center; gap: 14px;
+  }
+  .epic-id { font-size: 11px; font-weight: 700; opacity: 0.8; white-space: nowrap; }
+  .epic-title { font-size: 16px; font-weight: 700; margin: 0; }
+  .epic-desc { font-size: 12px; opacity: 0.85; margin: 4px 0 0; }
+  .epic-priority {
+    margin-left: auto; font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 10px; white-space: nowrap;
+  }
+  .p1 { background: #fce8e0; color: #8a3a18; }
+  .p2 { background: #fff8e8; color: #7a5010; }
+  .p3 { background: #e4f0ee; color: #0f5a44; }
+  .p4 { background: #ece4f0; color: #3c2a72; }
+
+  /* USER STORY */
+  .story {
+    border-bottom: 1px solid #e8e4dc; padding: 14px 20px;
+    background: #fff;
+  }
+  .story:last-child { border-bottom: none; }
+  .story-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+  .story-id { font-size: 11px; color: #B8860B; font-weight: 700; white-space: nowrap; min-width: 52px; }
+  .story-title { font-size: 14px; font-weight: 600; }
+  .story-text {
+    font-size: 13px; color: #444; background: #f7f5f0;
+    border-left: 3px solid #e0dcd4; padding: 8px 12px;
+    margin: 6px 0 10px 62px; border-radius: 0 4px 4px 0;
+    font-style: italic;
+  }
+
+  /* TASKS */
+  .tasks { margin: 0 0 0 62px; }
+  .task {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 12.5px; color: #333; padding: 4px 0;
+    border-bottom: 1px dashed #ece8e0;
+  }
+  .task:last-child { border-bottom: none; }
+  .task-num {
+    font-size: 11px; color: #B8860B; font-weight: 700;
+    min-width: 32px; white-space: nowrap; padding-top: 1px;
+  }
+  .task-desc { flex: 1; }
+  .task-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 3px; }
+  .tag {
+    font-size: 10px; padding: 1px 6px; border-radius: 8px;
+    background: #f0ece4; color: #666;
+  }
+  .tag.fe { background: #e4eefc; color: #18468a; }
+  .tag.be { background: #fce8e0; color: #8a3a18; }
+  .tag.content { background: #fff8e8; color: #7a5010; }
+  .tag.ops { background: #e4f0ee; color: #0f5a44; }
+  .tag.design { background: #ece4f0; color: #3c2a72; }
+  .tag.done { background: #d4edda; color: #155724; }
+  .tag.blocked { background: #f8d7da; color: #721c24; }
+  .tag.br { background: #fdebd0; color: #7d4e00; }
+  .tag.ip { background: #d1ecf1; color: #0c5460; }
+  .sravan-panel { background: #e8f4f8; border: 2px solid #17a2b8; border-radius: 10px; padding: 16px 20px; margin: 0 0 28px; font-size: 13px; }
+  .sravan-panel h2 { font-size: 15px; margin: 0 0 10px; color: #0c5460; }
+  .sravan-panel table { margin: 8px 0 0; font-size: 12px; }
+  .sravan-panel th { background: #d1ecf1; }
+  .tools-panel { background: #f5f0e8; border: 2px solid #B8860B; border-radius: 10px; padding: 16px 20px; margin: 0 0 28px; font-size: 13px; }
+  .tools-panel h2 { font-size: 15px; margin: 0 0 10px; color: #5a3a18; }
+  .tools-panel table { margin: 8px 0 0; font-size: 12px; }
+  .tools-panel th { background: #ede4d4; }
+  .togaf-panel { background: #f0f4f8; border: 2px solid #4a6fa5; border-radius: 10px; padding: 16px 20px; margin: 0 0 28px; font-size: 13px; }
+  .togaf-panel h2 { font-size: 15px; margin: 0 0 10px; color: #2c4a72; }
+  .togaf-panel table { margin: 8px 0 0; font-size: 12px; }
+  .togaf-panel th { background: #dce6f0; }
+  .br-panel { background: #fff8e8; border: 2px solid #E8A020; border-radius: 10px; padding: 16px 20px; margin: 0 0 28px; font-size: 13px; }
+  .br-panel h2 { font-size: 15px; margin: 0 0 10px; color: #7a5010; }
+  .br-panel table { margin: 8px 0 0; font-size: 12px; }
+  .br-panel th { background: #fff3d6; }
+
+  /* ACCEPTANCE */
+  .acceptance {
+    margin: 8px 0 0 62px; font-size: 12px; color: #555;
+  }
+  .acceptance-label { font-size: 10px; font-weight: 700; color: #B8860B; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+  .acceptance ul { margin: 0; padding-left: 16px; }
+  .acceptance li { margin-bottom: 2px; }
+
+  table { border-collapse: collapse; width: 100%; margin: 28px 0 8px; font-size: 13px; }
+  th, td { border: 1px solid #e0dcd4; padding: 8px 12px; text-align: left; }
+  th { background: #f5f0e8; font-weight: 600; color: #5a3a18; }
+  tr:nth-child(even) { background: #faf7f3; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0 24px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  .footer { margin-top: 40px; border-top: 1px solid #e0dcd4; padding-top: 16px; font-size: 12px; color: #999; }
+  .print-btn {
+    position: fixed; top: 20px; right: 20px; background: #B8860B;
+    color: white; border: none; padding: 10px 18px; border-radius: 6px;
+    cursor: pointer; font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">🖨 Save as PDF</button>
+
+<div class="header">
+  <h1>Maanvik Awards & Mementoes — Agile Product Backlog</h1>
+  <div class="meta">Digital Transformation · Epics, User Stories & Tasks · Prepared by Sravan Kumar Sindhe · July 2026 · Backlog v1.9</div>
+</div>
+
+<div class="intro">
+  This backlog covers the complete digital transformation of Maanvik — hybrid B2B enquiry pipeline plus selective online checkout (Razorpay). <strong>Redesign</strong> is built as static HTML/CSS/JS (local preview); <strong>production</strong> still serves the legacy site on AWS — migration blocked until catalogue validated (15 Jul 2026). Strategic decisions documented: enquiry-led bulk orders + cart/checkout for standard SKUs only; Razorpay (not PayPal) for India payments; product CMS via Google Sheets (not full WordPress/Shopify). Each Epic represents a major capability. User stories follow the format <em>"As a [role], I want [capability] so that [outcome]."</em> Tasks are atomic implementation steps. <strong>TOGAF:</strong> docs/architecture/ · <strong>Tools stack:</strong> Google Workspace, GA4, Search Console, GMB, HubSpot, Razorpay, Formspree — see US-2.8. <strong>Live tracker:</strong> docs/BHAGYA_RAJU_DISCOVERY.md
+</div>
+
+
+
+<div class="tools-panel">
+  <h2>🧰 Maanvik tools stack — confirmed</h2>
+  <p style="margin:0 0 10px;color:#555;">Official tools in use. <strong>Login / SaaS signup:</strong> bhagyaraju@maanvikhandicrafts.com · <strong>Public / professional:</strong> bhagyaraju.gurram@maanvikhandicrafts.com · <strong>Operational:</strong> orders@maanvikhandicrafts.com. Full registry: <strong>US-2.8</strong> · <strong>docs/BHAGYA_RAJU_DISCOVERY.md</strong></p>
+  <table>
+    <tr><th>Tool</th><th>Purpose</th><th>Account / email</th><th>Story</th><th>Status</th></tr>
+    <tr><td>Google Workspace Admin</td><td>Corporate email, identity, DNS coordination</td><td>bhagyaraju@ (login) · bhagyaraju.gurram@ (public)</td><td>US-2.2, US-2.7</td><td>✅ Done — MX, SPF, DKIM live</td></tr>
+    <tr><td>Google Analytics 4</td><td>Conversion tracking — WhatsApp, forms, phone</td><td>bhagyaraju@ · G-2N8LMEL164</td><td>US-1.5, T-2.7.13</td><td>🟡 Tag in HTML — Realtime after deploy</td></tr>
+    <tr><td>Google Search Console</td><td>Search performance, indexing, sitemap</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>US-1.5 T-1.5.7, T-2.8.3</td><td>⬜ Queued — after cutover</td></tr>
+    <tr><td>Google My Business</td><td>Local search — 3 branch listings</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>US-2.1, T-2.7.11</td><td>⬜ Queued</td></tr>
+    <tr><td>HubSpot</td><td>CRM — enquiry → quoted → delivered pipeline</td><td>bhagyaraju@ (Gmail connected)</td><td>US-4.2, T-2.7.7</td><td>✅ Done — 7-stage pipeline</td></tr>
+    <tr><td>Razorpay</td><td>Online payments — UPI, cards, netbanking (India)</td><td>orders@maanvikhandicrafts.com</td><td>US-5.3, T-2.8.6</td><td>🟡 Sravan — after BR KYC docs</td></tr>
+    <tr><td>Site forms (×2, built)</td><td>Contact + bulk enquiry — Formspree → orders@</td><td>mnjejnny · maqrqnqw → orders@</td><td>US-1.4, US-2.3, T-2.7.8</td><td>✅ Wired — E2E tested localhost</td></tr>
+  </table>
+  <p style="margin:10px 0 0;font-size:11.5px;color:#888;"><strong>Site forms (already built):</strong> 1× contact form + 1× bulk quote form on index.html — Formspree only delivers email; no additional forms needed.<br><strong>Supporting:</strong> Formspree · AWS Route 53 + S3/CloudFront · GitHub Pages (preview) · WhatsApp Business<br><strong>Evaluated — not using:</strong> Google Forms (off-brand embed; custom forms exist) · PayPal (India buyers use UPI/Razorpay; B2B is quote/PO not PayPal checkout)</p>
+</div>
+
+
+<div class="togaf-panel">
+  <h2>🏛 TOGAF ADM — architecture traceability</h2>
+  <p style="margin:0 0 10px;color:#555;">Governed via <strong>docs/architecture/</strong> (Architecture Repository). Agile backlog = <strong>Phase G</strong> implementation. Roadmap = Phase E/F.</p>
+  <table>
+    <tr><th>Epic</th><th>TOGAF phase</th><th>Architecture domain</th><th>Architecture artefact</th></tr>
+    <tr><td>EPIC-01</td><td>C → G</td><td>Application</td><td>INFORMATION_SYSTEMS_ARCHITECTURE.md</td></tr>
+    <tr><td>EPIC-02</td><td>B → G</td><td>Business + Application</td><td>BUSINESS_ARCHITECTURE.md</td></tr>
+    <tr><td>EPIC-03</td><td>C → G</td><td>Application + Data</td><td>INFORMATION_SYSTEMS_ARCHITECTURE.md</td></tr>
+    <tr><td>EPIC-04</td><td>B → E</td><td>Business</td><td>BUSINESS_ARCHITECTURE.md · ARCHITECTURE_ROADMAP.md</td></tr>
+    <tr><td>EPIC-05</td><td>C → E</td><td>Application + Business</td><td>ARCHITECTURE_ROADMAP.md (Plateau 2)</td></tr>
+    <tr><td>EPIC-06</td><td>D → F</td><td>Technology</td><td>TECHNOLOGY_ARCHITECTURE.md</td></tr>
+  </table>
+  <p style="margin:10px 0 0;font-size:11.5px;color:#888;"><strong>HTML artefacts:</strong> <a href="Maanvik_Enterprise_Architecture.html">Enterprise Architecture</a> (BR) · <a href="docs/architecture/Maanvik_Zachman_Matrix.html">Zachman Matrix</a> (vendor) · <strong>Markdown:</strong> docs/architecture/</p>
+</div>
+
+<div class="br-panel">
+  <h2>⏳ Pending action items — Bhagya Raju</h2>
+  <p style="margin:0 0 10px;color:#555;">Discovery <strong>6/7 answered</strong>. <strong>Preview:</strong> <a href="https://sravanskumar.github.io/maanvik-preview/">github.io/maanvik-preview</a> · tag <code>p0-b2b-enquiry</code>. <strong>🔴 AWS go-live blocked:</strong> BR price list to enable real ₹ in catalogue. Tracker: <strong>docs/BHAGYA_RAJU_DISCOVERY.md</strong></p>
+  <table>
+    <tr><th>Item needed</th><th>Blocks backlog</th><th>Status</th></tr>
+    <tr><td><strong>Current price list</strong> (any format)</td><td>US-1.2, US-3.3, <strong>S9/S10 go-live</strong></td><td>🔴 <strong>Blocker</strong></td></tr>
+    <tr><td><strong>Confirm 140 SKU catalogue</strong> — still active? any to remove?</td><td>US-1.2, US-6.2, US-6.3</td><td>🔴 <strong>Blocker</strong></td></tr>
+    <tr><td>Top 12 featured products for homepage (or approve auto-pick)</td><td>US-1.2 — 12 real E-X SKUs on preview (P0)</td><td>✅ On preview — BR to confirm picks</td></tr>
+    <tr><td>Correct branch phone + WhatsApp Business numbers</td><td>US-1.1, US-1.3, US-2.4</td><td>⬜ Awaiting</td></tr>
+    <tr><td>10–20 fixed-price online checkout SKUs</td><td>US-5.1, US-5.3</td><td>⬜ Awaiting</td></tr>
+    <tr><td>CMS discovery — Q4 fixed vs POA (follow-up)</td><td>US-3.3, US-5.1</td><td>⬜ 6/7 answered — Q4 pending</td></tr>
+    <tr><td>Razorpay KYC documents (PAN, GST, bank)</td><td>US-5.3, US-5.4</td><td>⬜ BR must provide — Sravan submits</td></tr>
+    <tr><td>GMB branch verification + client review outreach</td><td>US-2.1</td><td>⬜ Not started</td></tr>
+  </table>
+</div>
+
+<div class="br-panel" style="background:#fde8e8;border-color:#c0392b;">
+  <h2 style="color:#721c24;">🔴 Go-live blocker — product catalogue (15 Jul 2026)</h2>
+  <p style="margin:0 0 10px;color:#555;">Preview uses mock catalogue with <strong>Price on request</strong> (<code>js/site-config.js</code>). AWS production cutover blocked until BR validates price list.</p>
+  <table>
+    <tr><th>Option</th><th>What ships</th><th>Catalogue</th></tr>
+    <tr><td><strong>A — Full hold</strong></td><td>Nothing until BR sign-off</td><td>Keep legacy live site</td></tr>
+    <tr><td><strong>B — Brand shell</strong></td><td>Homepage + forms + GA4; no fake products; defer catalogue</td><td>Partial</td></tr>
+    <tr><td><strong>C — Validated catalogue</strong></td><td>Full redesign after BR updates prices via Sheet</td><td>Full</td></tr>
+  </table>
+</div>
+
+<div class="sravan-panel">
+  <h2>🔧 Infrastructure progress — Sravan (15 Jul 2026)</h2>
+  <p style="margin:0 0 10px;color:#555;">Sequence completed: <strong>AWS MFA ✅ → Workspace ✅ → MX/SPF/DKIM ✅ → mailboxes ✅ → Formspree ✅ → HubSpot ✅ → GA4 tag ✅</strong>. <strong>Paused:</strong> S9 deploy + S10 cutover (catalogue blocker).</p>
+  <table>
+    <tr><th>Work item</th><th>Epic / Story</th><th>Status</th><th>Next step</th></tr>
+    <tr><td>S1 — AWS MFA + secure console access</td><td>US-6.1</td><td>✅ Done</td><td>Inventory S3/Route53/CloudFront</td></tr>
+    <tr><td>S1b — AWS root recovery contacts</td><td>US-6.1</td><td>⬜ Deferred</td><td>Business email + Sravan phone</td></tr>
+    <tr><td>S2 — Google Workspace domain setup</td><td>US-2.2</td><td>✅ Done</td><td>—</td></tr>
+    <tr><td>S3 — Founder + orders@ aliases (US-2.7)</td><td>US-2.2, US-2.7</td><td>✅ Done</td><td>orders@ = user alias (not Group)</td></tr>
+    <tr><td>S4 — Route 53 TXT verify + SPF</td><td>US-2.2, US-6.3</td><td>✅ Done</td><td>—</td></tr>
+    <tr><td>S5 — Route 53 MX (1 SMTP.GOOGLE.COM)</td><td>US-2.2</td><td>✅ Done</td><td>Gmail active</td></tr>
+    <tr><td>S6 — DKIM (1024-bit google._domainkey)</td><td>US-2.2</td><td>✅ Done</td><td>Authenticating</td></tr>
+    <tr><td>S7 — HubSpot Free + 7-stage pipeline</td><td>US-2.7, US-4.2</td><td>✅ Done</td><td>Disconnect unused integrations</td></tr>
+    <tr><td>S8 — Formspree contact + bulk → orders@</td><td>US-2.7, US-1.4, US-2.3</td><td>✅ Done</td><td>mnjejnny · maqrqnqw — E2E tested</td></tr>
+    <tr><td>S9 — Deploy redesign to AWS</td><td>US-6.2</td><td>🔴 Blocked — catalogue</td><td>After BR price list + sign-off</td></tr>
+    <tr><td>S10 — DNS cutover to new site</td><td>US-6.3</td><td>🔴 Blocked — catalogue</td><td>After S9</td></tr>
+    <tr><td>S11 — GA4 G-2N8LMEL164</td><td>US-2.7, US-1.5</td><td>🟡 Tag in HTML</td><td>Realtime after deploy; mark conversions</td></tr>
+    <tr><td>S12 — Email allocation matrix</td><td>US-2.7</td><td>✅ Documented</td><td>docs/BHAGYA_RAJU_DISCOVERY.md</td></tr>
+    <tr><td>S13 — Razorpay KYC on behalf of BR</td><td>US-5.3</td><td>⬜ Queued</td><td>BR PAN/GST/bank docs</td></tr>
+  </table>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#e4eefc;border:1px solid #18468a"></div> Frontend</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#fce8e0;border:1px solid #8a3a18"></div> Backend</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#fff8e8;border:1px solid #7a5010"></div> Content</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e4f0ee;border:1px solid #0f5a44"></div> Ops / Setup</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#fdebd0;border:1px solid #7d4e00"></div> Awaiting Bhagya Raju</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#d1ecf1;border:1px solid #0c5460"></div> In progress — Sravan</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#d4edda;border:1px solid #155724"></div> Done</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f8d7da;border:1px solid #721c24"></div> Blocked</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ece4f0;border:1px solid #3c2a72"></div> Design</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EPIC 1 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="epic">
+  <div class="epic-header">
+    <div>
+      <div class="epic-id">EPIC-01</div>
+      <div class="epic-title">Website Conversion Fixes</div>
+      <div class="epic-desc">Fix all issues on the current static site that are actively losing enquiries today</div>
+    </div>
+    <div class="epic-priority p1">🔴 Priority 1 — This Week</div>
+  </div>
+
+  <!-- Story 1.1 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-1.1</div>
+      <div class="story-title">Correct contact information</div>
+    </div>
+    <div class="story-text">
+      As a B2B buyer, I want to call or WhatsApp Maanvik directly from the website so that I can make an enquiry without searching for the number elsewhere.
+    
+    <div style="background:#fdebd0;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>⏳ Awaiting Bhagya Raju:</strong> Correct mobile number for each branch + WhatsApp Business number.
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-1.1.1</div><div class="task-desc">Replace the current +91 33 44 11 88 number with the correct branch mobile numbers in index.html header contact bar<div class="task-tags"><span class="tag br">Awaiting BR — branch phones</span><span class="tag fe">Frontend</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.1.2</div><div class="task-desc">Update all three branch phone numbers in the Locations section of index.html<div class="task-tags"><span class="tag br">Awaiting BR — branch phones</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.1.3</div><div class="task-desc">Update the floating WhatsApp button with the correct 10-digit number<div class="task-tags"><span class="tag br">Awaiting BR — WhatsApp number</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.1.4</div><div class="task-desc">Test click-to-call and click-to-WhatsApp on mobile device<div class="task-tags"><span class="tag br">After BR — phone numbers</span><span class="tag fe">Frontend</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>All phone numbers on the site are correct and dial the right branch</li>
+        <li>WhatsApp button opens a chat with the correct business number</li>
+        <li>Tested on Android and iOS mobile</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 1.2 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-1.2</div>
+      <div class="story-title">Fix product pricing in catalogue</div>
+    </div>
+    <div class="story-text">
+      As a B2B buyer, I want to see accurate prices in the product catalogue so that I can assess whether Maanvik fits my budget before making an enquiry.
+    
+    <div style="background:#fdebd0;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>🟡 Preview live:</strong> POA mode + real SKUs on homepage (P0). BR price list pending to show ₹ and unblock AWS deploy.
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-1.2.1</div><div class="task-desc">Audit data.js and identify all products showing ₹666 as placeholder price<div class="task-tags"><span class="tag done">Done</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.2.2</div><div class="task-desc">Replace confirmed prices with real values from Bhagya Raju's price list<div class="task-tags"><span class="tag br">Awaiting BR — price list</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.2.3</div><div class="task-desc">For custom or variable-price products replace with "Price on request" label<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.2.4</div><div class="task-desc">Add a "Bulk pricing available" note on all products with quantity > 10 relevance<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.2.5</div><div class="task-desc">Visual QA of all 140 product cards after update<div class="task-tags"><span class="tag br">After BR — price list</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.2.6</div><div class="task-desc">Replace homepage featured grid fake names with real SKU codes from data.js<div class="task-tags"><span class="tag done">Done — P0</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.2.7</div><div class="task-desc">Per-product Request Quote modal (Formspree) on homepage featured + catalogue — js/quote-modal.js<div class="task-tags"><span class="tag done">Done — P0</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.2.8</div><div class="task-desc">GST + Udyam trust strip in topbar/footer; POA mode via js/site-config.js<div class="task-tags"><span class="tag done">Done — P0</span><span class="tag fe">Frontend</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>No product shows ₹666 as a price</li>
+        <li>All prices are either real values or "Price on request"</li>
+        <li>Bulk pricing note visible on relevant products</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 1.3 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-1.3</div>
+      <div class="story-title">WhatsApp product enquiry pre-fill</div>
+    </div>
+    <div class="story-text">
+      As a B2B buyer, I want clicking "Enquire" on a product to open a pre-filled WhatsApp message so that I do not have to manually type the product details.
+    
+    <div style="background:#fdebd0;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>Status:</strong> Code done (T-1.3.1–2 ✓). WhatsApp wired via wa.link/tvhqvx + catalog.js pre-fill (919133441188). Branch-specific numbers still pending from BR.
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-1.3.1</div><div class="task-desc">Update catalog.js Enquire button to generate a WhatsApp URL with pre-filled message including product name, SKU, and selected size<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.3.2</div><div class="task-desc">Pre-fill message template: "Hi Maanvik, I am interested in [Product Name] (SKU: [CODE], Size: [SIZE]). Please share pricing and availability."<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.3.3</div><div class="task-desc">Test pre-fill on desktop (WhatsApp Web) and mobile (WhatsApp app)<div class="task-tags"><span class="tag br">Awaiting BR — WhatsApp number</span><span class="tag fe">Frontend</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Clicking Enquire on any product opens WhatsApp with pre-filled message</li>
+        <li>Message contains correct product name, SKU, and currently selected size</li>
+        <li>Works on both desktop and mobile</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 1.4 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-1.4</div>
+      <div class="story-title">Connect existing contact form (Formspree → orders@)</div>
+    </div>
+    <div class="story-text">
+      As a B2B buyer, I want the contact form already on the website to send my enquiry to Maanvik and show a confirmation — without leaving the page.
+    
+    <div style="background:#d4edda;border-left:3px solid #155724;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>✅ Done (15 Jul):</strong> Formspree account (bhagyaraju@) · endpoint <code>mnjejnny</code> · notifications → orders@ · E2E tested on localhost.
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-1.4.1</div><div class="task-desc">Create Formspree account (signup email: bhagyaraju@ primary) — wires existing contact form<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.4.2</div><div class="task-desc">Contact form action in index.html — Formspree <code>mnjejnny</code><div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.4.3</div><div class="task-desc">Add a success message that displays after form submission without page reload<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.4.4</div><div class="task-desc">Configure Formspree notifications to orders@maanvikhandicrafts.com<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.4.5</div><div class="task-desc">Test contact form end-to-end — submit, success message, email lands in orders@<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Form submits without opening email client</li>
+        <li>Success message displays on submission</li>
+        <li>Bhagya Raju receives email notification for every submission</li>
+        <li>Form works on mobile and desktop</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 1.5 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-1.5</div>
+      <div class="story-title">Google Analytics 4 — conversion measurement</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want to see how many website visitors take action (WhatsApp, form, phone) so that I know which channels and pages are generating real enquiries.
+    </div>
+    <div style="background:#e4f0ee;border-left:3px solid #0f5a44;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>🟡 In progress:</strong> GA4 property created (G-2N8LMEL164) under bhagyaraju@. Base tag + conversion events in <code>js/ga4.js</code> + <code>js/main.js</code>. Production Realtime pending deploy. See GA4_Implementation_Lab.md.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-1.5.0</div><div class="task-desc">GA4 under bhagyaraju@ Workspace account — see US-2.7 T-2.7.13<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.1</div><div class="task-desc">Create GA4 property — timezone IST, currency INR, web stream maanvikhandicrafts.com, Enhanced measurement ON<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.2</div><div class="task-desc">Add GA4 base tag to index.html and products.html — G-2N8LMEL164<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.3</div><div class="task-desc">Track whatsapp_click on all locations (hero, contact, footer, floating) with distinct event_label — js/ga4.js<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.4</div><div class="task-desc">Track phone_click, form_submit, bulk_enquiry_submit, product_enquiry — js/ga4.js + main.js<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.5</div><div class="task-desc">Verify all events in GA4 Realtime — run GA4_Implementation_Lab.md test checklist<div class="task-tags"><span class="tag ip">After deploy</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.6</div><div class="task-desc">Mark events as conversions in GA4 Admin; add Bhagya Raju as Viewer on bhagyaraju.gurram@; internal traffic filter<div class="task-tags"><span class="tag ip">After deploy</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.7</div><div class="task-desc">Google Search Console — verify maanvikhandicrafts.com; submit sitemap; link to GA4 (see T-2.8.3)<div class="task-tags"><span class="tag ip">Queued — after cutover</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>GA4 Realtime shows page views and all 5 conversion event types within 30 seconds of action</li>
+        <li>Bhagya Raju can open GA4 and see weekly enquiry metrics without developer help</li>
+        <li>Internal/test traffic filtered or documented so conversion rates are realistic</li>
+        <li>Baseline enquiry volume captured from Bhagya Raju for before/after comparison</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 1.6 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-1.6</div>
+      <div class="story-title">B2B copy and CTA consistency</div>
+    </div>
+    <div class="story-text">
+      As an institutional buyer, I want every call-to-action to say Enquire or Request Quote (not Buy or Checkout) so that I understand Maanvik is a quote-based B2B supplier for bulk orders.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-1.6.1</div><div class="task-desc">Audit all pages for buy/cart/checkout language — replace with Enquire / Request Quote / Request a Bulk Quote<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.6.2</div><div class="task-desc">Add Bulk Quote to navigation and hero CTA linking to #bulk-enquiry<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.6.3</div><div class="task-desc">Document e-commerce decision — no on-site checkout for institutional PO workflow (docs/ECOMMERCE_DECISION.md)<div class="task-tags"><span class="tag done">Done</span><span class="tag content">Content</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>No Buy Now or Add to Cart language on enquiry-only paths without eligibility rules</li>
+        <li>Hero, nav, and catalogue CTAs consistently signal quote/enquiry for B2B</li>
+        <li>Strategic decision documented for Bhagya Raju pitch</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EPIC 2 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="epic">
+  <div class="epic-header">
+    <div>
+      <div class="epic-id">EPIC-02</div>
+      <div class="epic-title">B2B Enquiry Pipeline</div>
+      <div class="epic-desc">Build the digital channels and forms that generate and qualify B2B enquiries</div>
+    </div>
+    <div class="epic-priority p2">🟡 Priority 2 — This Month</div>
+  </div>
+
+  <!-- Story 2.1 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-2.1</div>
+      <div class="story-title">Google My Business setup — all three branches</div>
+    </div>
+    <div class="story-text">
+      As a potential institutional client, I want to find Maanvik when I search for awards suppliers near my location so that I can contact them without knowing their website.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-2.1.1</div><div class="task-desc">Create Google My Business account using bhagyaraju.gurram@maanvikhandicrafts.com — see US-2.7 T-2.7.11<div class="task-tags"><span class="tag br">Awaiting BR — business email</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.1.2</div><div class="task-desc">Create and verify GMB listing for Branch 1 — add name, address, phone, hours, website, category (Trophy Shop / Awards Store)<div class="task-tags"><span class="tag br">Awaiting BR — GMB verification</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.1.3</div><div class="task-desc">Create and verify GMB listing for Branch 2 (repeat above)<div class="task-tags"><span class="tag br">Awaiting BR — GMB verification</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.1.4</div><div class="task-desc">Create and verify GMB listing for Branch 3 (repeat above)<div class="task-tags"><span class="tag br">Awaiting BR — GMB verification</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.1.5</div><div class="task-desc">Upload 10+ product photos and 5+ workshop/branch photos to each listing<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.1.6</div><div class="task-desc">Write the business description for each listing — include key services, institution types served, delivery capability<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.1.7</div><div class="task-desc">Send review request to 20+ existing satisfied clients from the 500+ institution database<div class="task-tags"><span class="tag br">Awaiting BR — client outreach</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>All three branches appear on Google Maps with correct details</li>
+        <li>Each listing has at least 10 photos</li>
+        <li>Each listing shows the website link and correct phone number</li>
+        <li>At least 5 reviews per listing within 30 days</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 2.2 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-2.2</div>
+      <div class="story-title">Business email setup</div>
+    </div>
+    <div class="story-text">
+      As an institutional procurement officer, I want to communicate with Maanvik via a professional domain email so that I am confident I am dealing with a legitimate business.
+    
+    <div style="background:#d4edda;border-left:3px solid #155724;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>✅ Done (15 Jul):</strong> Workspace live · domain verified · MX (1 SMTP.GOOGLE.COM) · SPF + DKIM (1024-bit) · aliases bhagyaraju.gurram@, bhagya@, orders@ on founder user.
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-2.2.1</div><div class="task-desc">Confirm domain ownership — maanvikhandicrafts.com — and AWS Route 53 DNS access<div class="task-tags"><span class="tag done">Done — MFA</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.2.2</div><div class="task-desc">Sign up Google Workspace Business Starter; add primary domain; start domain verification<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.2.3</div><div class="task-desc">Create founder user bhagyaraju@ + aliases bhagyaraju.gurram@, bhagya@, orders@ — see US-2.7<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.2.4</div><div class="task-desc">Route 53: add Google Workspace domain verification TXT record<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.2.5</div><div class="task-desc">Route 53: add MX record 1 SMTP.GOOGLE.COM<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.2.6</div><div class="task-desc">Route 53: SPF TXT (second line in root TXT) + DKIM google._domainkey (1024-bit)<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.2.7</div><div class="task-desc">Test send/receive from bhagyaraju.gurram@ and orders@ — confirm not landing in spam<div class="task-tags"><span class="tag ip">Queued — verify</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.2.8</div><div class="task-desc">Update website email references — bhagyaraju.gurram@ on redesign; orders@ for form notifications<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.2.9</div><div class="task-desc">Connect both site forms to Formspree — see US-2.7 T-2.7.8; notifications to orders@<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>bhagyaraju.gurram@maanvikhandicrafts.com, bhagya@maanvikhandicrafts.com alias, and orders@maanvikhandicrafts.com are live; per-tool allocation per US-2.7 matrix</li>
+        <li>No Gmail addresses visible on the website</li>
+        <li>Contact form notifications go to the domain email</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Story 2.7 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-2.7</div>
+      <div class="story-title">Corporate email allocation across tools</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want one clear email address per tool and purpose so that enquiries, CRM, payments, and social accounts are organised and professional for institutional buyers.
+    </div>
+    <div style="background:#d4edda;border-left:3px solid #155724;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>✅ Done (15 Jul):</strong> Email matrix live. Primary bhagyaraju@ for SaaS signup; public bhagyaraju.gurram@; orders@ as user alias (not Group). Formspree + HubSpot + GA4 accounts created.
+    </div>
+    <table style="margin:8px 0 12px 62px;font-size:12px;width:calc(100% - 62px);">
+      <tr><th>Tool / channel</th><th>Email to use</th><th>Why</th><th>Task</th></tr>
+      <tr><td>Google Workspace admin</td><td>bhagyaraju@ (login) · bhagyaraju.gurram@ (public)</td><td>Founder identity</td><td>T-2.7.2</td></tr>
+      <tr><td>Formspree</td><td>bhagyaraju@ (account)</td><td>SaaS signup — aliases miss verify mail</td><td>T-2.7.8</td></tr>
+      <tr><td>Founder short alias</td><td>bhagya@maanvikhandicrafts.com</td><td>Easy on phone / WhatsApp — alias only</td><td>T-2.7.3</td></tr>
+      <tr><td>HubSpot CRM</td><td>bhagyaraju@ (Gmail connected)</td><td>CRM tied to founder inbox</td><td>T-2.7.7</td></tr>
+      <tr><td>Razorpay</td><td>orders@maanvikhandicrafts.com</td><td>Payment + order notifications</td><td>T-2.7.9</td></tr>
+      <tr><td>Existing site forms (contact + bulk)</td><td>orders@maanvikhandicrafts.com</td><td>All enquiries to orders inbox</td><td>T-2.7.8</td></tr>
+      <tr><td>WhatsApp Business profile</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>Business profile email</td><td>T-2.7.10</td></tr>
+      <tr><td>Google My Business</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>Owner account</td><td>T-2.7.11</td></tr>
+      <tr><td>Instagram / Facebook</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>Business owner account</td><td>T-2.7.12</td></tr>
+      <tr><td>GA4 property owner</td><td>bhagyaraju@ · G-2N8LMEL164</td><td>Analytics under Workspace account</td><td>T-2.7.13</td></tr>
+      <tr><td>Google Search Console</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>Search indexing &amp; performance</td><td>T-2.8.3</td></tr>
+      <tr><td>General / sales routing (optional)</td><td>sales@, info@, contact@</td><td>Role inboxes or groups → forward to orders@</td><td>T-2.7.5</td></tr>
+    </table>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-2.7.1</div><div class="task-desc">Confirm email allocation matrix with Bhagya Raju — firstname.lastname founder + orders@ operational split<div class="task-tags"><span class="tag done">Done</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.2</div><div class="task-desc">Create bhagyaraju@ as Google Workspace primary user — bhagyaraju.gurram@ as alias<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.3</div><div class="task-desc">Add bhagya@maanvikhandicrafts.com as alias on founder mailbox<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.4</div><div class="task-desc">Create orders@maanvikhandicrafts.com as user alias (not Group — Groups block external mail)<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.5</div><div class="task-desc">Create sales@, info@, contact@ as groups forwarding to orders@ (or separate mailboxes if BR prefers)<div class="task-tags"><span class="tag ip">Queued — optional</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.6</div><div class="task-desc">Grant Bhagya Raju login to founder mailbox; document credentials in secure vault<div class="task-tags"><span class="tag ip">Queued — after mailboxes</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.7</div><div class="task-desc">Sign up HubSpot Free with bhagyaraju@; Gmail + Calendar connected; 7-stage pipeline<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.8</div><div class="task-desc">Formspree: 2 endpoints mnjejnny + maqrqnqw; signup bhagyaraju@; both notify orders@<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.9</div><div class="task-desc">Sravan registers Razorpay with orders@maanvikhandicrafts.com — on behalf of BR; after BR KYC documents<div class="task-tags"><span class="tag ip">Queued — Sravan + BR docs</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.10</div><div class="task-desc">Set WhatsApp Business profile email to bhagyaraju.gurram@maanvikhandicrafts.com<div class="task-tags"><span class="tag br">Awaiting BR — WA number</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.11</div><div class="task-desc">Register Google My Business with bhagyaraju.gurram@maanvikhandicrafts.com as owner account email<div class="task-tags"><span class="tag ip">Queued</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.12</div><div class="task-desc">Set Instagram / Facebook business account email to bhagyaraju.gurram@maanvikhandicrafts.com<div class="task-tags"><span class="tag ip">Queued — when social live</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.7.13</div><div class="task-desc">Create GA4 property under bhagyaraju@ Workspace account — G-2N8LMEL164<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Every tool in the matrix uses the agreed email — no personal Gmail on business accounts</li>
+        <li>bhagyaraju.gurram@maanvikhandicrafts.com receives founder/admin mail; orders@maanvikhandicrafts.com receives all form and payment notifications</li>
+        <li>bhagya@maanvikhandicrafts.com alias delivers to founder inbox</li>
+        <li>Allocation documented in backlog and discovery tracker for future tools</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 2.8 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-2.8</div>
+      <div class="story-title">Maanvik tools stack — account setup &amp; integration</div>
+    </div>
+    <div class="story-text">
+      As the technical lead, I want every tool Maanvik uses registered with a clear owner, account email, and setup status so that nothing is missed during go-live.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-2.8.1</div><div class="task-desc">Google Workspace Admin — domain verify, mailboxes, MX/TXT/DKIM in Route 53 (US-2.2, US-2.7)<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.8.2</div><div class="task-desc">Google Analytics 4 — property G-2N8LMEL164, tag in HTML, conversion events (US-1.5, T-2.7.13)<div class="task-tags"><span class="tag ip">Tag done — Realtime after deploy</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.8.3</div><div class="task-desc">Google Search Console — add property for maanvikhandicrafts.com; verify via DNS TXT; submit sitemap after cutover<div class="task-tags"><span class="tag ip">Queued — after cutover</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.8.4</div><div class="task-desc">Google My Business — owner account bhagyaraju.gurram@maanvikhandicrafts.com; 3 branch listings (US-2.1, T-2.7.11)<div class="task-tags"><span class="tag ip">Queued</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.8.5</div><div class="task-desc">HubSpot Free CRM — signup bhagyaraju@, Gmail sync, 7-stage pipeline (US-4.2, T-2.7.7)<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.8.6</div><div class="task-desc">Razorpay KYC — Sravan submits on behalf of BR; orders@ notifications (US-5.3, T-2.7.9)<div class="task-tags"><span class="tag ip">Queued — BR docs</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.8.7</div><div class="task-desc">Connect 2 site forms via Formspree → orders@ — mnjejnny + maqrqnqw (US-1.4, US-2.3, T-2.7.8)<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>All 7 confirmed tools have live accounts under domain email — no personal Gmail</li>
+        <li>Each tool login documented in secure vault; Bhagya Raju has access where needed</li>
+        <li>Tools stack panel at top of backlog reflects live status</li>
+        <li>No additional HTML forms required — only Formspree connection for the 2 existing forms</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 2.3 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-2.3</div>
+      <div class="story-title">Connect existing bulk enquiry form (Formspree → orders@)</div>
+    </div>
+    <div class="story-text">
+      As a corporate HR manager or school administrator, I want to submit a structured bulk order enquiry with all my event details so that I receive a relevant quote without multiple back-and-forth messages.
+    
+    <div style="background:#d4edda;border-left:3px solid #155724;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>✅ Done (15 Jul):</strong> Bulk form wired via Formspree <code>maqrqnqw</code> → orders@. E2E tested on localhost.
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-2.3.1</div><div class="task-desc">Design the bulk enquiry form fields: event type (dropdown), quantity required, budget range (dropdown), delivery date needed, customisation requirements (engraving/logo/colour), contact name, organisation name, phone, email<div class="task-tags"><span class="tag done">Done</span><span class="tag design">Design</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.3.2</div><div class="task-desc">Build the bulk enquiry form as a new section on index.html above the existing contact section<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.3.3</div><div class="task-desc">Style the form consistently with the existing charcoal/gold design system<div class="task-tags"><span class="tag done">Done</span><span class="tag design">Design</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.3.4</div><div class="task-desc">Bulk form action — Formspree endpoint maqrqnqw; notifies orders@<div class="task-tags"><span class="tag done">Done</span><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.3.5</div><div class="task-desc">Add "Request a Bulk Quote" CTA button in the hero section and navigation linking to the bulk enquiry form<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.3.6</div><div class="task-desc">Test bulk form submission with all field variations — email received at orders@<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Bulk enquiry form visible from hero CTA and navigation</li>
+        <li>Form captures event type, quantity, budget, delivery date, customisation, and contact details</li>
+        <li>Bhagya Raju receives structured email with all details clearly labelled</li>
+        <li>Buyer sees confirmation message after submission</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 2.4 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-2.4</div>
+      <div class="story-title">WhatsApp Business account and product catalogue</div>
+    </div>
+    <div class="story-text">
+      As a B2B buyer in India, I want to browse Maanvik's products and enquire directly on WhatsApp so that I can communicate in the channel I use every day for business.
+    
+    <div style="background:#fdebd0;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>⏳ Awaiting Bhagya Raju:</strong> Dedicated WhatsApp Business number + catalogue content (30 products).
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-2.4.1</div><div class="task-desc">Register a dedicated WhatsApp Business number (separate from personal) for Maanvik<div class="task-tags"><span class="tag br">Awaiting BR — WA Business number</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.4.2</div><div class="task-desc">Set up WhatsApp Business profile — email bhagyaraju.gurram@maanvikhandicrafts.com; see US-2.7 T-2.7.10<div class="task-tags"><span class="tag br">After WA Business number</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.4.3</div><div class="task-desc">Build WhatsApp Business product catalogue — add top 30 most popular products with photos, names, and prices<div class="task-tags"><span class="tag br">Awaiting BR — product photos/prices</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.4.4</div><div class="task-desc">Write automated welcome message: "Welcome to Maanvik Awards! We specialise in trophies, medals, and corporate awards for institutions across Andhra Pradesh. How can we help you today?"<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.4.5</div><div class="task-desc">Write away message for outside business hours<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.4.6</div><div class="task-desc">Create quick replies for: pricing enquiry, delivery timeline, customisation options, bulk order process<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.4.7</div><div class="task-desc">Update website floating WhatsApp button to use the new business number<div class="task-tags"><span class="tag br">After WA Business number</span><span class="tag fe">Frontend</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>WhatsApp Business account active with complete profile</li>
+        <li>Minimum 30 products in catalogue with photos and prices</li>
+        <li>Welcome message auto-sends on first contact</li>
+        <li>Quick replies set up for 4 common enquiry types</li>
+        <li>Website button opens the business WhatsApp number</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 2.6 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-2.6</div>
+      <div class="story-title">Click-to-WhatsApp Ads (CTWA) — local awareness campaign</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want institutional buyers in Vijayawada and Mangalagiri to see Maanvik ads in their WhatsApp Status feed so that they can tap directly into a WhatsApp conversation with us — without needing to search for us first.
+    </div>
+    <div style="background:#fff8e8;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong style="color:#E8A020;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">⚠ Dependencies — must complete before this story</strong><br>
+      <strong>US-2.4</strong> — WhatsApp Business account, catalogue, welcome message, and quick replies must be live<br>
+      <strong>Meta Business Manager</strong> — account must be created and WhatsApp Business number connected<br>
+      <strong>EPIC-01 fixes</strong> — correct phone number, working contact form must be in place<br>
+      <em>Rationale: CTWA ads send people directly into a WhatsApp conversation. If the WhatsApp Business setup is incomplete — no welcome message, no catalogue, no quick replies — paid leads will arrive and go cold. Fixing the foundation before running ads is non-negotiable.</em>
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-2.6.1</div><div class="task-desc">Create Meta Business Manager account at business.facebook.com using the business email (orders@maanvik.com)<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.2</div><div class="task-desc">Connect WhatsApp Business number to Meta Business Manager — verify ownership<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.3</div><div class="task-desc">Create Facebook Page for Maanvik (required by Meta to run ads) — name, category (Awards & Trophies), profile photo, cover image, website link<div class="task-tags"><span class="tag ops">Ops</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.4</div><div class="task-desc">Create first CTWA campaign in Meta Ads Manager — objective: Messages (WhatsApp)<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.5</div><div class="task-desc">Define audience targeting — Location: 10km radius around each branch (Vijayawada, Mangalagiri). Age: 25–55. Interests: education management, HR, event planning, school administration, corporate procurement<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.6</div><div class="task-desc">Design ad creative — product photo (trophy or medal, white background), headline: "Awards & Trophies for Your Next Event", body: "Custom trophies, medals and mementoes. 500+ institutions trust Maanvik. 3-day delivery. WhatsApp us now."<div class="task-tags"><span class="tag design">Design</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.7</div><div class="task-desc">Set placements — WhatsApp Status (primary), Facebook Feed, Instagram Feed. Let Meta optimise across placements<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.8</div><div class="task-desc">Set opening message — pre-filled text that fires when buyer taps the ad: "Hi Maanvik! I saw your ad and I am interested in awards for an upcoming event. Can you share more details?"<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.9</div><div class="task-desc">Set daily budget — start at ₹200/day per branch location. Review after 7 days<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.10</div><div class="task-desc">Connect HubSpot — log every CTWA conversation as a new contact and deal with source tagged "CTWA Ad"<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.6.11</div><div class="task-desc">Review after 7 days — cost per conversation, quality of leads, which placement performs best. Adjust targeting or creative if cost per conversation exceeds ₹50<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>CTWA campaign live and showing in WhatsApp Status, Facebook, and Instagram feeds in target locations</li>
+        <li>Pre-filled opening message fires correctly when buyer taps the ad</li>
+        <li>WhatsApp Business welcome message responds immediately to every new conversation</li>
+        <li>Every CTWA lead logged in HubSpot with source "CTWA Ad" within 24 hours</li>
+        <li>Cost per conversation tracked from day 1</li>
+        <li>At least 5 new WhatsApp conversations generated in first 7 days</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 2.5 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-2.5</div>
+      <div class="story-title">Image optimisation for mobile performance</div>
+    </div>
+    <div class="story-text">
+      As a B2B buyer accessing the website on a mobile device in India, I want pages to load quickly so that I can browse the catalogue without waiting.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-2.5.1</div><div class="task-desc">Audit all 140+ product images — identify those over 200KB<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.5.2</div><div class="task-desc">Batch convert all images to WebP format using Squoosh CLI or ImageMagick<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.5.3</div><div class="task-desc">Update all image src references in data.js and index.html to use .webp filenames<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.5.4</div><div class="task-desc">Add &lt;picture&gt; fallback for browsers that do not support WebP<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.5.5</div><div class="task-desc">Run Google PageSpeed Insights before and after — target score above 70 on mobile<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>All product images converted to WebP</li>
+        <li>No individual image over 150KB</li>
+        <li>Google PageSpeed mobile score above 70</li>
+        <li>Images display correctly on all major browsers</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EPIC 3 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="epic">
+  <div class="epic-header">
+    <div>
+      <div class="epic-id">EPIC-03</div>
+      <div class="epic-title">Brand Presence & Repeat Business</div>
+      <div class="epic-desc">Build digital channels that generate new leads and drive repeat orders from existing clients</div>
+    </div>
+    <div class="epic-priority p3">🟢 Priority 3 — Next Month</div>
+  </div>
+
+  <!-- Story 3.1 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-3.1</div>
+      <div class="story-title">Email newsletter to existing institution clients</div>
+    </div>
+    <div class="story-text">
+      As an existing Maanvik client at a school or university, I want to receive timely reminders about upcoming event seasons so that I think of Maanvik when planning my next award ceremony.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-3.1.1</div><div class="task-desc">Create Mailchimp account (free up to 500 contacts) using business email<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.1.2</div><div class="task-desc">Build email contact list from existing 500+ institution client database — collect: institution name, contact name, email, institution type, last order date<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.1.3</div><div class="task-desc">Import contact list into Mailchimp with proper segmentation by institution type (school, college, corporate, government)<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.1.4</div><div class="task-desc">Design Maanvik email template — charcoal/gold consistent with website, product photo, CTA button, unsubscribe link<div class="task-tags"><span class="tag design">Design</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.1.5</div><div class="task-desc">Write and schedule first newsletter — new products for graduation season, early order discount, 3-day delivery reminder<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.1.6</div><div class="task-desc">Set up annual event calendar reminders — graduation (April/May), sports day (Nov/Dec), annual day (Jan/Feb) — schedule emails 6 weeks before each season<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Minimum 200 contacts imported and verified</li>
+        <li>First newsletter sent and open rate tracked</li>
+        <li>Annual event reminders scheduled for 12 months</li>
+        <li>Unsubscribe flow working correctly</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 3.2 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-3.2</div>
+      <div class="story-title">LinkedIn presence — Founder and company page</div>
+    </div>
+    <div class="story-text">
+      As a corporate HR manager or procurement head, I want to find Maanvik on LinkedIn so that I can verify the business credibility and see examples of their work before placing an institutional order.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-3.2.1</div><div class="task-desc">Complete Bhagya Raju's LinkedIn profile — add Founder & CEO of Maanvik, professional photo, about section, experience with Maanvik founding story<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.2.2</div><div class="task-desc">Create Maanvik company page on LinkedIn — logo, banner image, description, website link, location, industry (Manufacturing)<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.2.3</div><div class="task-desc">Write first 3 LinkedIn posts — product showcase with delivery photo, manufacturing process reel, client testimonial (with permission)<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.2.4</div><div class="task-desc">Add LinkedIn company page link to website footer and Bhagya Raju's email signature<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.2.5</div><div class="task-desc">Connect with 50+ existing clients and procurement contacts on LinkedIn<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Bhagya Raju's LinkedIn profile complete with Maanvik as current role</li>
+        <li>Company page live with logo, banner, and description</li>
+        <li>First 3 posts published</li>
+        <li>LinkedIn link on website and email signature</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 3.3 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-3.3</div>
+      <div class="story-title">Products CMS — self-service catalogue management</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want to add, edit, and remove products from the catalogue without needing a developer so that the website always reflects current stock and pricing.
+    </div>
+    <div style="background:#fff8e8;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>Discovery (6/7 answered):</strong> BR updates prices · Sheets comfort 3/5 · changes 2–3×/year · budget ₹1,000/mo · enquiries via WhatsApp. <strong>Phase 1 confirmed: Google Sheets → data.js</strong> (simple template + admin guide). Still need: price list, Q4 (fixed vs POA). Decap/Airtable deferred.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-3.3.1</div><div class="task-desc">CMS discovery with Bhagya Raju — 6/7 answers recorded in docs/BHAGYA_RAJU_DISCOVERY.md; follow up Q4 (fixed vs POA)<div class="task-tags"><span class="tag done">Done — partial</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.3.2</div><div class="task-desc">Collect artefacts: current price list, 10–20 checkout-eligible SKUs, product photo workflow<div class="task-tags"><span class="tag br">Awaiting BR — price list + SKUs</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.3.3</div><div class="task-desc">Phase 1A — Google Sheets product master (SKU, variants, price/POA, checkoutEligible, image filename) + Drive folder for photos — recommended path<div class="task-tags"><span class="tag ip">Queued — after price list</span><span class="tag ops">Ops</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.3.4</div><div class="task-desc">Build sync script: Sheet → generates js/data.js on deploy (GitHub Action or AWS build step)<div class="task-tags"><span class="tag be">Backend</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.3.5</div><div class="task-desc">Phase 1B (alt) — Decap CMS on AWS/Netlify deploy: browser UI edits product JSON in repo; Google login<div class="task-tags"><span class="tag be">Backend</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.3.6</div><div class="task-desc">Phase 2 — Airtable or Sanity if multiple editors or 5+ new products/month (optional ~₹850–1600/mo)<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.3.7</div><div class="task-desc">Write 30-minute admin guide for Bhagya Raju — change price, mark POA, upload photo, toggle online checkout<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Bhagya Raju can add a new product without touching code</li>
+        <li>New product appears on the website within 60 seconds of saving</li>
+        <li>Out-of-stock products are hidden from the catalogue automatically</li>
+        <li>Admin page is password-protected and not publicly accessible</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 3.4 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-3.4</div>
+      <div class="story-title">Instagram presence — manufacturing showcase</div>
+    </div>
+    <div class="story-text">
+      As an event coordinator or HR manager, I want to see examples of Maanvik's products and manufacturing quality on Instagram so that I am confident in the quality before placing an order.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-3.4.1</div><div class="task-desc">Create Maanvik Instagram Business account — username, bio, website link, profile photo (logo)<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.4.2</div><div class="task-desc">Connect Instagram to Facebook Business Manager for cross-posting<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.4.3</div><div class="task-desc">Publish first 9 posts (3x3 grid) — product showcase, manufacturing process, delivery/client photos<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.4.4</div><div class="task-desc">Add Instagram link to website footer and header social links<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-3.4.5</div><div class="task-desc">Film and post first manufacturing reel — 30–60 second behind-the-scenes of engraving or medal production<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Instagram Business account active with complete profile</li>
+        <li>First 9 posts published — grid looks professional</li>
+        <li>First reel posted with manufacturing content</li>
+        <li>Instagram link on website</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EPIC 4 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="epic">
+  <div class="epic-header">
+    <div>
+      <div class="epic-id">EPIC-04</div>
+      <div class="epic-title">Scale & Operations</div>
+      <div class="epic-desc">Infrastructure to manage growth — paid acquisition, pipeline tracking, and franchise replication</div>
+    </div>
+    <div class="epic-priority p4">🟣 Priority 4 — Months 3–6</div>
+  </div>
+
+  <!-- Story 4.1 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-4.1</div>
+      <div class="story-title">Google Ads — targeted search campaigns</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want institutional buyers searching for awards suppliers in Andhra Pradesh to find Maanvik at the top of Google results so that we generate new clients beyond our existing network.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-4.1.1</div><div class="task-desc">Create Google Ads account linked to the Google My Business account<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.1.2</div><div class="task-desc">Research and build keyword list — target: "trophies supplier [city]", "medals manufacturer Andhra Pradesh", "corporate awards bulk order", "graduation trophy supplier", "shield manufacturer near me"<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.1.3</div><div class="task-desc">Write 3 ad copy variants per campaign — focus on 3-day delivery, 500+ institutions served, custom engraving<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.1.4</div><div class="task-desc">Set up conversion tracking — track bulk enquiry form submissions as primary conversion<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.1.5</div><div class="task-desc">Launch with ₹500/day budget — review and optimise weekly for first month<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Campaigns live and showing for target keywords</li>
+        <li>Conversion tracking recording enquiry form submissions</li>
+        <li>Cost per enquiry tracked from week 1</li>
+        <li>At least 5 new enquiries from ads in first month</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 4.2 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-4.2</div>
+      <div class="story-title">CRM — enquiry and order pipeline tracking</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want to track every enquiry from first contact to completed order so that no lead falls through the cracks and I know which channels are generating the most business.
+    
+    <div style="background:#fdebd0;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>Discovery:</strong> Enquiries today = WhatsApp (primary). HubSpot captures form + manually logged WA leads. <strong>Sravan:</strong> HubSpot signup bhagyaraju.gurram@ (T-2.7.7). Setup guide done (T-4.2.3 ✓).
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-4.2.1</div><div class="task-desc">Sign up HubSpot Free with bhagyaraju.gurram@maanvikhandicrafts.com; Gmail sync; pipeline Enquiry → Quoted → Confirmed → Delivered — see T-2.7.7<div class="task-tags"><span class="tag ip">Queued — after mailboxes</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.2.1b</div><div class="task-desc">Add HubSpot email/DNS verification records in Route 53 (TXT/CNAME) if required; invite Bhagya Raju as Super Admin<div class="task-tags"><span class="tag ip">Queued — after HubSpot signup</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.2.2</div><div class="task-desc">Interim Google Sheet CRM template (docs/crm-pipeline-template.csv) until HubSpot live<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.2.3</div><div class="task-desc">Document HubSpot setup guide — lead sources, custom fields for bulk form data (docs/CRM_PIPELINE_SETUP.md)<div class="task-tags"><span class="tag done">Done</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.2.4</div><div class="task-desc">Connect Formspree → HubSpot (Zapier free tier or manual) for contact and bulk form submissions<div class="task-tags"><span class="tag ops">Ops</span><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.2.5</div><div class="task-desc">Train Bhagya Raju — log every enquiry within 24h; weekly pipeline review<div class="task-tags"><span class="tag ip">After HubSpot live</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Every enquiry logged within 24 hours</li>
+        <li>HubSpot pipeline live with all four stages; source field on every deal</li>
+        <li>Source tracking working — can see which channel drives most enquiries</li>
+        <li>Weekly pipeline review happening consistently</li>
+        <li>Conversion rate per channel measurable by month 2</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Story 4.3 -->
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-4.3</div>
+      <div class="story-title">Franchise digital kit — replicable for new branches</div>
+    </div>
+    <div class="story-text">
+      As a new Maanvik franchise owner, I want a complete digital presence set up for my branch within days of opening so that I can start generating online enquiries immediately.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-4.3.1</div><div class="task-desc">Document the standard digital setup checklist for a new branch — GMB, WhatsApp Business, branch page on website, email address, social media accounts<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.3.2</div><div class="task-desc">Build a branch page template in index.html — reusable pattern for each new franchise location with branch-specific content<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.3.3</div><div class="task-desc">Create a franchise brand pack — logo files, colour codes, font specifications, photography guidelines for consistent brand across all branches<div class="task-tags"><span class="tag design">Design</span></div></div></div>
+      <div class="task"><div class="task-num">T-4.3.4</div><div class="task-desc">Build a franchise onboarding document — step-by-step digital setup guide that can be handed to a new franchisee<div class="task-tags"><span class="tag content">Content</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>New branch can be fully digital within 3 days of opening</li>
+        <li>All branches maintain consistent Maanvik brand identity</li>
+        <li>Franchise onboarding document covers all digital setup steps</li>
+        <li>Branch page template deployable without developer involvement</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EPIC 5 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="epic">
+  <div class="epic-header">
+    <div>
+      <div class="epic-id">EPIC-05</div>
+      <div class="epic-title">Hybrid E-commerce — Cart &amp; Razorpay Checkout</div>
+      <div class="epic-desc">Small standard orders: cart + online pay (UPI, cards, netbanking). Bulk/custom/POA stays on enquiry + quote path. Razorpay not PayPal.</div>
+    </div>
+    <div class="epic-priority p2">🟡 Priority 2 — After EPIC-01</div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-5.1</div>
+      <div class="story-title">Product checkout eligibility &amp; dual CTAs</div>
+    </div>
+    <div class="story-text">
+      As a buyer, I want to see Add to Cart only on standard fixed-price products and Request Quote on POA or bulk items so that I am not pushed into checkout for orders that need a custom quote.
+    
+    <div style="background:#fdebd0;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>⏳ Awaiting Bhagya Raju:</strong> List of 10–20 SKUs safe for fixed online price → docs/artefacts/checkout-skus.md
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-5.1.1</div><div class="task-desc">Extend data.js schema: checkoutEligible, moq, bulkMoq per product — Bhagya Raju confirms 20–30 launch SKUs<div class="task-tags"><span class="tag br">Awaiting BR — 10–20 checkout SKUs</span><span class="tag fe">Frontend</span><span class="tag content">Content</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.1.2</div><div class="task-desc">Catalog logic: POA price → Enquire/WhatsApp only; numeric price + checkoutEligible → Add to Cart primary CTA<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.1.3</div><div class="task-desc">Qty above bulkMoq (e.g. 26+) redirects to bulk enquiry form instead of cart<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.1.4</div><div class="task-desc">Hero/nav dual CTAs: Shop collection + Request bulk quote (already live for quote path)<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>POA products cannot enter cart or checkout</li>
+        <li>Each product card shows one clear primary action based on eligibility</li>
+        <li>Bulk quantity rules enforced before payment step</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-5.2</div>
+      <div class="story-title">Shopping cart</div>
+    </div>
+    <div class="story-text">
+      As a retail buyer, I want to add standard products to a cart with size and quantity so that I can review my order before paying.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-5.2.1</div><div class="task-desc">Build cart drawer/page on products.html — add, update qty, remove, show subtotal<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.2.2</div><div class="task-desc">Persist cart in localStorage; cart icon with item count in header<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.2.3</div><div class="task-desc">Checkout page: name, phone, email, shipping address (AP + pan-India)<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.2.4</div><div class="task-desc">GA4 add_to_cart and begin_checkout events<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Cart survives page refresh</li>
+        <li>MOQ and eligibility validated before checkout</li>
+        <li>Mobile-friendly cart on 375px viewport</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-5.3</div>
+      <div class="story-title">Razorpay Payment Links — Phase 2a (no backend)</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want customers to pay online via UPI, GPay, PhonePe, cards and netbanking without building full checkout infrastructure first.
+    </div>
+    <div style="background:#fff8e8;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>Prerequisite:</strong> Razorpay business account + KYC. PayPal explicitly deferred — poor fit for India domestic buyers.
+    
+    <div style="background:#fdebd0;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>🟡 Sravan:</strong> Razorpay KYC on behalf of BR after AWS + orders@ live. Needs BR documents (PAN, GST, bank). Checkout SKU list still pending.
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-5.3.1</div><div class="task-desc">Sravan creates Razorpay business account on behalf of BR — orders@ notification; requires BR PAN, GST/shop proof, bank account (T-2.7.9)<div class="task-tags"><span class="tag ip">Queued — after AWS + BR docs</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.3.2</div><div class="task-desc">Cart checkout shows order summary + customer details; email/WhatsApp order notification to orders@maanvik.com<div class="task-tags"><span class="tag fe">Frontend</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.3.3</div><div class="task-desc">Generate Razorpay Payment Link for exact cart total (manual or semi-automated from dashboard)<div class="task-tags"><span class="tag br">After Razorpay approved</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.3.4</div><div class="task-desc">Customer pays on Razorpay hosted page — UPI, RuPay, netbanking included automatically<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.3.5</div><div class="task-desc">Test sandbox payment end-to-end before live mode<div class="task-tags"><span class="tag br">After Razorpay sandbox</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Customer completes test UPI payment via Payment Link</li>
+        <li>Order details reach Maanvik before payment link is sent</li>
+        <li>No POA products in payment link flow</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-5.4</div>
+      <div class="story-title">Full Razorpay Checkout — Phase 2b (AWS serverless)</div>
+    </div>
+    <div class="story-text">
+      As a buyer, I want to pay on the website without waiting for a manual payment link so that checkout feels instant and professional.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-5.4.1</div><div class="task-desc">AWS Lambda + API Gateway: POST /api/create-order (Razorpay order creation — secret server-side only)<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.4.2</div><div class="task-desc">Integrate Razorpay Checkout.js modal on checkout page<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.4.3</div><div class="task-desc">Webhook Lambda: verify payment signature, update order status<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.4.4</div><div class="task-desc">Order success / failure pages; GA4 purchase event with transaction value<div class="task-tags"><span class="tag fe">Frontend</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Live UPI payment completes on-site without manual link</li>
+        <li>Webhook confirms payment before order marked paid</li>
+        <li>API secrets never exposed in browser JS</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-5.5</div>
+      <div class="story-title">Order notifications</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want email (and optional WhatsApp) alerts when a customer pays online so that I can fulfil the order immediately.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-5.5.1</div><div class="task-desc">Email confirmation to customer + orders@maanvikhandicrafts.com on successful payment<div class="task-tags"><span class="tag br">After orders@maanvik.com live</span><span class="tag be">Backend</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.5.2</div><div class="task-desc">Optional WhatsApp alert to Bhagya Raju on new paid order<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-5.5.3</div><div class="task-desc">Log paid orders in HubSpot deal stage or order sheet<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Both customer and orders@ receive confirmation within 2 minutes of payment</li>
+        <li>Order line items match cart contents</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EPIC 6 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="epic">
+  <div class="epic-header">
+    <div>
+      <div class="epic-id">EPIC-06</div>
+      <div class="epic-title">AWS Deployment &amp; Platform Infrastructure</div>
+      <div class="epic-desc">Migrate GitHub redesign to AWS production (current site hosted on AWS). Enable CI/CD and serverless APIs for payments.</div>
+    </div>
+    <div class="epic-priority p2">🟡 Priority 2 — Before production cutover</div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-6.1</div>
+      <div class="story-title">AWS hosting inventory &amp; migration plan</div>
+    </div>
+    <div class="story-text">
+      As the technical lead, I want a documented map of the current AWS setup so that we migrate the new site without breaking email, DNS, or the live domain.
+    
+    <div style="background:#fdebd0;border-left:3px solid #E8A020;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>🟡 In progress — Sravan:</strong> AWS MFA done. DNS/email complete. <strong>Deploy blocked</strong> on catalogue validation (fake homepage products + unverified prices).
+    </div>
+</div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-6.1.0</div><div class="task-desc">Enable MFA on AWS root/IAM user; secure console access for Sravan — take over hosting administration<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.1.0b</div><div class="task-desc">Confirm AWS root account recovery contacts — business-owned email (Sravan can access) + Sravan phone for MFA recovery; deferred, not blocking<div class="task-tags"><span class="tag ip">Deferred</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.1.1</div><div class="task-desc">Document current AWS resources — S3, EC2, CloudFront, Route 53, SSL cert, load balancer — export Route 53 record list before any changes<div class="task-tags"><span class="tag ip">Queued — after DNS snapshot</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.1.2</div><div class="task-desc">Confirm domain DNS control in Route 53 — snapshot all existing TXT, MX, CNAME, A records<div class="task-tags"><span class="tag ip">In progress — before MX</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.1.3</div><div class="task-desc">Decide target architecture: S3 + CloudFront static hosting vs existing EC2 — prefer S3+CloudFront for static redesign<div class="task-tags"><span class="tag be">Backend</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.1.4</div><div class="task-desc">Keep GitHub Pages as staging/preview; AWS as production only<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Written migration runbook with rollback steps</li>
+        <li>All DNS TTL and certificate expiry dates documented</li>
+        <li>Stakeholder sign-off before cutover</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-6.2</div>
+      <div class="story-title">Deploy redesign to AWS production</div>
+    </div>
+    <div class="story-text">
+      As a visitor to maanvikhandicrafts.com, I want to see the new premium website on the live domain so that the business presents a professional brand to institutional buyers.
+    </div>
+    <div style="background:#f8d7da;border-left:3px solid #721c24;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>🔴 Blocked — catalogue:</strong> Cannot deploy until BR validates price list and homepage product names. See go-live blocker panel.
+    </div>
+
+      <div class="task"><div class="task-num">T-6.2.1</div><div class="task-desc">Create S3 bucket for static site; enable static website or CloudFront origin<div class="task-tags"><span class="tag blocked">Blocked — catalogue</span><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.2.2</div><div class="task-desc">CloudFront distribution + ACM SSL certificate for HTTPS<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.2.3</div><div class="task-desc">Deploy index.html, products.html, assets/, js/, css/ from GitHub repo to S3<div class="task-tags"><span class="tag be">Backend</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.2.4</div><div class="task-desc">Configure error pages, caching headers, gzip/brotli for assets<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.2.5</div><div class="task-desc">Smoke test all pages, forms, catalogue, WhatsApp links on production URL<div class="task-tags"><span class="tag fe">Frontend</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Live domain serves new redesign over HTTPS</li>
+        <li>All 140 product images load correctly</li>
+        <li>PageSpeed mobile score acceptable post-deploy</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-6.3</div>
+      <div class="story-title">DNS cutover &amp; go-live</div>
+    </div>
+    <div class="story-text">
+      As Bhagya Raju, I want the new website live on our real domain with minimal downtime so that existing clients and Google listings point to the updated site.
+    </div>
+    <div style="background:#f8d7da;border-left:3px solid #721c24;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
+      <strong>🔴 Blocked — catalogue:</strong> DNS cutover after US-6.2 deploy. Email DNS (MX/SPF/DKIM) already live — preserve during website cutover.
+    </div>
+
+      <div class="task"><div class="task-num">T-6.3.1</div><div class="task-desc">Lower DNS TTL 24h before cutover<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.3.2</div><div class="task-desc">Route 53: update website A/ALIAS or CNAME to CloudFront distribution — replace old site origin<div class="task-tags"><span class="tag ip">Queued — after US-6.2</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.3.2b</div><div class="task-desc">Coordinate MX/TXT/CNAME changes — email records (T-2.2.4–6) must stay intact during website cutover<div class="task-tags"><span class="tag ip">Queued — cutover</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.3.3</div><div class="task-desc">Update GA4 web stream URL and Search Console property to production domain<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.3.4</div><div class="task-desc">Update GMB, WhatsApp Business, social links if URL changes<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.3.5</div><div class="task-desc">Post-cutover monitoring — 48h error check, form test, analytics verification<div class="task-tags"><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>maanvikhandicrafts.com resolves to new site within TTL window</li>
+        <li>Old site accessible via archive or rollback procedure documented</li>
+        <li>Zero broken form/action endpoints after cutover</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-6.4</div>
+      <div class="story-title">CI/CD — GitHub to AWS</div>
+    </div>
+    <div class="story-text">
+      As Sravan, I want pushes to the main branch to deploy automatically to AWS so that fixes and new products go live without manual FTP uploads.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-6.4.1</div><div class="task-desc">GitHub Actions workflow: build (optional Sheet sync) → sync to S3 → invalidate CloudFront cache<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.4.2</div><div class="task-desc">Store AWS credentials in GitHub Secrets — least-privilege IAM policy for deploy only<div class="task-tags"><span class="tag be">Backend</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.4.3</div><div class="task-desc">Separate staging branch deploy to preview bucket or GitHub Pages<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>Merge to main triggers production deploy within 10 minutes</li>
+        <li>CloudFront cache invalidated on each deploy</li>
+        <li>Failed deploy alerts via email</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-header">
+      <div class="story-id">US-6.5</div>
+      <div class="story-title">AWS serverless API for payments (EPIC-05 Phase 2b)</div>
+    </div>
+    <div class="story-text">
+      As the platform owner, I want payment APIs on AWS alongside the static site so that Razorpay secrets stay server-side and we do not depend on Netlify/Vercel.
+    </div>
+    <div class="tasks">
+      <div class="task"><div class="task-num">T-6.5.1</div><div class="task-desc">Lambda functions: create-order, payment-webhook — Razorpay keys in AWS Secrets Manager<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.5.2</div><div class="task-desc">API Gateway custom domain api.maanvik.com or CloudFront path routing /api/*<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.5.3</div><div class="task-desc">CORS config for checkout page → API; rate limiting on public endpoints<div class="task-tags"><span class="tag be">Backend</span></div></div></div>
+      <div class="task"><div class="task-num">T-6.5.4</div><div class="task-desc">CloudWatch logs + alarm on payment webhook failures<div class="task-tags"><span class="tag be">Backend</span><span class="tag ops">Ops</span></div></div></div>
+    </div>
+    <div class="acceptance">
+      <div class="acceptance-label">Acceptance Criteria</div>
+      <ul>
+        <li>create-order and webhook pass Razorpay sandbox tests</li>
+        <li>No secrets in GitHub repo or client-side JS</li>
+        <li>API available on same domain or documented subdomain</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- SUMMARY TABLE -->
+<h2 style="font-size:18px;margin-top:32px;margin-bottom:12px;">Summary — All Epics and Stories</h2>
+<table>
+<tr><th>Epic</th><th>TOGAF</th><th>Story</th><th>Title</th><th>Priority</th><th>Tasks</th><th>Status</th><th>Sravan (active)</th><th>Awaiting BR</th></tr>
+<tr><td>EPIC-01</td><td>C→G</td><td>US-1.1</td><td>Correct contact information</td><td>🔴 P1</td><td>4</td><td>Partial</td><td>—</td><td>Branch phones + WhatsApp</td></tr>
+<tr><td>EPIC-01</td><td>C→G</td><td>US-1.2</td><td>Fix product pricing</td><td>🔴 P1</td><td>6</td><td>🔴 Blocked — go-live</td><td>—</td><td>Price list + catalogue sign-off</td></tr>
+<tr><td>EPIC-01</td><td>C→G</td><td>US-1.3</td><td>WhatsApp enquiry pre-fill</td><td>🔴 P1</td><td>3</td><td>Done</td><td>—</td><td>Branch WA # optional</td></tr>
+<tr><td>EPIC-01</td><td>C→G</td><td>US-1.4</td><td>Connect contact form</td><td>🔴 P1</td><td>5</td><td>✅ Done</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-01</td><td>C→G</td><td>US-1.5</td><td>GA4 conversion measurement</td><td>🔴 P1</td><td>8</td><td>🟡 Tag done</td><td>Realtime after deploy</td><td>BR Viewer access</td></tr>
+<tr><td>EPIC-01</td><td>C→G</td><td>US-1.6</td><td>B2B copy &amp; CTA consistency</td><td>🔴 P1</td><td>3</td><td>Done</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-02</td><td>B→G</td><td>US-2.1</td><td>Google My Business — 3 branches</td><td>🟡 P2</td><td>7</td><td>Not started</td><td>After mailboxes</td><td>GMB verify + reviews</td></tr>
+<tr><td>EPIC-02</td><td>B→G</td><td>US-2.2</td><td>Business email setup</td><td>🟡 P2</td><td>9</td><td>✅ Done</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-02</td><td>B→G</td><td>US-2.7</td><td>Email allocation across tools</td><td>🟡 P2</td><td>13</td><td>✅ Done</td><td>—</td><td>Razorpay KYC, WA #</td></tr>
+<tr><td>EPIC-02</td><td>B→G</td><td>US-2.8</td><td>Tools stack — account setup</td><td>🟡 P2</td><td>7</td><td>🟡 5/7 done</td><td>GSC, GMB, Razorpay pending</td><td>Razorpay KYC</td></tr>
+<tr><td>EPIC-02</td><td>B→G</td><td>US-2.3</td><td>Connect bulk form</td><td>🟡 P2</td><td>6</td><td>✅ Done</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-02</td><td>B→G</td><td>US-2.4</td><td>WhatsApp Business + catalogue</td><td>🟡 P2</td><td>7</td><td>Not started</td><td>—</td><td>WA Business number</td></tr>
+<tr><td>EPIC-02</td><td>B→G</td><td>US-2.6</td><td>Click-to-WhatsApp Ads</td><td>🟡 P2</td><td>11</td><td>After US-2.4</td><td>—</td><td>WA Business + Meta</td></tr>
+<tr><td>EPIC-02</td><td>B→G</td><td>US-2.5</td><td>Image optimisation (WebP)</td><td>🟡 P2</td><td>5</td><td>Not started</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-03</td><td>C→G</td><td>US-3.1</td><td>Email newsletter</td><td>🟢 P3</td><td>6</td><td>Not started</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-03</td><td>C→G</td><td>US-3.2</td><td>LinkedIn presence</td><td>🟢 P3</td><td>5</td><td>Not started</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-03</td><td>C→G</td><td>US-3.3</td><td>Products CMS (Sheets)</td><td>🟢 P3</td><td>7</td><td>6/7 answered — Sheets chosen</td><td>Sheet after price list</td><td>Q4 + price list</td></tr>
+<tr><td>EPIC-03</td><td>C→G</td><td>US-3.4</td><td>Instagram presence</td><td>🟢 P3</td><td>5</td><td>Not started</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-04</td><td>B→E</td><td>US-4.1</td><td>Google Ads</td><td>🟣 P4</td><td>5</td><td>Not started</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-04</td><td>B→E</td><td>US-4.2</td><td>CRM — HubSpot pipeline</td><td>🟣 P4</td><td>6</td><td>✅ Pipeline done</td><td>Dashboard + BR training</td><td>BR training</td></tr>
+<tr><td>EPIC-04</td><td>B→E</td><td>US-4.3</td><td>Franchise digital kit</td><td>🟣 P4</td><td>4</td><td>Not started</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-05</td><td>C→E</td><td>US-5.1</td><td>Checkout eligibility &amp; dual CTAs</td><td>🟡 P2</td><td>4</td><td>Not started</td><td>—</td><td>Checkout SKU list</td></tr>
+<tr><td>EPIC-05</td><td>C→E</td><td>US-5.2</td><td>Shopping cart</td><td>🟡 P2</td><td>4</td><td>Not started</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-05</td><td>C→E</td><td>US-5.3</td><td>Razorpay Payment Links (2a)</td><td>🟡 P2</td><td>5</td><td>Queued</td><td>Razorpay KYC (Sravan)</td><td>BR docs + SKUs</td></tr>
+<tr><td>EPIC-05</td><td>C→E</td><td>US-5.4</td><td>Full Razorpay Checkout (2b)</td><td>🟡 P2</td><td>4</td><td>After EPIC-06</td><td>—</td><td>Razorpay KYC</td></tr>
+<tr><td>EPIC-05</td><td>C→E</td><td>US-5.5</td><td>Order notifications</td><td>🟡 P2</td><td>3</td><td>Not started</td><td>orders@ mailbox</td><td>—</td></tr>
+<tr><td>EPIC-06</td><td>D→F</td><td>US-6.1</td><td>AWS inventory &amp; migration plan</td><td>🟡 P2</td><td>6</td><td>🟡 MFA done</td><td>Inventory S3/CF</td><td>—</td></tr>
+<tr><td>EPIC-06</td><td>D→F</td><td>US-6.2</td><td>Deploy redesign to AWS</td><td>🟡 P2</td><td>5</td><td>🔴 Blocked — catalogue</td><td>After BR price list</td><td>Price list + sign-off</td></tr>
+<tr><td>EPIC-06</td><td>D→F</td><td>US-6.3</td><td>DNS cutover &amp; go-live</td><td>🟡 P2</td><td>6</td><td>🔴 Blocked — catalogue</td><td>After S9</td><td>Price list + sign-off</td></tr>
+<tr><td>EPIC-06</td><td>D→F</td><td>US-6.4</td><td>CI/CD GitHub → AWS</td><td>🟡 P2</td><td>3</td><td>Not started</td><td>—</td><td>—</td></tr>
+<tr><td>EPIC-06</td><td>D→F</td><td>US-6.5</td><td>AWS serverless payment API</td><td>🟡 P2</td><td>4</td><td>After US-5.4</td><td>—</td><td>—</td></tr>
+</table>
+<p style="font-size:13px;color:#666;margin-top:8px">Total: 6 Epics · 26 User Stories · 164 Tasks · Version 1.9 (July 2026)</p>
+<p style="font-size:12px;color:#888;margin-top:4px"><strong>Preview:</strong> <a href="https://sravanskumar.github.io/maanvik-preview/">github.io/maanvik-preview</a> · tag <code>p0-b2b-enquiry</code> · <strong>AWS go-live blocked</strong> on BR price list</p>
+
+<div class="footer">
+  Prepared by Sravan Kumar Sindhe · Digital & Brand Consulting · July 2026<br>
+  Version 1.9 — Workspace + DNS + Formspree + HubSpot + GA4 tag complete (15 Jul); S9/S10 blocked on catalogue; T-6.1.0b recovery contacts deferred
+</div>
+
+</body>
+</html>
