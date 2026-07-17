@@ -32,11 +32,11 @@
 | 3 | DNS: MX, TXT, DKIM | D/F | Sravan | ✅ Done |
 | 4 | Wire Formspree (2 forms) | G | Sravan | ✅ Done — mnjejnny · maqrqnqw |
 | 5 | HubSpot CRM live | G | Sravan | ✅ Done — 7-stage pipeline |
-| 6 | GA4 property + tag in HTML | G | Sravan | 🟡 G-2N8LMEL164 — Realtime after deploy |
+| 6 | GA4 property + tag + events in HTML | G | Sravan | 🟢 G-2N8LMEL164 — conversion + engagement code on preview |
 | 7 | **Validate catalogue** (price list + SKU sign-off) | C | BR + Sravan | 🔴 **Blocker** |
 | 8 | Deploy redesign to S3/CloudFront | F | Sravan | 🔴 Blocked — step 7 |
 | 9 | DNS cutover to new site | F | Sravan | 🔴 Blocked — step 8 |
-| 10 | GA4 Realtime + Search Console | G | Sravan | After step 9 |
+| 10 | GA4 Admin (conversions, BR Viewer) + Search Console | G | Sravan | T-1.5.9–11 — Realtime verify on preview now; GSC after step 9 |
 
 ### Transition v1 → v2 (Q4 2026 — gated)
 

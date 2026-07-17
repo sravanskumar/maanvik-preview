@@ -47,6 +47,16 @@ Update the **Stage** column manually: Enquiry → Quoted → Confirmed → Deliv
 | Catalog form | Request Quote button on `products.html` | GA4 `product_quote_open` / `product_quote_submit` |
 | Floating WhatsApp | `wa.link/tvhqvx` | Source = WhatsApp |
 
+## GA4 event reference
+
+All events fire via `js/ga4.js` (delegated clicks + engagement observers), `js/main.js` (forms), and `js/quote-modal.js` (quote modal). Property: `G-2N8LMEL164`.
+
+**Conversion:** `whatsapp_click`, `phone_click`, `form_submit`, `bulk_enquiry_submit`, `product_enquiry`, `product_quote_open`, `product_quote_submit`
+
+**Engagement:** `section_view`, `scroll_depth`, `nav_click`, `catalog_search`, `catalog_load_more`
+
+Verify on preview using GA4 Realtime — checklist in `GA4_Implementation_Lab.md` and backlog T-1.5.9.
+
 ## Weekly review (15 minutes)
 
 - Count new enquiries by source

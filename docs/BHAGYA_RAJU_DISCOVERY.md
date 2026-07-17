@@ -126,7 +126,7 @@
 | S8b | P0 B2B enquiry UX on GitHub Pages preview | US-1.2, US-1.3 | ✅ Done (16 Jul) | Quote modal, GST/Udyam, POA, real SKUs — tag `p0-b2b-enquiry` |
 | S9 | Deploy redesign to AWS (replace old site) | US-6.2 | 🔴 **Blocked — catalogue prices** | Preview live; AWS cutover pending BR price list |
 | S10 | DNS cutover — live domain → new site | US-6.3 | 🔴 **Blocked — catalogue** | Public go-live |
-| S11 | GA4 under bhagyaraju@ | US-2.7 (T-2.7.13), US-1.5 | 🟡 Tag live — mark conversions + Realtime test | G-2N8LMEL164 |
+| S11 | GA4 under bhagyaraju@ | US-2.7 (T-2.7.13), US-1.5 | 🟢 Code complete on preview — T-1.5.9–10 Admin pending | G-2N8LMEL164 |
 | S12 | Email allocation per tool (matrix) | US-2.7 | ✅ Documented | See Email allocation section |
 | S13 | Razorpay KYC on behalf of BR | US-5.3, T-2.8.6 | 🟡 GST + Udyam received — bank pending | Resume Razorpay upload |
 
@@ -243,7 +243,8 @@
 | 2026-07-15 | GST registration certificate received — confirms Sole Proprietorship for Razorpay | BR → Sravan |
 | 2026-07-16 | Udyam certificate received (photo) — UDYAM-AP-04-0033053 · saved to artefacts | BR → Sravan |
 | 2026-07-16 | P0 B2B enquiry UX — quote modal, GST/Udyam strip, POA mode, dual catalogue CTAs | Sravan |
-| 2026-07-16 | Git tags `p0-b2b-enquiry` + `pre-p0-b2b-enquiry`; pushed to GitHub Pages preview | Sravan |
+| 2026-07-17 | GA4 engagement events — section_view, scroll_depth, nav_click, catalog_search, catalog_load_more in js/ga4.js; backlog v2.0 | Sravan |
+| 2026-07-17 | Testimonials — removed typographic quote marks; plain text on all four cards | Sravan |
 
 ---
 
@@ -254,7 +255,7 @@
 - [ ] List 10–20 checkout SKUs in `docs/artefacts/checkout-skus.md`
 - [x] Record CMS decision → **Google Sheets → data.js** (Phase 1)
 - [x] Update `Maanvik_Agile_Backlog.html` — discovery partial complete
-- [x] Update backlog v1.9 — infra progress + catalogue go-live blocker (15 Jul evening)
+- [x] Update backlog v2.0 — GA4 engagement tasks + implementation notes (17 Jul)
 - [ ] Unblock Razorpay when BR provides KYC documents
 - [ ] Follow up Q4 (fixed vs POA) with Bhagya Raju
 - [ ] Brief Bhagya Raju on chosen path (1-page summary)
@@ -273,7 +274,7 @@
 | CMS discovery Q1–7 | EPIC-03 | US-3.3 | T-3.3.1 | ✅ 6/7 done |
 | Connect forms (Formspree) | EPIC-01, EPIC-02 | US-1.4, US-2.3 | T-2.7.8 | ✅ Done — mnjejnny · maqrqnqw |
 | AWS + Workspace | EPIC-02, EPIC-06 | US-2.2, US-6.1 | T-6.1.0, T-2.2.2 | ✅ Done — MFA + DNS |
-| GA4 property + tag | EPIC-01 | US-1.5 | T-1.5.1–4, T-2.7.13 | 🟡 G-2N8LMEL164 in HTML |
+| GA4 property + tag | EPIC-01 | US-1.5 | T-1.5.1–8, T-2.7.13 | 🟢 Code done — Admin T-1.5.9–10 pending |
 | Catalogue go-live | EPIC-01, EPIC-06 | US-1.2, US-6.2, US-6.3 | T-1.2.2, T-1.2.6, S9/S10 | 🔴 Blocked — BR price list |
 | WA Business + catalogue | EPIC-02 | US-2.4 | T-2.4.1–3 | ⬜ Awaiting BR |
 

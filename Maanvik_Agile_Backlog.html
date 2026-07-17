@@ -143,8 +143,8 @@
   <table>
     <tr><th>Tool</th><th>Purpose</th><th>Account / email</th><th>Story</th><th>Status</th></tr>
     <tr><td>Google Workspace Admin</td><td>Corporate email, identity, DNS coordination</td><td>bhagyaraju@ (login) · bhagyaraju.gurram@ (public)</td><td>US-2.2, US-2.7</td><td>✅ Done — MX, SPF, DKIM live</td></tr>
-    <tr><td>Google Analytics 4</td><td>Conversion tracking — WhatsApp, forms, phone</td><td>bhagyaraju@ · G-2N8LMEL164</td><td>US-1.5, T-2.7.13</td><td>🟡 Tag in HTML — Realtime after deploy</td></tr>
-    <tr><td>Google Search Console</td><td>Search performance, indexing, sitemap</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>US-1.5 T-1.5.7, T-2.8.3</td><td>⬜ Queued — after cutover</td></tr>
+    <tr><td>Google Analytics 4</td><td>Conversion + engagement tracking — WhatsApp, forms, phone, sections, scroll</td><td>bhagyaraju@ · G-2N8LMEL164</td><td>US-1.5, T-2.7.13</td><td>🟢 Code complete — GA4 Admin + Realtime after deploy</td></tr>
+    <tr><td>Google Search Console</td><td>Search performance, indexing, sitemap</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>US-1.5 T-1.5.11, T-2.8.3</td><td>⬜ Queued — after cutover</td></tr>
     <tr><td>Google My Business</td><td>Local search — 3 branch listings</td><td>bhagyaraju.gurram@maanvikhandicrafts.com</td><td>US-2.1, T-2.7.11</td><td>⬜ Queued</td></tr>
     <tr><td>HubSpot</td><td>CRM — enquiry → quoted → delivered pipeline</td><td>bhagyaraju@ (Gmail connected)</td><td>US-4.2, T-2.7.7</td><td>✅ Done — 7-stage pipeline</td></tr>
     <tr><td>Razorpay</td><td>Online payments — UPI, cards, netbanking (India)</td><td>orders@maanvikhandicrafts.com</td><td>US-5.3, T-2.8.6</td><td>🟡 Sravan — after BR KYC docs</td></tr>
@@ -212,7 +212,7 @@
     <tr><td>S8 — Formspree contact + bulk → orders@</td><td>US-2.7, US-1.4, US-2.3</td><td>✅ Done</td><td>mnjejnny · maqrqnqw — E2E tested</td></tr>
     <tr><td>S9 — Deploy redesign to AWS</td><td>US-6.2</td><td>🔴 Blocked — catalogue</td><td>After BR price list + sign-off</td></tr>
     <tr><td>S10 — DNS cutover to new site</td><td>US-6.3</td><td>🔴 Blocked — catalogue</td><td>After S9</td></tr>
-    <tr><td>S11 — GA4 G-2N8LMEL164</td><td>US-2.7, US-1.5</td><td>🟡 Tag in HTML</td><td>Realtime after deploy; mark conversions</td></tr>
+    <tr><td>S11 — GA4 G-2N8LMEL164</td><td>US-2.7, US-1.5</td><td>🟢 Code complete</td><td>T-1.5.9 Realtime verify; T-1.5.10 mark conversions + BR Viewer</td></tr>
     <tr><td>S12 — Email allocation matrix</td><td>US-2.7</td><td>✅ Documented</td><td>docs/BHAGYA_RAJU_DISCOVERY.md</td></tr>
     <tr><td>S13 — Razorpay KYC on behalf of BR</td><td>US-5.3</td><td>⬜ Queued</td><td>BR PAN/GST/bank docs</td></tr>
   </table>
@@ -374,22 +374,27 @@
       As Bhagya Raju, I want to see how many website visitors take action (WhatsApp, form, phone) so that I know which channels and pages are generating real enquiries.
     </div>
     <div style="background:#e4f0ee;border-left:3px solid #0f5a44;padding:10px 14px;margin:6px 0 10px 62px;border-radius:0 4px 4px 0;font-size:12.5px;color:#555;">
-      <strong>🟡 In progress:</strong> GA4 property created (G-2N8LMEL164) under bhagyaraju@. Base tag + conversion events in <code>js/ga4.js</code> + <code>js/main.js</code>. Production Realtime pending deploy. See GA4_Implementation_Lab.md.
+      <strong>🟢 Code complete (17 Jul):</strong> GA4 property G-2N8LMEL164. Conversion events in <code>js/ga4.js</code>, <code>js/main.js</code>, <code>js/quote-modal.js</code>. Engagement events: <code>section_view</code>, <code>scroll_depth</code>, <code>nav_click</code>, <code>catalog_search</code>, <code>catalog_load_more</code>. <strong>Pending (GA4 Admin / ops):</strong> Realtime verification, mark conversions, BR Viewer access, internal traffic filter, Search Console — see T-1.5.9–T-1.5.11.
     </div>
     <div class="tasks">
-      <div class="task"><div class="task-num">T-1.5.0</div><div class="task-desc">GA4 under bhagyaraju@ Workspace account — see US-2.7 T-2.7.13<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
-      <div class="task"><div class="task-num">T-1.5.1</div><div class="task-desc">Create GA4 property — timezone IST, currency INR, web stream maanvikhandicrafts.com, Enhanced measurement ON<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
-      <div class="task"><div class="task-num">T-1.5.2</div><div class="task-desc">Add GA4 base tag to index.html and products.html — G-2N8LMEL164<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
-      <div class="task"><div class="task-num">T-1.5.3</div><div class="task-desc">Track whatsapp_click on all locations (hero, contact, footer, floating) with distinct event_label — js/ga4.js<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
-      <div class="task"><div class="task-num">T-1.5.4</div><div class="task-desc">Track phone_click, form_submit, bulk_enquiry_submit, product_enquiry — js/ga4.js + main.js<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
-      <div class="task"><div class="task-num">T-1.5.5</div><div class="task-desc">Verify all events in GA4 Realtime — run GA4_Implementation_Lab.md test checklist<div class="task-tags"><span class="tag ip">After deploy</span><span class="tag ops">Ops</span></div></div></div>
-      <div class="task"><div class="task-num">T-1.5.6</div><div class="task-desc">Mark events as conversions in GA4 Admin; add Bhagya Raju as Viewer on bhagyaraju.gurram@; internal traffic filter<div class="task-tags"><span class="tag ip">After deploy</span><span class="tag ops">Ops</span></div></div></div>
-      <div class="task"><div class="task-num">T-1.5.7</div><div class="task-desc">Google Search Console — verify maanvikhandicrafts.com; submit sitemap; link to GA4 (see T-2.8.3)<div class="task-tags"><span class="tag ip">Queued — after cutover</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.0</div><div class="task-desc"><strong>GA4 property owner account.</strong> Create and own GA4 under bhagyaraju@ Workspace (not personal Gmail). Cross-ref US-2.7 T-2.7.13.<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.1</div><div class="task-desc"><strong>GA4 property setup (Admin).</strong> GA4 Admin → Create property “Maanvik Awards Website”. Timezone IST, currency INR. Add web data stream URL (preview: github.io/maanvik-preview; update to maanvikhandicrafts.com at cutover). Enable Enhanced measurement (page views, scrolls, outbound clicks, site search, file downloads, video). Copy Measurement ID G-2N8LMEL164.<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.2</div><div class="task-desc"><strong>Base gtag snippet.</strong> In <code>index.html</code> and <code>products.html</code> &lt;head&gt;, add async gtag.js loader + <code>gtag('config', 'G-2N8LMEL164')</code>. Load <code>js/ga4.js</code> before page scripts on both pages. Verify Network tab shows collect requests on page load.<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.3</div><div class="task-desc"><strong>WhatsApp conversion clicks.</strong> In <code>js/ga4.js</code>, delegate click on <code>wa.link</code> / <code>wa.me</code> / <code>whatsapp.com</code> links. Fire <code>whatsapp_click</code> with <code>event_category: conversion</code> and distinct <code>event_label</code>: hero_cta, contact_section, footer, floating_button, header_whatsapp. Catalogue WhatsApp CTA fires <code>product_enquiry</code> with SKU instead (see T-1.5.4).<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.4</div><div class="task-desc"><strong>All conversion events.</strong> Phone: <code>phone_click</code> in ga4.js (header_phone, contact_phone). Contact form: <code>form_submit</code> in main.js on Formspree success. Bulk form: <code>bulk_enquiry_submit</code> in main.js. Catalogue WhatsApp: <code>product_enquiry</code> with product_name + enquiry_channel whatsapp in ga4.js. Product quote modal: <code>product_quote_open</code> and <code>product_quote_submit</code> in quote-modal.js with SKU label.<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.5</div><div class="task-desc"><strong>Section visibility.</strong> In <code>js/ga4.js</code>, on DOMContentLoaded use IntersectionObserver on every <code>section[id]</code> (hero, trust, about, categories, collection, why, testimonials, franchise, locations, bulk-enquiry, contact on homepage; page-hero, catalog on products.html). When ≥35% visible, fire <code>section_view</code> once per section with <code>event_label</code> = section id and <code>page_path</code>.<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.6</div><div class="task-desc"><strong>Scroll depth.</strong> In <code>js/ga4.js</code>, listen to scroll (requestAnimationFrame throttle). Compute % scrolled; fire <code>scroll_depth</code> once per page at thresholds 25, 50, 75, 90 with <code>percent_scrolled</code> param. Use on both index and products pages.<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.7</div><div class="task-desc"><strong>Navigation clicks.</strong> In <code>js/ga4.js</code>, on anchor clicks with <code>href="#…"</code> fire <code>nav_click</code> with <code>event_label</code> = target section id. On links to <code>products.html</code> fire <code>nav_click</code> with label products. Include <code>link_text</code> for reporting.<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.8</div><div class="task-desc"><strong>Catalogue engagement.</strong> On products.html: debounced <code>catalog_search</code> (800ms, min 2 chars) on #search input with <code>search_term</code> param. <code>catalog_load_more</code> on #loadMore button click. Both in ga4.js.<div class="task-tags"><span class="tag done">Done</span><span class="tag fe">Frontend</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.9</div><div class="task-desc"><strong>Realtime verification (ops).</strong> After preview/production deploy, open GA4 → Reports → Realtime. Walk through GA4_Implementation_Lab.md checklist: load both pages, scroll homepage, click nav anchors, search catalogue, click WhatsApp/phone/forms. Confirm all event names appear within 30s. Document screenshot for BR.<div class="task-tags"><span class="tag ip">After deploy</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.10</div><div class="task-desc"><strong>GA4 Admin — conversions &amp; access.</strong> GA4 Admin → Data display → Events: mark as conversions — whatsapp_click, phone_click, form_submit, bulk_enquiry_submit, product_enquiry, product_quote_submit. Admin → Property access: add bhagyaraju.gurram@maanvikhandicrafts.com as Viewer. Admin → Data settings → Data filters: create Internal traffic filter (exclude developer IPs) or document test traffic in discovery doc.<div class="task-tags"><span class="tag ip">GA4 Admin</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-1.5.11</div><div class="task-desc"><strong>Google Search Console (ops).</strong> After production cutover: verify maanvikhandicrafts.com in Search Console (DNS or HTML tag). Submit sitemap. Link Search Console property to GA4 (Admin → Product links). See also T-2.8.3.<div class="task-tags"><span class="tag ip">Queued — after cutover</span><span class="tag ops">Ops</span></div></div></div>
     </div>
     <div class="acceptance">
       <div class="acceptance-label">Acceptance Criteria</div>
       <ul>
-        <li>GA4 Realtime shows page views and all 5 conversion event types within 30 seconds of action</li>
+        <li>GA4 Realtime shows page views and all conversion event types within 30 seconds of action</li>
+        <li>Engagement events (section_view, scroll_depth, nav_click, catalog_search) visible in Realtime and Explorations</li>
         <li>Bhagya Raju can open GA4 and see weekly enquiry metrics without developer help</li>
         <li>Internal/test traffic filtered or documented so conversion rates are realistic</li>
         <li>Baseline enquiry volume captured from Bhagya Raju for before/after comparison</li>
@@ -563,7 +568,7 @@
     </div>
     <div class="tasks">
       <div class="task"><div class="task-num">T-2.8.1</div><div class="task-desc">Google Workspace Admin — domain verify, mailboxes, MX/TXT/DKIM in Route 53 (US-2.2, US-2.7)<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
-      <div class="task"><div class="task-num">T-2.8.2</div><div class="task-desc">Google Analytics 4 — property G-2N8LMEL164, tag in HTML, conversion events (US-1.5, T-2.7.13)<div class="task-tags"><span class="tag ip">Tag done — Realtime after deploy</span><span class="tag ops">Ops</span></div></div></div>
+      <div class="task"><div class="task-num">T-2.8.2</div><div class="task-desc">Google Analytics 4 — property G-2N8LMEL164; conversion + engagement events in js/ga4.js (US-1.5 T-1.5.0–T-1.5.8 done); GA4 Admin verification pending T-1.5.9–10<div class="task-tags"><span class="tag ip">Code done — Admin pending</span><span class="tag ops">Ops</span></div></div></div>
       <div class="task"><div class="task-num">T-2.8.3</div><div class="task-desc">Google Search Console — add property for maanvikhandicrafts.com; verify via DNS TXT; submit sitemap after cutover<div class="task-tags"><span class="tag ip">Queued — after cutover</span><span class="tag ops">Ops</span></div></div></div>
       <div class="task"><div class="task-num">T-2.8.4</div><div class="task-desc">Google My Business — owner account bhagyaraju.gurram@maanvikhandicrafts.com; 3 branch listings (US-2.1, T-2.7.11)<div class="task-tags"><span class="tag ip">Queued</span><span class="tag ops">Ops</span></div></div></div>
       <div class="task"><div class="task-num">T-2.8.5</div><div class="task-desc">HubSpot Free CRM — signup bhagyaraju@, Gmail sync, 7-stage pipeline (US-4.2, T-2.7.7)<div class="task-tags"><span class="tag done">Done</span><span class="tag ops">Ops</span></div></div></div>
@@ -1247,7 +1252,7 @@
 <tr><td>EPIC-01</td><td>C→G</td><td>US-1.2</td><td>Fix product pricing</td><td>🔴 P1</td><td>6</td><td>🔴 Blocked — go-live</td><td>—</td><td>Price list + catalogue sign-off</td></tr>
 <tr><td>EPIC-01</td><td>C→G</td><td>US-1.3</td><td>WhatsApp enquiry pre-fill</td><td>🔴 P1</td><td>3</td><td>Done</td><td>—</td><td>Branch WA # optional</td></tr>
 <tr><td>EPIC-01</td><td>C→G</td><td>US-1.4</td><td>Connect contact form</td><td>🔴 P1</td><td>5</td><td>✅ Done</td><td>—</td><td>—</td></tr>
-<tr><td>EPIC-01</td><td>C→G</td><td>US-1.5</td><td>GA4 conversion measurement</td><td>🔴 P1</td><td>8</td><td>🟡 Tag done</td><td>Realtime after deploy</td><td>BR Viewer access</td></tr>
+<tr><td>EPIC-01</td><td>C→G</td><td>US-1.5</td><td>GA4 conversion measurement</td><td>🔴 P1</td><td>8</td><td>🟢 Code done</td><td>GA4 Admin T-1.5.9–10</td><td>BR Viewer access</td></tr>
 <tr><td>EPIC-01</td><td>C→G</td><td>US-1.6</td><td>B2B copy &amp; CTA consistency</td><td>🔴 P1</td><td>3</td><td>Done</td><td>—</td><td>—</td></tr>
 <tr><td>EPIC-02</td><td>B→G</td><td>US-2.1</td><td>Google My Business — 3 branches</td><td>🟡 P2</td><td>7</td><td>Not started</td><td>After mailboxes</td><td>GMB verify + reviews</td></tr>
 <tr><td>EPIC-02</td><td>B→G</td><td>US-2.2</td><td>Business email setup</td><td>🟡 P2</td><td>9</td><td>✅ Done</td><td>—</td><td>—</td></tr>
@@ -1275,12 +1280,12 @@
 <tr><td>EPIC-06</td><td>D→F</td><td>US-6.4</td><td>CI/CD GitHub → AWS</td><td>🟡 P2</td><td>3</td><td>Not started</td><td>—</td><td>—</td></tr>
 <tr><td>EPIC-06</td><td>D→F</td><td>US-6.5</td><td>AWS serverless payment API</td><td>🟡 P2</td><td>4</td><td>After US-5.4</td><td>—</td><td>—</td></tr>
 </table>
-<p style="font-size:13px;color:#666;margin-top:8px">Total: 6 Epics · 26 User Stories · 164 Tasks · Version 1.9 (July 2026)</p>
+<p style="font-size:13px;color:#666;margin-top:8px">Total: 6 Epics · 26 User Stories · 168 Tasks · Version 2.0 (July 2026)</p>
 <p style="font-size:12px;color:#888;margin-top:4px"><strong>Preview:</strong> <a href="https://sravanskumar.github.io/maanvik-preview/">github.io/maanvik-preview</a> · tag <code>p0-b2b-enquiry</code> · <strong>AWS go-live blocked</strong> on BR price list</p>
 
 <div class="footer">
   Prepared by Sravan Kumar Sindhe · Digital & Brand Consulting · July 2026<br>
-  Version 1.9 — Workspace + DNS + Formspree + HubSpot + GA4 tag complete (15 Jul); S9/S10 blocked on catalogue; T-6.1.0b recovery contacts deferred
+  Version 2.0 — GA4 conversion + engagement code complete (17 Jul); GA4 Admin + Search Console pending; S9/S10 blocked on catalogue
 </div>
 
 </body>
