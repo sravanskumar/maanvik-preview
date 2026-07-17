@@ -875,17 +875,20 @@ a {
     color: var(--ink);
     margin-bottom: 1.8rem;
     position: relative;
+    padding-left: 0.15rem;
 }
 
 .quote blockquote::before {
     content: "\201C";
     font-family: var(--serif);
     position: absolute;
-    top: -1.6rem;
-    left: -0.4rem;
-    font-size: 4rem;
+    top: -0.35rem;
+    left: -0.15rem;
+    font-size: 3.5rem;
+    line-height: 1;
     color: var(--gold);
-    opacity: 0.35;
+    opacity: 0.28;
+    pointer-events: none;
 }
 
 .quote figcaption {
