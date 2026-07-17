@@ -875,20 +875,33 @@ a {
     color: var(--ink);
     margin-bottom: 1.8rem;
     position: relative;
-    padding-left: 0.15rem;
+    quotes: none;
+    padding: 0.35rem 1.4rem 0.5rem 1.85rem;
+}
+
+.quote blockquote::before,
+.quote blockquote::after {
+    font-family: var(--serif);
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.26;
+    pointer-events: none;
 }
 
 .quote blockquote::before {
     content: "\201C";
-    font-family: var(--serif);
     position: absolute;
-    top: -0.35rem;
-    left: -0.15rem;
-    font-size: 3.5rem;
-    line-height: 1;
-    color: var(--gold);
-    opacity: 0.28;
-    pointer-events: none;
+    top: -0.15rem;
+    left: 0;
+    font-size: 3.25rem;
+}
+
+.quote blockquote::after {
+    content: "\201D";
+    position: absolute;
+    right: 0;
+    bottom: -0.55rem;
+    font-size: 3.25rem;
 }
 
 .quote figcaption {
