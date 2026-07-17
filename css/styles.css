@@ -1042,6 +1042,7 @@ a {
     gap: 0.2rem;
     border-bottom: 1px solid var(--line-dark);
     padding-bottom: 1.1rem;
+    color: var(--ivory);
 }
 
 .contact__details span {
@@ -1051,13 +1052,18 @@ a {
     color: var(--muted);
 }
 
-.contact__details a,
-.contact__details li {
-    color: var(--ivory);
+.contact__details a {
+    color: var(--gold-soft);
+    text-decoration: underline;
+    text-decoration-color: rgba(216, 189, 133, 0.55);
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+    transition: color 0.3s, text-decoration-color 0.3s;
 }
 
 .contact__details a:hover {
     color: var(--gold);
+    text-decoration-color: var(--gold);
 }
 
 .contact__form {
