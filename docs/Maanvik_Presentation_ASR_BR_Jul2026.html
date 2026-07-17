@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Owned Digital Storefront — SME Presentation · Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  @media print { .no-print { display: none; } body { margin: 0; padding: 12mm; } .sheet { box-shadow: none; max-width: none; } }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, -apple-system, sans-serif; background: #f4f2ee; color: #1a1a1a; line-height: 1.5; margin: 0; padding: 24px 16px 48px; font-size: 13px; }
+  .sheet { max-width: 210mm; margin: 0 auto; background: #fdfcfa; padding: 28px 32px; box-shadow: 0 2px 12px rgba(0,0,0,.08); border-radius: 4px; }
+  .header { border-bottom: 3px solid #B8860B; padding-bottom: 14px; margin-bottom: 16px; }
+  .header h1 { font-size: 21px; margin: 0 0 6px; }
+  .meta { color: #666; font-size: 11px; }
+  .te { font-family: "Noto Sans Telugu", sans-serif; font-size: 10.5px; color: #5c4f3a; margin-top: 4px; }
+  .audience { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 18px; }
+  .audience-card { border-radius: 8px; padding: 12px 14px; font-size: 12px; }
+  .audience-card.asr { background: #e8f4f8; border: 1px solid #9fd4dc; }
+  .audience-card.br { background: #faf7f0; border: 1px solid #e8d4a0; }
+  .audience-card h3 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .summary { background: #0E0E10; color: #f5f0e8; border-radius: 10px; padding: 14px 16px; margin: 16px 0; font-size: 13px; }
+  .summary em { color: #D4AF37; font-style: normal; font-weight: 600; }
+  h2 { font-size: 14px; color: #5a3a18; margin: 22px 0 8px; border-bottom: 2px solid #e8e4dc; padding-bottom: 5px; text-transform: uppercase; letter-spacing: 0.35px; }
+  h3 { font-size: 13px; color: #5a3a18; margin: 14px 0 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 14px; font-size: 11px; }
+  th, td { border: 1px solid #e0dcd4; padding: 7px 9px; text-align: left; vertical-align: top; }
+  th { background: #f5f0e8; font-weight: 600; color: #5a3a18; }
+  tr:nth-child(even) td { background: #faf7f3; }
+  .own { color: #0F6E56; font-weight: 600; }
+  .im { color: #18468a; font-weight: 600; }
+  .tie { color: #5a3a18; }
+  .weak { color: #8b4513; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+  .box { border: 1px solid #e8e4dc; border-radius: 8px; padding: 12px 14px; font-size: 11.5px; }
+  .box h3 { margin: 0 0 8px; font-size: 12px; }
+  .box ul { margin: 0; padding-left: 18px; }
+  .box li { margin-bottom: 4px; }
+  .status-done { color: #155724; font-weight: 600; }
+  .status-wait { color: #0c5460; font-weight: 600; }
+  .status-block { color: #721c24; font-weight: 600; }
+  .demo-link { display: block; background: #e8f4f6; border: 1px solid #9fd4dc; border-radius: 8px; padding: 12px 14px; margin: 12px 0; text-decoration: none; color: #095a67; }
+  .demo-link strong { display: block; font-size: 13px; margin-bottom: 3px; }
+  .demo-link span { font-size: 11px; color: #3d6b74; }
+  .honest { background: #fff8e8; border-left: 4px solid #E8A020; padding: 12px 14px; margin: 14px 0; font-size: 12px; }
+  .cost-highlight { background: #d4edda; border: 2px solid #155724; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+  .cost-highlight .big { font-size: 20px; font-weight: 700; color: #155724; }
+  .pitch-asr { background: #f0f4f8; border-radius: 8px; padding: 14px 16px; margin: 14px 0; font-size: 12px; border: 1px solid #c5d4e8; }
+  .footer { margin-top: 24px; border-top: 1px solid #e0dcd4; padding-top: 12px; font-size: 10px; color: #888; }
+  .print-btn { position: fixed; top: 16px; right: 16px; background: #B8860B; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; margin: 8px 0 12px; }
+  .legend span { display: flex; align-items: center; gap: 5px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-own { background: #0F6E56; }
+  .dot-im { background: #18468a; }
+  .dot-tie { background: #B8860B; }
+  .usp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 16px; }
+  .usp { border: 2px solid #B8860B; border-radius: 8px; padding: 10px 12px; background: #fff; font-size: 11.5px; }
+  .usp-num { font-size: 10px; font-weight: 700; color: #B8860B; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .usp strong { display: block; font-size: 12px; color: #1a1a1a; margin-bottom: 4px; }
+  .usp p { margin: 0; color: #444; font-size: 11px; }
+  .decide { background: #f0f4f8; border: 2px solid #4a6fa5; border-radius: 8px; padding: 12px 14px; margin: 14px 0; font-size: 12px; }
+  .decide h3 { margin: 0 0 8px; font-size: 12px; color: #2c4a72; text-transform: uppercase; }
+  .decide table { margin: 0; font-size: 11px; }
+  .decide .roi-line { margin: 10px 0 0; padding-top: 8px; border-top: 1px solid #c5d4e8; font-size: 11px; }
+  .yn { text-align: center; font-weight: 700; width: 52px; }
+  .yn-yes { color: #155724; }
+  .yn-no { color: #8b4513; }
+  .yn-partial { color: #18468a; }
+  .analogy {
+    background: #faf7f0; border: 1px solid #e8d4a0; border-radius: 8px;
+    padding: 12px 14px; margin: 12px 0 16px; font-size: 12px;
+  }
+  .analogy h3 { margin: 0 0 8px; font-size: 11px; color: #5a3a18; text-transform: uppercase; letter-spacing: 0.3px; }
+  .analogy table { margin: 0; font-size: 11px; }
+  .killer-q {
+    background: #1a1a1a; color: #f5f0e8; border-left: 5px solid #D4AF37;
+    border-radius: 8px; padding: 14px 16px; margin: 14px 0 16px; font-size: 13px;
+  }
+  .killer-q .q { font-size: 15px; font-weight: 700; color: #fff; margin: 0 0 8px; line-height: 1.4; }
+  .killer-q .a { margin: 0; font-size: 12px; color: #d4cfc4; }
+  .killer-q .a strong { color: #D4AF37; }
+  .killer-q .te { color: #c9b896; margin-top: 8px; }
+  .killer-q ol { margin: 8px 0 0; padding-left: 20px; }
+  .killer-q li { margin-bottom: 6px; line-height: 1.4; }
+  .killer-q li strong { color: #fff; }
+  .audience.three { grid-template-columns: 1fr 1fr 1fr; }
+  .audience-card.new { background: #f0f8f0; border: 1px solid #a8d4a8; }
+  .model-box {
+    background: #e8f4f8; border: 1px solid #9fd4dc; border-radius: 8px;
+    padding: 12px 14px; margin: 14px 0; font-size: 12px;
+  }
+  .model-box strong { color: #095a67; }
+  .scope { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .scope-box { border-radius: 8px; padding: 10px 12px; font-size: 11px; }
+  .scope-now { background: #d4edda; border: 1px solid #155724; }
+  .scope-later { background: #f8f9fa; border: 1px solid #ccc; }
+  .scope-box h3 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; }
+  .scope-box ul { margin: 0; padding-left: 16px; }
+  .scope-box li { margin-bottom: 3px; }
+  .glance {
+    background: #fff; border: 1px dashed #B8860B; border-radius: 8px;
+    padding: 10px 12px; margin: 10px 0 0; font-size: 11px;
+  }
+  .glance h3 { margin: 0 0 6px; font-size: 11px; color: #5a3a18; text-transform: uppercase; }
+  .glance ul { margin: 0; padding-left: 18px; }
+  .glance li { margin-bottom: 3px; }
+  .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 10px 0; }
+  .path-card { border: 1px solid #e8e4dc; border-radius: 8px; padding: 10px 12px; font-size: 11px; }
+  .path-card h3 { margin: 0 0 6px; font-size: 11px; color: #5a3a18; }
+  .path-card ul { margin: 0; padding-left: 16px; }
+  .path-card li { margin-bottom: 3px; }
+  .glossary { background: #f8f6f2; border: 1px solid #e0dcd4; border-radius: 8px; padding: 12px 14px; margin: 18px 0 14px; font-size: 10.5px; }
+  .glossary h2 { margin-top: 0; }
+  .glossary dl { margin: 0; display: grid; grid-template-columns: 140px 1fr; gap: 4px 12px; }
+  .glossary dt { font-weight: 600; color: #5a3a18; }
+  .glossary dd { margin: 0; color: #444; }
+  @media (max-width: 700px) { .audience, .cols, .usp-grid, .audience.three, .scope, .paths { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<div class="sheet">
+
+  <div class="header">
+    <h1>Owned Digital Storefront — Honest Comparison &amp; Progressive Build</h1>
+    <div class="meta">Sravan Kumar Sindhe · Digital &amp; Brand Consulting · July 2026 · Maanvik Handicrafts live reference</div>
+    <div class="te">మాన్విక్ లైవ్ ప్రివ్యూ — ఇండియామార్ట్ తో నిజాయితీ పోలిక · మీ అవసరానికి తగినట్లు మాత్రమే నిర్మాణం</div>
+  </div>
+
+  <div class="audience three">
+    <div class="audience-card br">
+      <h3>Path A — Marketplace member</h3>
+      Already on IndiaMART yearly listing · add <strong>your own website</strong> · Maanvik is the live example · go live when price list is ready.
+    </div>
+    <div class="audience-card asr">
+      <h3>Path B — Maximiser plan active</h3>
+      Already on IndiaMART <strong>Maximiser</strong> (~₹72,000 including tax per year) · <strong>keep it</strong> · transition roadmap · decide at renewal — not a switch today.
+    </div>
+    <div class="audience-card new">
+      <h3>Path C — New business (introduction)</h3>
+      <strong>Demo today</strong> — see Maanvik · full <strong>discovery call later</strong> · we quote only the modules you need from day one.
+    </div>
+  </div>
+
+  <div class="model-box">
+    <strong>Our business model — compose what you need, expand when ready.</strong>
+    IndiaMART sells fixed yearly plans — that works for established marketplace sellers. We do the opposite: <strong>only what you need from day one</strong>, then progressive add-ons (content, marketing, payments) when the business is ready and budget allows. One professional materials set — three paths below. See <strong>glossary</strong> at the end for terms.
+  </div>
+
+  <div class="summary">
+    <strong>Shared story:</strong> IndiaMART is excellent for <em>being found</em>. Your owned website helps you <em>be chosen</em> — enquiries in <em>your email and WhatsApp</em>, not only IndiaMART’s app. We will also say honestly where IndiaMART still wins.
+  </div>
+
+  <h2>0 · Four reasons — plain language</h2>
+  <p style="font-size:12px;color:#555;margin:0 0 10px">Each reason is something a typical IndiaMART listing or Maximiser plan does not fully solve — even at ~₹72,000 including tax per year.</p>
+
+  <div class="usp-grid">
+    <div class="usp">
+      <div class="usp-num">Reason 1</div>
+      <strong>Enquiries come to your email &amp; WhatsApp</strong>
+      <p>Form or WhatsApp on <em>your</em> site → business email (e.g. orders@) and customer tracking (HubSpot). IndiaMART keeps enquiries in their app. If subscription stops, that list is much harder to keep.</p>
+    </div>
+    <div class="usp">
+      <div class="usp-num">Reason 2</div>
+      <strong>Forms built for your industry</strong>
+      <p>IndiaMART: one box — “describe your requirement.” We build fields for your trade — e.g. event type &amp; quantity (awards), or square feet &amp; timeline (modular interiors).</p>
+    </div>
+    <div class="usp">
+      <div class="usp-num">Reason 3</div>
+      <strong>Your brand — no competitor beside you</strong>
+      <p>On IndiaMART, buyers see alternatives on the same screen. On your website, they see only your work, trust badges, and testimonials.</p>
+    </div>
+    <div class="usp">
+      <div class="usp-num">Reason 4</div>
+      <strong>Pay once · own forever · see what works</strong>
+      <p>One-time build (from ₹43,000–48,000) vs yearly marketplace fees. Google Analytics shows which products and buttons bring enquiries.</p>
+    </div>
+  </div>
+
+  <div class="analogy">
+    <h3>Simple picture — mall vs your showroom</h3>
+    <table>
+      <tr><th></th><th>IndiaMART</th><th>Your owned website</th></tr>
+      <tr><td>Think of it as</td><td>A shop <strong>inside a mall</strong> — footfall is high, but other sellers are beside you</td><td><strong>Your own showroom</strong> — only your products, your name on the door</td></tr>
+      <tr><td>When buyer enquires</td><td>Recorded in <strong>mall management’s system</strong> (IndiaMART panel)</td><td>Comes to <strong>your orders@ email</strong> and <strong>your WhatsApp</strong></td></tr>
+      <tr><td>Follow-up</td><td>You check their app / call from their listing</td><td>You reply from your Gmail, track in HubSpot, call from your number</td></tr>
+      <tr><td>If you stop paying</td><td>Listing access ends — enquiry history stays with them</td><td>Your site, emails, and CRM records <strong>stay with you</strong></td></tr>
+    </table>
+    <p style="margin:10px 0 0"><strong>“Owning the enquiry”</strong> simply means: the customer’s message and contact details are <em>yours to follow up</em> — in your inbox and CRM — not trapped inside a platform you rent.</p>
+    <div class="te" style="margin-top:6px">సరళంగా: ఇండియామార్ట్ = మాల్ లో దుకాణం (కనిపించడం). మా వెబ్‌సైట్ = మీ షోరూం (అభ్యర్థన మీ ఇమెయిల్ / WhatsApp కు).</div>
+  </div>
+
+  <div class="killer-q">
+    <p class="q" style="margin-bottom:6px">Three questions that change the decision — pause on each:</p>
+    <ol>
+      <li><strong>If IndiaMART subscription stops tomorrow, can you still call everyone who enquired last year?</strong></li>
+      <li><strong>Someone enquires at 11pm — is it in your Gmail tomorrow morning, or only if you open IndiaMART’s app?</strong></li>
+      <li><strong>When a college principal visits your page, do they see only Maanvik — or five competitors beside you?</strong></li>
+    </ol>
+    <p class="a" style="margin-top:8px">If IndiaMART is “no” and we are “yes” on these — plus the matrix below — one bulk order / one fit-out project pays for the build.</p>
+    <div class="te">ఇండియామార్ట్ చందా రేపే ఆగితే ఫోన్ చేయగలరా? రాత్రి 11 గంటలకు అభ్యర్థన రేపు మీ Gmail లో కనిపిస్తుందా? కాలేజీ అధికారికి మాత్రమే మాన్విక్ కనిపిస్తుందా?</div>
+  </div>
+
+  <div class="decide">
+    <h3>Decision matrix — all killer questions</h3>
+    <p style="margin:0 0 8px;font-size:11px;color:#444">Not a feature list — questions that make you pause. IndiaMART <strong>No</strong> + us <strong>Yes</strong> on 3+ rows → a owned build pays for itself. <strong>Path A:</strong> keep yearly listing only. <strong>Path B:</strong> keep Maximiser now; roadmap below.</p>
+    <table>
+      <tr>
+        <th>Ask yourself</th>
+        <th class="yn">IndiaMART</th>
+        <th class="yn">Us</th>
+        <th>Real example</th>
+      </tr>
+      <tr>
+        <td><strong>If subscription stops tomorrow, can I call everyone who enquired last year?</strong></td>
+        <td class="yn yn-no">No</td>
+        <td class="yn yn-yes">Yes</td>
+        <td>HubSpot + orders@ — your list, your phone</td>
+      </tr>
+      <tr>
+        <td><strong>Someone enquires at 11pm — is it in my Gmail tomorrow, or only in IndiaMART’s app?</strong></td>
+        <td class="yn yn-no">No</td>
+        <td class="yn yn-yes">Yes</td>
+        <td>Form alert → orders@ inbox on your phone</td>
+      </tr>
+      <tr>
+        <td><strong>Can I keep IndiaMART for buyers without them hosting my website?</strong></td>
+        <td class="yn yn-partial">Yes*</td>
+        <td class="yn yn-yes">Yes</td>
+        <td>*Path A: yearly listing only (~₹33k/yr). Path B: keep Maximiser until renewal, then choose</td>
+      </tr>
+      <tr>
+        <td><strong>Can buyers give event type, quantity &amp; delivery date — or just “describe requirement”?</strong></td>
+        <td class="yn yn-no">No</td>
+        <td class="yn yn-yes">Yes</td>
+        <td><strong>BR:</strong> 500 trophies + date · <strong>ASR:</strong> sq ft + rooms + timeline</td>
+      </tr>
+      <tr>
+        <td><strong>When an institutional buyer visits, do they see only my brand — or competitors beside me?</strong></td>
+        <td class="yn yn-no">No</td>
+        <td class="yn yn-yes">Yes</td>
+        <td>College principal on maanvikhandicrafts.com — only Maanvik</td>
+      </tr>
+      <tr>
+        <td><strong>If I stop paying in 3 years, do I still own my website and enquiry history?</strong></td>
+        <td class="yn yn-no">No</td>
+        <td class="yn yn-yes">Yes</td>
+        <td>₹43k–48k once vs yearly fees — stop paying, IndiaMART access ends</td>
+      </tr>
+      <tr>
+        <td><strong>After a month, can I tell which product gets the most enquiries — without guessing?</strong></td>
+        <td class="yn yn-no">No</td>
+        <td class="yn yn-yes">Yes</td>
+        <td>Google Analytics — which product or button brought the enquiry</td>
+      </tr>
+      <tr>
+        <td><strong>Do I need built-in marketplace traffic, BuyLeads &amp; Trust Seal today?</strong></td>
+        <td class="yn yn-yes">Yes</td>
+        <td class="yn yn-no">No</td>
+        <td><em>Keep IndiaMART for this</em> — we complement, not replace</td>
+      </tr>
+    </table>
+    <div class="glance">
+      <h3>At a glance — four reasons (feature summary)</h3>
+      <ul>
+        <li><strong>Your inbox</strong> — enquiries to business email + WhatsApp, not only IndiaMART’s app</li>
+        <li><strong>Your industry forms</strong> — structured fields, not one generic text box</li>
+        <li><strong>Your brand only</strong> — no competitors on your page</li>
+        <li><strong>Own forever + tracking</strong> — one-time build; Google Analytics on your site</li>
+        <li><strong>Keep IndiaMART for discovery</strong> — marketplace traffic, BuyLeads, Trust Seal (honest)</li>
+      </ul>
+    </div>
+    <div class="roi-line">
+      <strong>If 3+ rows say “Yes” for us →</strong><br>
+      <strong>Path A (marketplace member):</strong> One bulk order (₹50,000–₹2,00,000+) covers ₹43,000 Maanvik build.<br>
+      <strong>Path B (Maximiser active):</strong> Start Phase 1 now · one fit-out (₹5,00,000+) can fund Growth package from ₹48,000 · save at renewal.<br>
+      <strong>Path C (new business):</strong> Demo today · book discovery · we quote only modules you need.
+    </div>
+    <div class="te" style="margin-top:6px">మా వైపు 3+ “అవును” → ఒక బల్క్ ఆర్డర్ తో ₹43k తిరిగి వస్తుంది. ఇండియామార్ట్ ఉంచండి — వారి వెబ్‌సైట్ అవసరం లేదు (Path A).</div>
+  </div>
+
+  <div class="scope">
+    <div class="scope-box scope-now">
+      <h3>Included in website package (now)</h3>
+      <ul>
+        <li>New website + product catalogue + enquiry forms</li>
+        <li>WhatsApp buttons with pre-filled messages</li>
+        <li>Business email (e.g. orders@yourdomain.com)</li>
+        <li>Customer tracking — enquiry to delivery (HubSpot)</li>
+        <li>Visitor tracking (Google Analytics)</li>
+        <li>Website hosting + go-live support</li>
+      </ul>
+    </div>
+    <div class="scope-box scope-later">
+      <h3>Later — separate quote (content &amp; marketing)</h3>
+      <ul>
+        <li>Product photos and catalogue copywriting</li>
+        <li>Social media posts and ad campaigns</li>
+        <li>Google Business Profile and local listings</li>
+        <li>Search optimisation and blog content</li>
+        <li>Brochures and brand design</li>
+      </ul>
+      <p style="margin:6px 0 0;font-size:10px;color:#666">We do not bundle marketing into the base website fee. Add when you are ready.</p>
+    </div>
+  </div>
+
+  <a class="demo-link" href="https://sravanskumar.github.io/maanvik-preview/index.html" target="_blank">
+    <strong>Live preview — Maanvik new website →</strong>
+    <span>https://sravanskumar.github.io/maanvik-preview/ · Not yet on maanvikhandicrafts.com (waiting for price list sign-off)</span>
+  </a>
+
+  <h2>1 · What is live today (Maanvik)</h2>
+
+  <div class="cols">
+    <div class="box">
+      <h3>Website — buyer-facing</h3>
+      <ul>
+        <li><span class="status-done">Done</span> Premium redesign — homepage, 140-SKU catalogue, mobile-first</li>
+        <li><span class="status-done">Done</span> GST + Udyam (MSME) trust strip — topbar &amp; footer</li>
+        <li><span class="status-done">Done</span> <strong>Request Quote</strong> per product — modal with SKU, size, quantity → email</li>
+        <li><span class="status-done">Done</span> <strong>Enquire on WhatsApp</strong> — message pre-filled with product + SKU + size</li>
+        <li><span class="status-done">Done</span> <strong>Bulk event enquiry</strong> — event type, quantity, delivery date, customisation</li>
+        <li><span class="status-done">Done</span> Contact form — general enquiries</li>
+        <li><span class="status-done">Done</span> Institutional testimonials — universities, schools (brand proof)</li>
+        <li><span class="status-wait">POA mode</span> All prices show “Price on request” until BR validates list</li>
+        <li><span class="status-block">Blocked</span> AWS go-live on real domain — needs BR price list + SKU sign-off</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Business systems — behind the scenes</h3>
+      <ul>
+        <li><span class="status-done">Done</span> <strong>Google Workspace</strong> — bhagyaraju@, bhagyaraju.gurram@, orders@</li>
+        <li><span class="status-done">Done</span> <strong>Formspree</strong> — contact + product quote (mnjejnny), bulk form (maqrqnqw) → orders@</li>
+        <li><span class="status-done">Done</span> <strong>HubSpot CRM</strong> — 7-stage pipeline: Enquiry → Quoted → Confirmed → Delivered</li>
+        <li><span class="status-done">Done</span> <strong>GA4 analytics</strong> — 7 conversion events + 5 engagement events (WhatsApp, forms, scroll, sections)</li>
+        <li><span class="status-done">Done</span> DNS — MX, SPF, DKIM on Route 53 (email deliverability)</li>
+        <li><span class="status-wait">In progress</span> Razorpay KYC — GST + Udyam received; bank docs pending</li>
+        <li><span class="status-wait">Pending</span> GA4 Admin — mark conversions, BR Viewer access</li>
+        <li><span class="status-wait">Queued</span> Google Search Console, GMB (3 branches) — after go-live</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>2 · Honest comparison — IndiaMART vs Maanvik owned build</h2>
+  <p style="font-size:11px;color:#666;margin:0 0 8px;">IndiaMART pricing from official help pages &amp; 2025 proposals: MDC ₹28,000–35,000/yr · Maximiser (InterMESH storefront) ₹72,000/yr — all excl. 18% GST. Sources: help.indiamart.com, corporate.indiamart.com.</p>
+
+  <div class="legend">
+    <span><span class="dot dot-own"></span> Owned site wins</span>
+    <span><span class="dot dot-im"></span> IndiaMART wins</span>
+    <span><span class="dot dot-tie"></span> Comparable / complement</span>
+  </div>
+
+  <table>
+    <tr>
+      <th>Capability</th>
+      <th>IndiaMART (MDC / marketplace)</th>
+      <th>IndiaMART Maximiser / InterMESH<br><span style="font-weight:400;font-size:10px">e.g. premiermodularindustries.com</span></th>
+      <th>Maanvik owned build<br><span style="font-weight:400;font-size:10px">What Sravan ships</span></th>
+    </tr>
+    <tr>
+      <td><strong>Buyer discovery / traffic</strong></td>
+      <td class="im">Strong — 20 Cr+ registered buyers; category search; BuyLeads quota (10/wk + daily bonus on MDC)</td>
+      <td class="im">Same marketplace traffic + higher listing rank</td>
+      <td class="weak">Weaker at launch — relies on SEO, WhatsApp, repeat clients, referrals. <em>Complement IndiaMART, don't replace it.</em></td>
+    </tr>
+    <tr>
+      <td><strong>Brand &amp; first impression</strong></td>
+      <td class="weak">Same template as thousands of sellers; competitors shown alongside</td>
+      <td class="tie">Custom domain but IndiaMART-hosted template; still feels like marketplace</td>
+      <td class="own">Fully custom premium design; only Maanvik on the page; institutional testimonials</td>
+    </tr>
+    <tr>
+      <td><strong>Trust signals</strong></td>
+      <td class="im">Trust Seal (paid tier), response rate badge, verified supplier labels — buyers recognise these</td>
+      <td class="im">GST display, Trust Seal on paid plans</td>
+      <td class="own">GST + Udyam on-site; domain email; 500+ institutions served — <em>your</em> proof, not platform badge</td>
+    </tr>
+    <tr>
+      <td><strong>Per-product quote</strong></td>
+      <td class="tie">Get Quote pop-up — works; generic timed modal</td>
+      <td class="tie">Get Quote on product cards — same pattern</td>
+      <td class="own">Request Quote modal — SKU + size pre-filled; lands in <em>your</em> orders@ inbox + CRM fields</td>
+    </tr>
+    <tr>
+      <td><strong>Bulk / event / project enquiry</strong></td>
+      <td class="weak">One box: “describe your requirement” — no event type, qty, or delivery date</td>
+      <td class="weak">Same generic requirement box</td>
+      <td class="own">Structured bulk form: event type, quantity, budget, delivery, customisation — built for awards vertical</td>
+    </tr>
+    <tr>
+      <td><strong>WhatsApp enquiry</strong></td>
+      <td class="tie">WhatsApp button on listing</td>
+      <td class="tie">WhatsApp on storefront</td>
+      <td class="own">Pre-filled message with SKU + size; floating button; tracked in analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Where enquiries land</strong></td>
+      <td class="weak">IndiaMART app / panel — not your orders@ inbox</td>
+      <td class="weak">Same — stays in IndiaMART ecosystem</td>
+      <td class="own">orders@ email + HubSpot CRM — you follow up from your Gmail &amp; phone</td>
+    </tr>
+    <tr>
+      <td><strong>Analytics — what converts?</strong></td>
+      <td class="weak">Basic LMS stats; no GA4-level conversion tracking per button/SKU</td>
+      <td class="weak">Limited — no per-product conversion events</td>
+      <td class="own">GA4: whatsapp_click, form_submit, product_quote_submit, section_view, catalog_search — 12+ events</td>
+    </tr>
+    <tr>
+      <td><strong>Professional email</strong></td>
+      <td class="im">Not included — you arrange separately</td>
+      <td class="im">Not included</td>
+      <td class="own">@maanvikhandicrafts.com — orders@, founder aliases; SPF/DKIM configured</td>
+    </tr>
+    <tr>
+      <td><strong>Catalogue control</strong></td>
+      <td class="tie">IndiaMART edits catalogue for you on MDC; limited layout control</td>
+      <td class="tie">Template product grid on subdomain</td>
+      <td class="own">140 SKUs, search, load-more; future Google Sheets → self-update prices 2–3×/year</td>
+    </tr>
+    <tr>
+      <td><strong>Competing sellers on same screen</strong></td>
+      <td class="im">Yes — buyer sees alternatives immediately (marketplace feature)</td>
+      <td class="tie">Linked back to IndiaMART ecosystem</td>
+      <td class="own">No competitors on your site — 100% Maanvik</td>
+    </tr>
+    <tr>
+      <td><strong>Call forwarding (PNS)</strong></td>
+      <td class="im">Preferred Number Service — up to 5 numbers, missed-call alerts</td>
+      <td class="im">Included on paid plans</td>
+      <td class="weak">Not built — direct tel: links + WhatsApp (can add call tracking later)</td>
+    </tr>
+    <tr>
+      <td><strong>Online payments</strong></td>
+      <td class="tie">Not core — enquiry-led</td>
+      <td class="tie">Not core</td>
+      <td class="own">Razorpay path ready (KYC in progress) for fixed-price SKUs — Phase 2</td>
+    </tr>
+    <tr>
+      <td><strong>Setup effort for owner</strong></td>
+      <td class="im">Low — IndiaMART builds catalogue; you answer leads</td>
+      <td class="im">Low — template storefront</td>
+      <td class="tie">Higher upfront (Sravan builds); then BR updates prices via Sheet guide</td>
+    </tr>
+  </table>
+
+  <div class="honest">
+    <strong>Being genuine — where IndiaMART is still better today:</strong>
+    <ul style="margin:6px 0 0;padding-left:18px">
+      <li><strong>Built-in buyer traffic</strong> — new suppliers get discovered faster on IndiaMART than on a new owned site.</li>
+      <li><strong>BuyLeads marketplace</strong> — active buyer requirements pushed to you (quota-based on plan).</li>
+      <li><strong>Trust Seal &amp; supplier badges</strong> — buyers trained to look for these on IndiaMART.</li>
+      <li><strong>PNS call forwarding</strong> — smart routing so you don’t miss calls.</li>
+      <li><strong>Zero technical setup</strong> — no DNS, GA4, or CRM configuration needed.</li>
+    </ul>
+    <p style="margin:10px 0 0"><strong>Recommended strategy:</strong> Keep IndiaMART for discovery (mall footfall). Use your site so serious buyers enquire to <em>your email and WhatsApp</em> (your showroom). They work together.</p>
+  </div>
+
+  <h2>3 · Cost comparison — what BR pays vs what IndiaMART charges</h2>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>IndiaMART MDC<br><span style="font-weight:400">Typical small B2B seller</span></th>
+      <th>IndiaMART Maximiser<br><span style="font-weight:400">InterMESH storefront (ASR-type)</span></th>
+      <th>Maanvik — Sravan build<br><span style="font-weight:400">One-time professional fee</span></th>
+    </tr>
+    <tr>
+      <td><strong>Year 1 fee</strong></td>
+      <td>₹28,000 – ₹35,000 + GST<br>≈ ₹33,000 – ₹41,300/yr</td>
+      <td>₹72,000 + GST<br>≈ ₹84,960/yr</td>
+      <td class="own"><strong>₹43,000</strong> one-time<br><span style="font-size:10px">₹25k website + ₹15k infra (+ ₹3k Razorpay when live)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Year 1 running costs</strong></td>
+      <td>Included in subscription</td>
+      <td>Included in subscription</td>
+      <td>~₹9,000/yr Google Workspace · HubSpot/Formspree/GA4 free</td>
+    </tr>
+    <tr>
+      <td><strong>3-year total (fees only)</strong></td>
+      <td>≈ ₹99,000 – ₹124,000</td>
+      <td>≈ ₹2,55,000</td>
+      <td class="own"><strong>≈ ₹70,000</strong><br><span style="font-size:10px">₹43k once + ~₹27k Workspace over 3 yrs</span></td>
+    </tr>
+    <tr>
+      <td><strong>What you own after paying</strong></td>
+      <td>Listing access — stops if you don’t renew</td>
+      <td>Storefront access — stops if you don’t renew</td>
+      <td class="own">Website code, CRM setup, analytics, email DNS, documentation — yours permanently</td>
+    </tr>
+    <tr>
+      <td><strong>What’s included beyond a catalogue page</strong></td>
+      <td>BuyLeads, LMS, PNS, Trust Seal (tier-dependent)</td>
+      <td>+ Branded subdomain on IndiaMART stack</td>
+      <td class="own">Custom site + CRM + GA4 + 3 forms + email + AWS-ready deploy + enterprise docs</td>
+    </tr>
+  </table>
+
+  <div class="cost-highlight">
+    <p style="margin:0 0 6px;font-size:12px"><strong>For Bhagya Raju — short-term &amp; long-term ROI (genuine maths):</strong></p>
+    <p style="margin:0 0 8px"><strong>Short term:</strong> Professional email, working forms → orders@, HubSpot CRM, GA4 tracking, and premium preview are <em>already delivered</em>. One institutional bulk order (typical ₹50,000–₹2,00,000+) covers the entire ₹43,000 fee. IndiaMART MDC costs roughly that much <em>every single year</em> — for a listing page only.</p>
+    <p style="margin:0 0 8px"><strong>Long term:</strong> Over 3 years you pay ≈ ₹70,000 total (build + Workspace) and <strong>own</strong> website, CRM, and analytics. IndiaMART MDC costs ≈ ₹99,000–₹124,000 over the same period — and you own nothing if you stop renewing.</p>
+    <p style="margin:0"><strong>Even if IndiaMART brings more new buyers today</strong> — which it may — your owned site is where those buyers land with trust, structured enquiry, and zero competitors beside you. That is genuine ROI: complement IndiaMART traffic; convert and own the relationship on your stack.</p>
+    <div class="te" style="margin-top:8px">ఇండియామార్ట్ ప్రతి సంవత్సరం ₹33,000+ — మీ సెటప్ ₹43,000 ఒకేసారి. ఒక బల్క్ ఆర్డర్ లాభంలో ఫీజు తిరిగి వస్తుంది. 3 సంవత్సరాల్లో ₹50,000+ ఆదా.</div>
+  </div>
+
+  <p style="font-size:11px;margin:0 0 12px"><strong>Personalized handouts:</strong>
+    <a href="Maanvik_ROI_Handout_BR_Telugu.html">Path A — Bhagya Raju (Telugu)</a> ·
+    <a href="Maanvik_Offer_Handout_ASR_English.html">Path B — ASR Premier Modular</a> ·
+    <a href="Maanvik_Intro_Handout_NewSME_English.html">Path C — New SME intro</a>
+  </p>
+
+  <h2>4 · Value proposition — what Sravan offers (for ASR)</h2>
+
+  <div class="pitch-asr">
+    <p style="margin:0 0 10px"><strong>This is the product, not just a website.</strong> Maanvik is the live reference implementation. The same architecture applies to ASR Premier Modular or any B2B SME:</p>
+    <table>
+      <tr><th>Layer</th><th>Maanvik (awards)</th><th>ASR / modular interiors</th></tr>
+      <tr><td>Per-product quote</td><td>SKU + size + quantity</td><td>Product + sq ft rate + specs</td></tr>
+      <tr><td>Project / bulk enquiry</td><td>Event type, qty, delivery, engraving</td><td>Sq ft, rooms, timeline, location, budget, finish</td></tr>
+      <tr><td>CRM pipeline</td><td>Enquiry → Quoted → Confirmed → Delivered</td><td>Same — adapted deal properties</td></tr>
+      <tr><td>Analytics</td><td>Which trophies / categories convert</td><td>Which products / project types convert</td></tr>
+      <tr><td>Infra</td><td>Workspace + Formspree + HubSpot + GA4 + AWS</td><td>Identical stack — different vertical copy</td></tr>
+    </table>
+    <p style="margin:10px 0 0"><strong>List price for new client (Growth package):</strong> ₹48,000 from · Maanvik reference floor ₹43,000 · See <code>Service_Price_Catalogue.html</code></p>
+    <p style="margin:8px 0 0"><strong>ASR demo template:</strong> <a href="consulting/templates/ASR_Project_Enquiry_Template.html">Project enquiry form (sq ft, rooms, timeline)</a> — same platform, different vertical fields.</p>
+  </div>
+
+  <h2>5 · CRM &amp; lead flow — how an enquiry becomes an order</h2>
+
+  <table>
+    <tr><th>Step</th><th>What happens</th><th>Tool</th></tr>
+    <tr><td>1. Buyer acts</td><td>Request Quote · Bulk form · WhatsApp · Phone · Contact form</td><td>Website (preview live)</td></tr>
+    <tr><td>2. Notification</td><td>Structured email to orders@maanvikhandicrafts.com with all fields</td><td>Formspree</td></tr>
+    <tr><td>3. Tracking</td><td>GA4 records source (which button, which SKU, which section)</td><td>GA4 G-2N8LMEL164</td></tr>
+    <tr><td>4. CRM entry</td><td>Deal created in Enquiry stage with lead_source, SKU, event_type</td><td>HubSpot Free</td></tr>
+    <tr><td>5. Bhagya Raju</td><td>Sends quote → moves to Quoted → Confirmed → Delivered</td><td>HubSpot pipeline</td></tr>
+    <tr><td>6. Weekly review</td><td>Count enquiries by source; follow up deals stuck in Quoted &gt;7 days</td><td>15-min CRM habit</td></tr>
+  </table>
+  <p style="font-size:11px;color:#666">IndiaMART records enquiries in their panel. Your site sends them to orders@ — so you can follow up from your normal email and phone, and track in HubSpot.</p>
+
+  <h2>6 · What happens next (Maanvik)</h2>
+
+  <table>
+    <tr><th>#</th><th>Action</th><th>Owner</th><th>Unlocks</th></tr>
+    <tr><td>1</td><td>BR shares current price list + confirms 140 SKUs</td><td>Bhagya Raju</td><td>Real prices on site; AWS deploy</td></tr>
+    <tr><td>2</td><td>Deploy redesign to AWS + DNS cutover</td><td>Sravan</td><td>maanvikhandicrafts.com live</td></tr>
+    <tr><td>3</td><td>GA4 Realtime verify + mark conversions + BR Viewer</td><td>Sravan</td><td>BR sees weekly enquiry data</td></tr>
+    <tr><td>4</td><td>Complete Razorpay KYC (bank docs)</td><td>BR + Sravan</td><td>Online payments Phase 2</td></tr>
+    <tr><td>5</td><td>Google Search Console + GMB (3 branches)</td><td>Sravan</td><td>Local discovery beyond IndiaMART</td></tr>
+  </table>
+
+  <h2>7 · Three paths — what happens next</h2>
+
+  <div class="paths">
+    <div class="path-card">
+      <h3>Path A — Marketplace member</h3>
+      <ul>
+        <li>Keep IndiaMART yearly listing for new buyers</li>
+        <li>Add owned website (Maanvik live preview)</li>
+        <li><strong>Next:</strong> price list → go live on real domain</li>
+        <li>One bulk order covers ₹43,000 build</li>
+      </ul>
+      <p style="font-size:10px;margin:6px 0 0"><a href="Maanvik_ROI_Handout_BR_Telugu.html">→ Telugu handout</a></p>
+    </div>
+    <div class="path-card">
+      <h3>Path B — Maximiser plan active</h3>
+      <ul>
+        <li><strong>Keep Maximiser</strong> (~₹72,000 incl. tax/yr) — no switch today</li>
+        <li><strong>Phase 1 now:</strong> business email, customer tracking, project form</li>
+        <li><strong>Phase 2:</strong> build owned site in parallel</li>
+        <li><strong>Phase 3:</strong> at renewal — MDC + owned site vs renew Maximiser</li>
+      </ul>
+      <p style="font-size:10px;margin:6px 0 0"><a href="Maanvik_Offer_Handout_ASR_English.html">→ Transition handout</a></p>
+    </div>
+    <div class="path-card">
+      <h3>Path C — New business (demo)</h3>
+      <ul>
+        <li>See Maanvik demo today — high level only</li>
+        <li><strong>Book 30-min discovery</strong> — your industry, budget, priorities</li>
+        <li>We quote <strong>only modules you need</strong> — compose, don’t oversell</li>
+        <li>Marketing &amp; content = later add-on</li>
+      </ul>
+      <p style="font-size:10px;margin:6px 0 0"><a href="Maanvik_Intro_Handout_NewSME_English.html">→ Intro handout (fill name before print)</a></p>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="box">
+      <h3>Path B — Transition roadmap (detail)</h3>
+      <table style="margin:0;font-size:10.5px">
+        <tr><th>Phase</th><th>When</th><th>What</th></tr>
+        <tr><td>1 — Start now</td><td>While Maximiser runs</td><td>Discovery workshop · business email · customer tracking · project enquiry form · link from IndiaMART profile</td></tr>
+        <tr><td>2 — Build</td><td>Parallel</td><td>Owned website (Growth package from ₹48,000) · Google Analytics · no forced cutover</td></tr>
+        <tr><td>3 — Renewal</td><td>When plan ends</td><td>Keep marketplace listing · owned site = primary showroom · decide: renew Maximiser or listing-only + your site</td></tr>
+      </table>
+    </div>
+    <div class="box">
+      <h3>Composable modules (long-term model)</h3>
+      <ul>
+        <li><strong>Foundation:</strong> website + forms + email + tracking</li>
+        <li><strong>Add when ready:</strong> online payments, catalogue self-update, search listings</li>
+        <li><strong>Add when ready:</strong> content, photography, social media, ads</li>
+        <li>Each module quoted separately — affordability-first</li>
+        <li>Maanvik = reference implementation of Foundation tier</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>8 · Words we use (glossary)</h2>
+  <div class="glossary">
+    <dl>
+      <dt>IndiaMART listing</dt><dd>Your paid profile on indiamart.com — buyers find you in the marketplace (often ~₹28,000–41,000 per year).</dd>
+      <dt>Maximiser plan</dt><dd>IndiaMART’s higher tier — hosted storefront on their system, ~₹72,000 <strong>including tax</strong> per year.</dd>
+      <dt>Enquiry</dt><dd>When a buyer asks for price, quote, or information — not yet a confirmed order.</dd>
+      <dt>Business email</dt><dd>Professional address on your domain (e.g. orders@maanvikhandicrafts.com), not only Gmail.</dd>
+      <dt>Customer tracking</dt><dd>Recording each enquiry through quote and delivery (we use HubSpot — free tier).</dd>
+      <dt>Google Analytics</dt><dd>Free tool showing how many people visit your site and which buttons they use.</dd>
+      <dt>Owned website</dt><dd>Site on your domain that you keep after paying — not rented from IndiaMART.</dd>
+      <dt>Bulk order</dt><dd>Large institutional order (e.g. college trophies) — often ₹50,000–2,00,000+.</dd>
+      <dt>Discovery call</dt><dd>30-minute session to learn your business before we quote modules.</dd>
+      <dt>Renewal</dt><dd>When your yearly IndiaMART payment comes due again — a decision point for Path B.</dd>
+    </dl>
+  </div>
+
+  <h2>9 · Maanvik summary — live reference</h2>
+
+  <div class="cols">
+    <div class="box">
+      <h3>Maanvik — Path A reference (₹43,000)</h3>
+      <ul>
+        <li><strong>Short term:</strong> Email, forms, customer tracking, analytics, preview site — already built.</li>
+        <li><strong>One order pays back:</strong> A single college/school bulk order typically exceeds ₹43,000.</li>
+        <li><strong>Long term:</strong> Own assets; yearly IndiaMART listing is rent — you never need Maximiser tier.</li>
+        <li>Only blocker: price list → go-live on maanvikhandicrafts.com</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Honest — where IndiaMART still wins</h3>
+      <ul>
+        <li>Built-in marketplace buyers and BuyLeads</li>
+        <li>Trust Seal and supplier badges buyers recognise</li>
+        <li>Call forwarding to your phone</li>
+        <li>Low setup — they maintain listing catalogue</li>
+        <li><strong>Our role:</strong> complement — your showroom for trust and structured enquiry</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    Prepared by Sravan Kumar Sindhe · Digital &amp; Brand Consulting · July 2026<br>
+    Preview: <a href="https://sravanskumar.github.io/maanvik-preview/">github.io/maanvik-preview</a> ·
+    Pricing: docs/consulting/Service_Price_Catalogue.html ·
+    IndiaMART Maximiser ~₹72,000 including tax/year (corporate.indiamart.com)
+  </div>
+
+</div>
+</body>
+</html>

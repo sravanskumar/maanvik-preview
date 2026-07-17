@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SME Digital Setup Playbook — Consultant Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @media print { .no-print { display: none; } body { margin: 0; } .page-break { page-break-before: always; } }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, -apple-system, sans-serif; max-width: 1020px; margin: 32px auto; padding: 0 24px 48px; color: #1a1a1a; line-height: 1.5; background: #fdfcfa; font-size: 13px; }
+  .header { border-bottom: 3px solid #B8860B; padding-bottom: 14px; margin-bottom: 16px; }
+  .header h1 { font-size: 22px; margin: 0 0 4px; }
+  .meta { color: #666; font-size: 12px; }
+  .intro { background: #faf7f0; border-left: 4px solid #B8860B; padding: 12px 16px; margin-bottom: 20px; font-size: 13px; }
+  h2 { font-size: 16px; color: #5a3a18; margin: 24px 0 10px; border-bottom: 2px solid #e8e4dc; padding-bottom: 6px; }
+  h3 { font-size: 14px; margin: 16px 0 8px; color: #333; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 12px; }
+  th, td { border: 1px solid #e0dcd4; padding: 7px 10px; text-align: left; vertical-align: top; }
+  th { background: #f5f0e8; font-weight: 600; color: #5a3a18; }
+  tr:nth-child(even) td { background: #faf7f3; }
+  .chk { width: 28px; text-align: center; }
+  .phase { background: #e8f4f8; border: 2px solid #17a2b8; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+  .phase h3 { margin: 0 0 8px; color: #0c5460; }
+  .warn { background: #fff8e8; border-left: 4px solid #E8A020; padding: 10px 14px; margin: 12px 0; font-size: 12px; }
+  .pitfall { background: #fde8e8; border-left: 4px solid #c0392b; padding: 10px 14px; margin: 12px 0; font-size: 12px; }
+  ul { margin: 6px 0 12px; padding-left: 20px; }
+  li { margin-bottom: 4px; }
+  .client-box { border: 2px dashed #B8860B; border-radius: 10px; padding: 16px; margin: 20px 0; background: #fff; }
+  .client-box input[type="text"] { border: none; border-bottom: 1px solid #ccc; width: 100%; font-size: 13px; padding: 4px 0; background: transparent; }
+  .print-btn { position: fixed; top: 16px; right: 16px; background: #B8860B; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+  .tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #e4f0ee; color: #0f5a44; white-space: nowrap; }
+  .tag-br { background: #fdebd0; color: #7d4e00; }
+  .tag-you { background: #d1ecf1; color: #0c5460; }
+  code { font-size: 11px; background: #f0ece4; padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<div class="header">
+  <h1>SME Digital Setup Playbook</h1>
+  <div class="meta">Standard implementation checklist · India B2B/B2C SMEs · Template by Sravan Kumar Sindhe · v1.0 · July 2026</div>
+</div>
+
+<div class="intro">
+  <strong>Purpose:</strong> Repeatable checklist for setting up a small business like Maanvik — domain email, enquiry pipeline, analytics, website go-live, optional Razorpay. Use one copy per client. Pair with <strong>Service_Price_Catalogue.html</strong> for quoting.
+  <br><strong>Default model:</strong> Enquiry-led (WhatsApp + forms) · Google Workspace · Formspree · HubSpot Free · GA4 · AWS static hosting · Razorpay Phase 2.
+</div>
+
+<!-- CLIENT HEADER -->
+<div class="client-box">
+  <h3 style="margin-top:0">Client record (fill per engagement)</h3>
+  <table style="margin:0">
+    <tr><td width="22%"><strong>Client / business</strong></td><td><input type="text" placeholder="e.g. Maanvik Handicrafts"></td></tr>
+    <tr><td><strong>Domain</strong></td><td><input type="text" placeholder="e.g. maanvikhandicrafts.com"></td></tr>
+    <tr><td><strong>Owner name</strong></td><td><input type="text" placeholder="Legal name for KYC"></td></tr>
+    <tr><td><strong>Owner mobile</strong></td><td><input type="text" placeholder="For OTP / verification calls"></td></tr>
+    <tr><td><strong>Engagement start</strong></td><td><input type="text" placeholder="Date"></td></tr>
+    <tr><td><strong>Package sold</strong></td><td><input type="text" placeholder="Essential / Growth / Commerce — see catalogue"></td></tr>
+  </table>
+</div>
+
+<h2>Phase 0 — Discovery (before any setup)</h2>
+<p>Send via WhatsApp. Do not choose tools until 6/7 questions answered.</p>
+<table>
+  <tr><th class="chk">✓</th><th>#</th><th>Question</th><th>Why</th><th>Owner</th></tr>
+  <tr><td class="chk"></td><td>1</td><td>Who updates prices — owner or staff?</td><td>CMS path (Sheets vs heavy CMS)</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>2</td><td>Comfort with Excel/Sheets (1–5)?</td><td>Sheets vs Decap/Airtable</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>3</td><td>How often do prices change?</td><td>CMS complexity</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>4</td><td>Fixed price vs price-on-request split?</td><td>Checkout scope</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>5</td><td>How are enquiries tracked today?</td><td>WA vs forms vs CRM</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>6</td><td>Monthly budget for digital tools?</td><td>Workspace vs paid SaaS</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>7</td><td>Payments — Razorpay started?</td><td>Phase 2 gate</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>8</td><td>AWS/hosting login available?</td><td>Deploy path</td><td><span class="tag tag-you">You</span></td></tr>
+  <tr><td class="chk"></td><td>9</td><td>Current price list + product photos?</td><td>Go-live blocker</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>10</td><td>GST / Udyam / bank docs for Razorpay?</td><td>KYC</td><td><span class="tag tag-br">Client</span></td></tr>
+</table>
+
+<h2>Phase 1 — Foundation (identity &amp; hosting)</h2>
+<div class="phase">
+  <h3>1A · AWS &amp; DNS access</h3>
+  <table>
+    <tr><th class="chk">✓</th><th>Task</th><th>Notes</th></tr>
+    <tr><td class="chk"></td><td>Enable MFA on AWS root / IAM</td><td>Document account ID; defer recovery contacts if needed</td></tr>
+    <tr><td class="chk"></td><td>Export Route 53 record snapshot</td><td>Before changing MX</td></tr>
+    <tr><td class="chk"></td><td>Inventory S3 / CloudFront / certs</td><td>Prefer S3+CF for static sites</td></tr>
+  </table>
+</div>
+<div class="phase">
+  <h3>1B · Google Workspace + email allocation</h3>
+  <table>
+    <tr><th class="chk">✓</th><th>Task</th><th>Standard pattern</th></tr>
+    <tr><td class="chk"></td><td>Workspace signup — primary domain</td><td>1 user licence to start</td></tr>
+    <tr><td class="chk"></td><td>Route 53 TXT — domain verification</td><td>google-site-verification=…</td></tr>
+    <tr><td class="chk"></td><td>MX record</td><td><code>1 SMTP.GOOGLE.COM</code> (new Google format)</td></tr>
+    <tr><td class="chk"></td><td>SPF — second line in existing root TXT</td><td><code>v=spf1 include:_spf.google.com ~all</code></td></tr>
+    <tr><td class="chk"></td><td>DKIM — <code>google._domainkey</code></td><td>Use <strong>1024-bit</strong> if 2048 fails (Route 53 length limit)</td></tr>
+    <tr><td class="chk"></td><td>Primary login: <code>firstname@</code> or <code>owner@</code></td><td>SaaS signups here — aliases miss verify mail</td></tr>
+    <tr><td class="chk"></td><td>Public display: <code>firstname.lastname@</code></td><td>Site, cards, GMB</td></tr>
+    <tr><td class="chk"></td><td>Operational: <code>orders@</code> as <strong>user alias</strong></td><td>Not Google Group — blocks external mail</td></tr>
+    <tr><td class="chk"></td><td>Short alias: <code>first@</code> optional</td><td>Verbal sharing</td></tr>
+    <tr><td class="chk"></td><td>Test send/receive + Formspree test mail</td><td>Spam check</td></tr>
+  </table>
+</div>
+
+<div class="pitfall">
+  <strong>Common pitfalls:</strong> orders@ as Google Group · Formspree verify on alias not primary · duplicate TXT for SPF · DKIM 2048 CharacterStringTooLong · personal Gmail on public site.
+</div>
+
+<h2>Phase 2 — Lead capture (enquiry pipeline)</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Task</th><th>Tool</th><th>Deliverable</th></tr>
+  <tr><td class="chk"></td><td>Contact form → notifications</td><td>Formspree</td><td>Endpoint ID in <code>index.html</code></td></tr>
+  <tr><td class="chk"></td><td>Bulk / quote form → notifications</td><td>Formspree</td><td>2nd endpoint; same account</td></tr>
+  <tr><td class="chk"></td><td>Formspree account on primary email</td><td>Formspree</td><td>Notify → orders@</td></tr>
+  <tr><td class="chk"></td><td>E2E test (localhost + success message)</td><td>—</td><td>Screenshot for client file</td></tr>
+  <tr><td class="chk"></td><td>WhatsApp CTA + catalogue Enquire pre-fill</td><td>wa.me / wa.link</td><td>SKU + size in message</td></tr>
+  <tr><td class="chk"></td><td>HubSpot Free + Gmail connect</td><td>HubSpot</td><td>5–7 stage pipeline</td></tr>
+  <tr><td class="chk"></td><td>Disconnect accidental HubSpot integrations</td><td>HubSpot</td><td>Outlook, WordPress, etc.</td></tr>
+  <tr><td class="chk"></td><td>CRM properties: qty, event date, customer type</td><td>HubSpot</td><td>Match form fields</td></tr>
+</table>
+
+<h2>Phase 3 — Measurement</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Task</th><th>Notes</th></tr>
+  <tr><td class="chk"></td><td>GA4 property — IST, INR, web stream</td><td>Account on primary Workspace email</td></tr>
+  <tr><td class="chk"></td><td>Base tag in all HTML pages</td><td>First script in <code>&lt;head&gt;</code></td></tr>
+  <tr><td class="chk"></td><td>Conversion events: whatsapp_click, phone_click, form_submit, bulk_enquiry_submit, product_enquiry</td><td>Shared <code>ga4.js</code> pattern</td></tr>
+  <tr><td class="chk"></td><td>Realtime test after deploy</td><td>Not localhost for production stream</td></tr>
+  <tr><td class="chk"></td><td>Mark conversions + internal traffic filter</td><td>Client IP excluded</td></tr>
+  <tr><td class="chk"></td><td>Add client as GA4 Viewer</td><td>Professional email</td></tr>
+  <tr><td class="chk"></td><td>Search Console — after cutover</td><td>DNS verify + sitemap</td></tr>
+</table>
+
+<h2>Phase 4 — Website &amp; catalogue</h2>
+<div class="warn">
+  <strong>Go-live gate:</strong> No deploy until client validates price list and product names. Never ship fabricated catalogue labels or unverified prices.
+</div>
+<table>
+  <tr><th class="chk">✓</th><th>Task</th><th>Owner</th></tr>
+  <tr><td class="chk"></td><td>Redesign / build static site (HTML/CSS/JS)</td><td><span class="tag tag-you">You</span></td></tr>
+  <tr><td class="chk"></td><td>Real SKU codes + photos in <code>data.js</code></td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>Replace placeholder prices (₹666 etc.) → real or POA</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>Homepage featured products = real SKUs only</td><td><span class="tag tag-you">You</span></td></tr>
+  <tr><td class="chk"></td><td>B2B copy: Enquire / Request Quote — no fake checkout</td><td><span class="tag tag-you">You</span></td></tr>
+  <tr><td class="chk"></td><td>Client sign-off on catalogue (written OK)</td><td><span class="tag tag-br">Client</span></td></tr>
+  <tr><td class="chk"></td><td>Compress images / WebP optional</td><td><span class="tag tag-you">You</span></td></tr>
+</table>
+
+<h2>Phase 5 — Go-live (deploy &amp; cutover)</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Task</th><th>Notes</th></tr>
+  <tr><td class="chk"></td><td>Deploy to S3 + CloudFront</td><td>Smoke test staging URL</td></tr>
+  <tr><td class="chk"></td><td>Lower DNS TTL 24h before cutover</td><td></td></tr>
+  <tr><td class="chk"></td><td>Update A/CNAME — preserve MX/SPF/DKIM</td><td>Email must stay live</td></tr>
+  <tr><td class="chk"></td><td>Post-cutover: forms, WA, GA4 Realtime</td><td>48h monitoring</td></tr>
+  <tr><td class="chk"></td><td>Client progress one-pager (optional Telugu)</td><td>Template: Maanvik update HTML</td></tr>
+</table>
+
+<h2>Phase 6 — Payments (optional · Phase 2)</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Task</th><th>Notes</th></tr>
+  <tr><td class="chk"></td><td>Razorpay — Google signup primary email</td><td></td></tr>
+  <tr><td class="chk"></td><td>Business type: match GST (usually Sole Proprietorship)</td><td></td></tr>
+  <tr><td class="chk"></td><td>Accept on: Website + WhatsApp/SMS/Email</td><td></td></tr>
+  <tr><td class="chk"></td><td>GSTIN + GST REG-06 PDF</td><td></td></tr>
+  <tr><td class="chk"></td><td>Udyam or SEC (not IEC unless export)</td><td>udyamregistration.gov.in</td></tr>
+  <tr><td class="chk"></td><td>Bank proof + notification email orders@</td><td></td></tr>
+  <tr><td class="chk"></td><td>10–20 checkout SKUs with fixed prices</td><td>Client list</td></tr>
+  <tr><td class="chk"></td><td>Payment Links or embedded checkout</td><td>After KYC live</td></tr>
+</table>
+
+<h2>Phase 7 — Growth (optional · later)</h2>
+<ul>
+  <li>Google My Business — 1–3 locations</li>
+  <li>WhatsApp Business — catalogue, welcome message, quick replies</li>
+  <li>Google Sheets → data.js sync for catalogue CMS</li>
+  <li>Click-to-WhatsApp ads (only after WA Business complete)</li>
+</ul>
+
+<h2>Per-client artefact folder</h2>
+<p>Create <code>clients/&lt;name&gt;/</code> or <code>docs/artefacts/&lt;name&gt;/</code>:</p>
+<ul>
+  <li>Discovery answers (markdown or sheet)</li>
+  <li>GST / Udyam PDFs (never commit secrets to public git)</li>
+  <li>Formspree + GA4 IDs in README or private vault</li>
+  <li>Progress update HTML for client meetings</li>
+  <li>Signed catalogue approval (WhatsApp screenshot OK)</li>
+</ul>
+
+<h2>Recommended sequence (copy per client)</h2>
+<pre style="background:#f7f5f0;padding:12px;border-radius:8px;font-size:11px;overflow-x:auto">
+Discovery → AWS MFA → Workspace + DNS → orders@ alias → Formspree E2E → HubSpot
+→ GA4 tag in HTML → [CLIENT: price list] → catalogue QA → Deploy → Cutover
+→ GA4 Realtime + GSC → [optional] Razorpay KYC → checkout SKUs
+</pre>
+
+<div class="footer" style="margin-top:24px;border-top:1px solid #e0dcd4;padding-top:12px;font-size:11px;color:#888">
+  Companion doc: <strong>Service_Price_Catalogue.html</strong> · Reference implementation: Maanvik (maanvikhandicrafts.com) · v1.0
+</div>
+
+</body>
+</html>

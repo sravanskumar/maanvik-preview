@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<title>మాన్విక్ — ROI హ్యాండ్అవుట్ · భగ్య రాజు గారికి</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @media print {
+    .no-print { display: none; }
+    body { margin: 0; padding: 10mm 12mm; }
+    .sheet { box-shadow: none; max-width: none; padding: 0; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans Telugu", sans-serif;
+    background: #f4f2ee; color: #1a1a1a; margin: 0; padding: 16px;
+    line-height: 1.45; font-size: 11pt;
+  }
+  .sheet {
+    max-width: 210mm; margin: 0 auto; background: #fdfcfa;
+    padding: 14mm 16mm; box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  }
+  .header { border-bottom: 3px solid #B8860B; padding-bottom: 8px; margin-bottom: 10px; }
+  h1 { font-size: 17pt; margin: 0 0 4px; color: #1a1a1a; }
+  .sub { font-size: 9.5pt; color: #666; }
+  .lead {
+    background: #0E0E10; color: #f5f0e8; border-radius: 8px;
+    padding: 10px 12px; margin: 10px 0; font-size: 11pt; font-weight: 600;
+  }
+  .lead em { color: #D4AF37; font-style: normal; }
+  h2 { font-size: 11pt; color: #5a3a18; margin: 10px 0 5px; border-bottom: 1px solid #e8e4dc; padding-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 6px 0; }
+  th, td { border: 1px solid #e0dcd4; padding: 4px 7px; text-align: left; vertical-align: top; }
+  th { background: #f5f0e8; }
+  .green { color: #155724; font-weight: 700; }
+  .blue { color: #18468a; font-weight: 600; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+  .box { border: 1px solid #e8e4dc; border-radius: 6px; padding: 8px 10px; font-size: 9.5pt; }
+  .box h3 { margin: 0 0 5px; font-size: 10pt; color: #5a3a18; }
+  .box ul { margin: 0; padding-left: 16px; }
+  .box li { margin-bottom: 2px; }
+  .roi-box {
+    background: #d4edda; border: 2px solid #155724; border-radius: 8px;
+    padding: 10px 12px; margin: 8px 0; font-size: 10pt;
+  }
+  .roi-box .num { font-size: 16pt; font-weight: 700; color: #155724; }
+  .honest {
+    background: #fff8e8; border-left: 4px solid #E8A020;
+    padding: 8px 10px; font-size: 9.5pt; margin: 8px 0;
+  }
+  .footer { margin-top: 10px; font-size: 8.5pt; color: #888; border-top: 1px solid #e0dcd4; padding-top: 8px; }
+  .print-btn {
+    position: fixed; top: 12px; right: 12px; background: #B8860B; color: #fff;
+    border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-family: inherit;
+  }
+  .en { font-size: 8.5pt; color: #666; font-family: Inter, sans-serif; }
+  .usp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0; }
+  .usp { border: 1px solid #B8860B; border-radius: 6px; padding: 6px 8px; font-size: 9pt; background: #fff; }
+  .usp strong { display: block; font-size: 9.5pt; color: #5a3a18; margin-bottom: 2px; }
+  .usp span { color: #444; }
+  .decide { background: #f0f4f8; border: 1px solid #4a6fa5; border-radius: 6px; padding: 8px 10px; font-size: 9pt; margin: 8px 0; }
+  .decide table { font-size: 8.5pt; margin: 4px 0 0; }
+  .decide .roi-line { margin: 6px 0 0; padding-top: 6px; border-top: 1px solid #c5d4e8; font-size: 8.5pt; }
+  .yn { text-align: center; font-weight: 700; width: 42px; }
+  .yn-yes { color: #155724; }
+  .yn-no { color: #8b4513; }
+  .yn-partial { color: #18468a; }
+  .analogy { background: #faf7f0; border: 1px solid #e8d4a0; border-radius: 6px; padding: 8px 10px; font-size: 9pt; margin: 8px 0; }
+  .analogy table { font-size: 8.5pt; margin: 4px 0 0; }
+  .killer-q {
+    background: #1a1a1a; color: #f5f0e8; border-left: 4px solid #D4AF37;
+    border-radius: 6px; padding: 8px 10px; margin: 8px 0; font-size: 9.5pt;
+  }
+  .killer-q .q { font-weight: 700; color: #fff; margin: 0 0 5px; line-height: 1.4; }
+  .killer-q .a { margin: 0; font-size: 8.5pt; color: #d4cfc4; }
+  .killer-q .a strong { color: #D4AF37; }
+  .killer-q ol { margin: 5px 0 0; padding-left: 18px; font-size: 8.5pt; }
+  .killer-q li { margin-bottom: 4px; line-height: 1.35; }
+  .killer-q li strong { color: #fff; }
+  .scope-now { background: #d4edda; border: 1px solid #155724; border-radius: 6px; padding: 8px 10px; font-size: 9pt; margin: 8px 0; }
+  .scope-later { background: #f8f9fa; border: 1px solid #ccc; border-radius: 6px; padding: 8px 10px; font-size: 9pt; margin: 8px 0; }
+  .glossary { font-size: 8.5pt; margin-top: 10px; border-top: 1px solid #e0dcd4; padding-top: 8px; }
+  .glossary dl { display: grid; grid-template-columns: 130px 1fr; gap: 3px 8px; margin: 6px 0 0; }
+  .glossary dt { font-weight: 600; color: #5a3a18; }
+  .glossary dd { margin: 0; color: #444; }
+  .page-break { page-break-before: always; }
+  .client-box {
+    background: #faf7f0; border: 2px solid #B8860B; border-radius: 8px;
+    padding: 10px 12px; margin: 10px 0; font-size: 10pt;
+  }
+  .client-box .path-label {
+    font-size: 8.5pt; font-weight: 700; color: #B8860B; text-transform: uppercase;
+    letter-spacing: 0.4px; margin-bottom: 4px;
+  }
+  .client-box .for-name { font-size: 11pt; font-weight: 700; color: #1a1a1a; margin: 0 0 2px; }
+  .client-box .biz { font-size: 9.5pt; color: #5a3a18; margin: 0 0 8px; }
+  .client-box .next-step {
+    background: #fff; border-radius: 6px; padding: 8px 10px; font-size: 9.5pt;
+    border: 1px solid #e8d4a0;
+  }
+  .client-box .next-step strong { color: #5a3a18; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">PDF గా సేవ్ చేయండి</button>
+
+<div class="sheet">
+
+  <div class="header">
+    <h1>మాన్విక్ హ్యాండిక్రాఫ్ట్స్ — ₹43,000 ఫీజుకు నిజమైన లాభం</h1>
+    <div class="sub">భగ్య రాజు గుర్రం గారికి · జులై 2026 · స్రవణ్ కుమార్ సింధే</div>
+  </div>
+
+  <div class="client-box">
+    <div class="path-label">Path A — ఇండియామార్ట్ లిస్టింగ్ + మీ స్వంత వెబ్‌సైట్</div>
+    <p class="for-name">భగ్య రాజు గుర్రం గారికి</p>
+    <p class="biz">మాన్విక్ హ్యాండిక్రాఫ్ట్స్ · @maanvikhandicrafts.com</p>
+    <div class="next-step">
+      <strong>మీ తదుపరి అడుగు:</strong> ప్రస్తుత ధరా జాబితా ఇవ్వండి → కేటలాగ్ అప్‌డేట్ → maanvikhandicrafts.com లో లైవ్.<br>
+      <span style="font-size:9pt;color:#555">ఇప్పటికే సిద్ధం: వ్యాపార ఇమెయిల్, ఫారమ్‌లు, కస్టమర్ ట్రాకింగ్, ప్రివ్యూ సైట్.</span>
+    </div>
+  </div>
+
+  <div class="lead">
+    నాలుగు కారణాలు — ఇండియామార్ట్ ఇవి ఇవ్వదు. ₹43,000 ఒకేసారి. ఇండియామార్ట్ ఉంచండి (కొత్త కస్టమర్లు) + మా వెబ్‌సైట్ (అభ్యర్థన మీకు) = ఉత్తమ ఫలితం. మార్కెటింగ్ / కంటెంట్ — తర్వాత విడిగా (అదనపు ఫీజు).
+  </div>
+
+  <div class="usp-grid">
+    <div class="usp"><strong>1. అభ్యర్థన మీ ఇమెయిల్ / WhatsApp కు</strong><span>ఫారమ్ → orders@ · HubSpot. ఇండియామార్ట్ యాప్ లో మాత్రమే కాదు.</span></div>
+    <div class="usp"><strong>2. మీ వ్యాపారానికి సరిపడే ఫారమ్</strong><span>ఈవెంట్ రకం, పరిమాణం, డెలివరీ తేదీ — ఒక్క పెట్టె మాత్రమే కాదు.</span></div>
+    <div class="usp"><strong>3. మీ బ్రాండ్ మాత్రమే</strong><span>పక్కన కాంపిటీటర్లు లేరు. GST, ఉద్యమ్, testimonials — మీ వెబ్‌సైట్‌పై.</span></div>
+    <div class="usp"><strong>4. ఒకేసారి చెల్లింపు · మీ సంపత్తి</strong><span>₹43k vs ₹33k+/<strong>సంవత్సరం</strong> ఇండియామార్ట్. GA4 — ఏ ఉత్పత్తికి అభ్యర్థన వస్తుందో చూడొచ్చు.</span></div>
+  </div>
+
+  <div class="analogy">
+    <strong>సరళంగా చెప్పాలంటే — మాల్ vs మీ షోరూం</strong>
+    <table>
+      <tr><th>ఇండియామార్ట్</th><th>మీ వెబ్‌సైట్</th></tr>
+      <tr><td>మాల్ లో దుకాణం — పక్కన కాంపిటీటర్లు</td><td>మీ స్వంత షోరూం — మీ బ్రాండ్ మాత్రమే</td></tr>
+      <tr><td>అభ్యర్థన ఇండియామార్ట్ యాప్ లో నమోదు</td><td>అభ్యర్థన <strong>orders@</strong> + <strong>మీ WhatsApp</strong> కు</td></tr>
+      <tr><td>చందా ఆగితే లిస్టింగ్ ముగుస్తుంది</td><td>మీ ఇమెయిల్, CRM రికార్డులు మీ వద్దే ఉంటాయి</td></tr>
+    </table>
+    <p style="margin:6px 0 0;font-size:8.5pt"><strong>“అభ్యర్థన మీది”</strong> అంటే — కస్టమర్ సందేశం మీ ఇన్‌బాక్స్ / ఫోన్‌లో ఉండటం. ప్లాట్‌ఫారమ్ లో మాత్రమే కాదు.</p>
+  </div>
+
+  <div class="killer-q">
+    <p class="q" style="margin-bottom:4px">ముందుగా ఈ మూడు ప్రశ్నలు — ఒక్కొక్కటి ఆలోచించండి:</p>
+    <ol>
+      <li><strong>ఇండియామార్ట్ చందా రేపే ఆగితే — గత సంవత్సరం అభ్యర్థన చేసిన వాళ్ళందరికీ ఫోన్ చేయగలరా?</strong></li>
+      <li><strong>రాత్రి 11 గంటలకు ఎవరో ఫారమ్ పూరిస్తే — రేపు ఉదయం మీ Gmail లో కనిపిస్తుందా?</strong></li>
+      <li><strong>కాలేజీ అధికారి మీ పేజీ చూసినప్పుడు మాత్రమే మాన్విక్ కనిపిస్తుందా — పక్కన కాంపిటీటర్లు లేదా?</strong></li>
+    </ol>
+  </div>
+
+  <div class="decide">
+    <strong>నిర్ణయ మాతృక — అన్నీ “ఆలోచింపజేసే” ప్రశ్నలు</strong>
+    <p style="margin:4px 0 6px;font-size:8.5pt">ఫీచర్ లిస్ట్ కాదు — మనసులో జవాబు ఇవ్వండి. ఇండియామార్ట్ <strong>లేదు</strong> + మా వైపు <strong>అవును</strong> — 3 సార్లు అయితే → మా సేవలు పెట్టుబడికి అర్హం.</p>
+    <table>
+      <tr><th>మీరే అడగండి</th><th class="yn">ఇండియామార్ట్</th><th class="yn">మేము</th><th>ఉదాహరణ</th></tr>
+      <tr><td><strong>చందా రేపే ఆగితే, గత సంవత్సరం అభ్యర్థన చేసిన వాళ్ళందరికీ ఫోన్ చేయగలరా?</strong></td><td class="yn yn-no">లేదు</td><td class="yn yn-yes">అవును</td><td>HubSpot + orders@ — మీ లిస్ట్, మీ ఫోన్</td></tr>
+      <tr><td><strong>రాత్రి 11 గంటలకు అభ్యర్థన — రేపు ఉదయం మీ Gmail లో కనిపిస్తుందా?</strong></td><td class="yn yn-no">లేదు</td><td class="yn yn-yes">అవును</td><td>ఫారమ్ → orders@ · మీ ఫోన్‌లోనే అలర్ట్</td></tr>
+      <tr><td><strong>ఇండియామార్ట్ ఉంచి, వారు వెబ్‌సైట్ చేయకుండా కొత్త బయ్యర్లు వస్తారా?</strong></td><td class="yn yn-partial">అవును*</td><td class="yn yn-yes">అవును</td><td>*MDC మాత్రమే — మాక్సిమైజర్ అవసరం లేదు</td></tr>
+      <tr><td><strong>కస్టమర్ ఈవెంట్, పరిమాణం, డెలివరీ తేదీ చెప్పగలరా — ఒక్క పెట్టె మాత్రమే?</strong></td><td class="yn yn-no">లేదు</td><td class="yn yn-yes">అవును</td><td>కాలేజీకి 500 ట్రోఫీలు + డెలివరీ తేదీ</td></tr>
+      <tr><td><strong>కాలేజీ అధికారికి మాత్రమే మాన్విక్ కనిపిస్తుందా — పక్కన కాంపిటీటర్లు లేదా?</strong></td><td class="yn yn-no">లేదు</td><td class="yn yn-yes">అవును</td><td>మీ వెబ్‌సైట్‌పై GST, testimonials — మాత్రమే మీ బ్రాండ్</td></tr>
+      <tr><td><strong>3 సంవత్సరాల తర్వాత చెల్లింపు ఆగితే, వెబ్‌సైట్ + అభ్యర్థనల లిస్ట్ మీదే ఉంటాయా?</strong></td><td class="yn yn-no">లేదు</td><td class="yn yn-yes">అవును</td><td>₹43k ఒకేసారి vs ₹33k+/<strong>ప్రతి సంవత్సరం</strong></td></tr>
+      <tr><td><strong>ఒక నెల తర్వాత ఏ ట్రోఫీకి ఎక్కువ అభ్యర్థన వచ్చిందో తెలుసుకోగలరా?</strong></td><td class="yn yn-no">లేదు</td><td class="yn yn-yes">అవును</td><td>GA4 — ఏ ఉత్పత్తి / బటన్ పని చేస్తుందో చూడొచ్చు</td></tr>
+      <tr><td><strong>మార్కెట్‌లో కొత్త బయ్యర్లు, BuyLeads అవసరమా?</strong></td><td class="yn yn-yes">అవును</td><td class="yn yn-no">లేదు</td><td><em>ఇండియామార్ట్ ఉంచండి</em> — మేము పూర్తి బదులు కాదు</td></tr>
+    </table>
+    <div class="roi-line">
+      <strong>మా వైపు 3+ “అవును” →</strong> ఒక కాలేజీ/స్కూల్ <strong>బల్క్ ఆర్డర్</strong> (₹50,000–₹2,00,000+) తో <strong>₹43,000</strong> పూర్తిగా తిరిగి వస్తుంది. ఇండియామార్ట్ లిస్టింగ్ ఉంచండి + మా వెబ్‌సైట్.
+    </div>
+  </div>
+
+  <div class="scope-now">
+    <strong>ఇప్పుడు ప్యాకేజ్ లో (వెబ్‌సైట్)</strong>
+    <ul style="margin:4px 0 0;padding-left:16px;font-size:9pt">
+      <li>కొత్త వెబ్‌సైట్ + కేటలాగ్ + అభ్యర్థన ఫారమ్‌లు</li>
+      <li>వ్యాపార ఇమెయిల్ + కస్టమర్ ట్రాకింగ్ (HubSpot)</li>
+      <li>విజిటర్ లెక్కింపు (Google Analytics)</li>
+      <li>హోస్టింగ్ + లైవ్ చేయడం</li>
+    </ul>
+  </div>
+  <div class="scope-later">
+    <strong>తర్వాత — విడిగా కోట్ (మార్కెటింగ్)</strong>
+    <ul style="margin:4px 0 0;padding-left:16px;font-size:9pt">
+      <li>ఫోటోలు, ఉత్పత్తి వివరణలు</li>
+      <li>సోషల్ మీడియా, ప్రకటనలు</li>
+      <li>Google Business Profile</li>
+    </ul>
+  </div>
+
+  <h2>చిన్న గణితం — ఎందుకు ఇది సరైన ధర?</h2>
+  <table>
+    <tr><th></th><th>ఇండియామార్ట్ లిస్టింగ్</th><th>మీ కొత్త డిజిటల్ సెటప్</th></tr>
+    <tr><td>సంవత్సరం 1</td><td>≈ ₹33,000 – ₹41,000 <span class="en">(ప్రతి సంవత్సరం)</span></td><td class="green"><strong>₹43,000 ఒకేసారి</strong></td></tr>
+    <tr><td>3 సంవత్సరాలు</td><td>≈ ₹99,000 – ₹1,24,000</td><td class="green"><strong>≈ ₹70,000</strong> <span class="en">(₹43k + Workspace)</span></td></tr>
+    <tr><td>చెల్లించిన తర్వాత మీది</td><td>రిన్యూ చేయకపోతే ఆగిపోతుంది</td><td class="green">వెబ్‌సైట్, CRM, ట్రాకింగ్ — <strong>మీ సంపత్తి</strong></td></tr>
+  </table>
+
+  <div class="roi-box">
+    <strong>ఒక ఆర్డర్ తోనే తిరిగి వస్తుంది:</strong> ఒక కాలేజీ/స్కూల్ బల్క్ ఆర్డర్ సాధారణంగా ₹50,000 – ₹2,00,000+. <span class="num">₹43,000</span> ఫీజు = ఒక మధ్యస్థ ఆర్డర్ లాభంలో చిన్న భాగం మాత్రమే. కొత్త వెబ్‌సైట్ + CRM వల్ల <strong>ఒక అదనపు అభ్యర్థన ఆర్డర్ అయితే</strong> చాలు — త్వరలోనే లాభం కనిపిస్తుంది.
+  </div>
+
+  <div class="cols">
+    <div class="box">
+      <h3>తక్షణ లాభం (ఇప్పుడే)</h3>
+      <ul>
+        <li>వ్యాపార ఇమెయిల్ @maanvikhandicrafts.com</li>
+        <li>అభ్యర్థన ఫారమ్‌లు → orders@ ఇన్‌బాక్స్</li>
+        <li>HubSpot CRM — అభ్యర్థన నుంచి డెలివరీ వరకు</li>
+        <li>GA4 — ఏ బటన్ / ఉత్పత్తికి అభ్యర్థన వస్తుందో చూడొచ్చు</li>
+        <li>కొత్త ప్రీమియం వెబ్‌సైట్ ప్రివ్యూ సిద్ధం</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>దీర్ఘకాలిక లాభం (3–5 సంవత్సరాలు)</h3>
+      <ul>
+        <li>ఇండియామార్ట్‌కు ₹33k+/<strong>సంవత్సరం</strong> కాకుండా ఒకేసారి చెల్లింపు</li>
+        <li>ధరలు మీరే అప్‌డేట్ — Google Sheet గైడ్ (2–3 సార్లు/సంవత్సరం)</li>
+        <li>500+ institutions నమ్మకం — మీ వెబ్‌సైట్‌పై testimonials</li>
+        <li>రేజర్‌పే మార్గం సిద్ధం — ఆన్‌లైన్ పేమెంట్ Phase 2</li>
+        <li>మీ డేటా మీది — ప్లాట్‌ఫారమ్ డాష్‌బోర్డ్ కాదు</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="honest">
+    <strong>నిజాయితీగా — ఇండియామార్ట్ ఇంకా మంచిది ఎక్కడ?</strong>
+    కొత్త బయ్యర్లు, BuyLeads, Trust Seal, కాల్ ఫార్వార్డింగ్. <strong>మా సలహా:</strong> ఇండియామార్ట్ ఉంచండి — కనిపించడానికి (మాల్). మా వెబ్‌సైట్ ఉంచండి — అభ్యర్థన మీ ఇమెయిల్ / WhatsApp కు (మీ షోరూం). రెండూ కలిసి పని చేస్తాయి — విరుద్ధం కాదు.
+  </div>
+
+  <h2>మీరు ₹43,000 కోసం ఏమి పొందారు?</h2>
+  <table>
+    <tr><th>ప్యాకేజీ</th><th>ఏమి ఉంది</th><th>మొత్తం</th></tr>
+    <tr><td>కొత్త వెబ్‌సైట్</td><td>140 ఉత్పత్తుల కేటలాగ్, WhatsApp, బల్క్ ఫారమ్, కోట్ ఫారమ్</td><td>₹25,000</td></tr>
+    <tr><td>వ్యాపార వ్యవస్థ</td><td>ఇమెయిల్, DNS, Formspree, HubSpot, GA4, AWS, డాక్యుమెంటేషన్</td><td>₹15,000</td></tr>
+    <tr><td>రేజర్‌పే</td><td>KYC సహాయం (ప్రగతిలో)</td><td>₹3,000</td></tr>
+    <tr><th colspan="2">కనీస మొత్తం</th><th class="green">₹43,000</th></tr>
+  </table>
+  <p style="font-size:9pt;color:#666;margin:4px 0 0">నెలవారీ: Google Workspace ~₹750/నెల మాత్రమే. HubSpot, Formspree, Analytics — ఉచితం.</p>
+
+  <h2>మీ నుంచి ఒక్కటి — తర్వాత లైవ్</h2>
+  <p style="margin:4px 0;font-size:10pt"><strong>ప్రస్తుత ధరా జాబితా</strong> (ఏ ఫార్మాట్ అయినా) ఇచ్చిన తర్వాత మాత్రమే కేటలాగ్ + లైవ్. ఇదే ఏకైక ఆలస్యం.</p>
+
+  <p style="margin:8px 0 0;font-size:10pt">
+    <strong>ప్రివ్యూ:</strong> <span class="en">sravanskumar.github.io/maanvik-preview</span><br>
+    <strong>ప్రశ్నలు?</strong> స్రవణ్ గారిని WhatsApp లేదా కాల్ చేయండి
+  </p>
+
+  <div class="footer">
+    స్రవణ్ కుమార్ సింధే · డిజిటల్ &amp; బ్రాండ్ కన్సల్టింగ్ · జులై 2026<br>
+    <span class="en">Path A — marketplace listing + owned site. Marketing = later add-on. See glossary below.</span>
+  </div>
+
+</div>
+
+<div class="sheet page-break" style="max-width:210mm;margin:12px auto;background:#fdfcfa;padding:14mm 16mm;box-shadow:0 2px 10px rgba(0,0,0,.08)">
+
+  <h2 style="font-size:11pt;color:#5a3a18;margin:0 0 6px;border-bottom:1px solid #e8e4dc;padding-bottom:3px">పదాలు మనం ఉపయోగిస్తాం (నిఘంటువు)</h2>
+  <div class="glossary">
+    <dl>
+      <dt>ఇండియామార్ట్ లిస్టింగ్</dt><dd>indiamart.com లో మీ చెల్లింపు ప్రొఫైల్ — కొత్త బయ్యర్లు మిమ్మల్ని వెతుకుతారు (సాధారణంగా ~₹33,000–41,000/సంవత్సరం).</dd>
+      <dt>అభ్యర్థన</dt><dd>కస్టమర్ ధర / కోట్ అడిగినది — ఇంకా నిర్ధారిత ఆర్డర్ కాదు.</dd>
+      <dt>వ్యాపార ఇమెయిల్</dt><dd>orders@maanvikhandicrafts.com లాంటి ప్రొఫెషనల్ అడ్రస్.</dd>
+      <dt>కస్టమర్ ట్రాకింగ్</dt><dd>అభ్యర్థన నుంచి డెలివరీ వరకు చూడడం (HubSpot).</dd>
+      <dt>Google Analytics</dt><dd>మీ సైట్‌కు ఎంత మంది వస్తారో, ఏ బటన్ నొక్కారో చూపే ఉచిత సాధనం.</dd>
+      <dt>మీ స్వంత వెబ్‌సైట్</dt><dd>మీ డొమైన్ పై — ఒకేసారి చెల్లించిన తర్వాత మీ సంపత్తి.</dd>
+      <dt>బల్క్ ఆర్డర్</dt><dd>కాలేజీ/స్కూల్ పెద్ద ఆర్డర్ — తరచుగా ₹50,000–2,00,000+.</dd>
+    </dl>
+  </div>
+  <p style="font-size:8.5pt;color:#888;margin-top:8px">PDF ప్రింట్ — పేజీ 2 నిఘంటువు కోసం.</p>
+
+</div>
+</body>
+</html>

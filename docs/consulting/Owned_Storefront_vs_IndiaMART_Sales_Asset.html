@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Owned Storefront vs IndiaMART — Sales Asset (Draft)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @media print { .no-print { display: none; } body { margin: 0; } }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, -apple-system, sans-serif; max-width: 1020px; margin: 32px auto; padding: 0 24px 48px; color: #1a1a1a; line-height: 1.55; background: #fdfcfa; font-size: 13px; }
+  .header { border-bottom: 3px solid #B8860B; padding-bottom: 14px; margin-bottom: 16px; }
+  .header h1 { font-size: 22px; margin: 0 0 4px; }
+  .meta { color: #666; font-size: 12px; }
+  .intro { background: #faf7f0; border-left: 4px solid #B8860B; padding: 12px 16px; margin-bottom: 20px; }
+  h2 { font-size: 16px; color: #5a3a18; margin: 24px 0 10px; border-bottom: 2px solid #e8e4dc; padding-bottom: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 12px; }
+  th, td { border: 1px solid #e0dcd4; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f5f0e8; font-weight: 600; color: #5a3a18; }
+  tr:nth-child(even) td { background: #faf7f3; }
+  .win { color: #0F6E56; font-weight: 600; }
+  .lose { color: #8b4513; }
+  .shot { border: 2px dashed #ccc; border-radius: 8px; padding: 24px; text-align: center; color: #888; margin: 12px 0; min-height: 80px; font-size: 12px; }
+  .pitch { background: #0E0E10; color: #f5f0e8; border-radius: 10px; padding: 16px 18px; margin: 16px 0; font-size: 13px; }
+  .pitch em { color: #D4AF37; font-style: normal; }
+  .print-btn { position: fixed; top: 16px; right: 16px; background: #B8860B; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+  .todo { background: #fff8e6; border: 1px solid #e8c96a; border-radius: 6px; padding: 10px 12px; font-size: 12px; margin: 12px 0; }
+  .link-card { display: block; background: #e8f4f6; border: 1px solid #9fd4dc; border-radius: 8px; padding: 14px 16px; margin: 14px 0; text-decoration: none; color: #095a67; }
+  .link-card strong { display: block; font-size: 14px; margin-bottom: 4px; }
+  .link-card span { font-size: 12px; color: #3d6b74; }
+  .vision { background: #f0f4f8; border-radius: 8px; padding: 14px 16px; margin: 16px 0; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<div class="header">
+  <h1>Your website should beat IndiaMART — not just exist beside it</h1>
+  <div class="meta">Sravan Kumar Sindhe · Sales asset draft · July 2026 · For Maanvik, ASR Premier Modular, and similar SME prospects</div>
+</div>
+
+<div class="intro">
+  <strong>Positioning:</strong> IndiaMART is the <em>discovery standard</em> for Indian B2B. An owned storefront must match its conversion mechanics (trust, per-product quote, browse) while winning on brand, lead ownership, and buyer qualification. Maanvik redesign is the live proof-of-concept.<br><br>
+  <strong>Long-term vision:</strong> emerge as an <em>alternative platform</em> — not a listing board, but owned storefronts with industry-specific enquiry intelligence (events for awards, sq ft/projects for interiors, MOQ for manufacturing).
+</div>
+
+<div class="vision">
+  <strong>Why the dual-form pattern matters for your IndiaMART alternative thesis</strong><br>
+  IndiaMART treats every vertical the same: photo, price, “describe requirement.” Your platform thesis is <em>vertical-aware lead capture</em> — Maanvik (event + quantity), ASR (sq ft + rooms + timeline). That is a defensible product difference, not just prettier HTML.
+</div>
+
+<h2>Side-by-side — IndiaMART vs owned storefront</h2>
+<table>
+  <tr><th>What buyers need</th><th>IndiaMART storefront</th><th>Owned site (our build)</th></tr>
+  <tr><td>Trust above the fold</td><td>GST, Trust Seal, response rate</td><td class="win">GST, Udyam, institutional proof, your brand URL</td></tr>
+  <tr><td>Per-product quote</td><td>Get Quote + timed pop-up</td><td class="win">Request Quote form (SKU pre-filled) + WhatsApp</td></tr>
+  <tr><td>Bulk / project enquiry</td><td class="lose">Generic “describe requirement”</td><td class="win">Structured forms by vertical — events (Maanvik) · projects (ASR template)</td></tr>
+  <tr><td>Lead ownership</td><td class="lose">Platform dashboard; competing sellers nearby</td><td class="win">Your email, CRM, GA4 — you own the relationship</td></tr>
+  <tr><td>Brand perception</td><td class="lose">Same template as thousands of sellers</td><td class="win">Premium design matched to your business</td></tr>
+  <tr><td>Marketplace traffic</td><td class="win">Built-in IndiaMART audience</td><td>SEO + WhatsApp + repeat clients (complement, not replace)</td></tr>
+</table>
+
+<h2>Case study — Maanvik Handicrafts (live build)</h2>
+<p><strong>Vertical:</strong> institutional awards · <strong>Structured enquiry:</strong> event type, quantity, delivery date, customisation.</p>
+<div class="shot">Screenshot: topbar with GST + Udyam · hero · trust strip<br><em>Add after local preview / deploy</em></div>
+<div class="shot">Screenshot: product card — Request Quote modal with SKU E-X334 pre-filled<br><em>Add from products.html</em></div>
+<div class="shot">Screenshot: bulk enquiry form — event type, quantity, delivery date<br><em>Add from index.html#bulk-enquiry</em></div>
+
+<ul>
+  <li>140-SKU catalogue with mock data; all prices shown as <strong>Price on request</strong> until client validates</li>
+  <li>Per-product Formspree → orders@ · HubSpot pipeline · GA4 conversion events</li>
+  <li>Institutional testimonials (universities, schools) — proof IndiaMART cannot replicate</li>
+</ul>
+
+<h2>Template demo — ASR Premier Modular (project enquiry)</h2>
+<p><strong>Vertical:</strong> modular interiors / fit-out · <strong>Structured enquiry:</strong> project type, sq ft, rooms/areas, timeline, location, budget, finish.</p>
+
+<a class="link-card" href="templates/ASR_Project_Enquiry_Template.html" target="_blank">
+  <strong>Open ASR Project Enquiry Template →</strong>
+  <span>Interactive demo — dual model (per-product + project form). Fork for ASR pitch or any fit-out/modular prospect.</span>
+</a>
+
+<div class="shot">Screenshot: ASR template — project enquiry form (sq ft, rooms, timeline)<br><em>Capture from templates/ASR_Project_Enquiry_Template.html</em></div>
+
+<ul>
+  <li>Demonstrates second differentiator beyond Maanvik — same platform architecture, different vertical fields</li>
+  <li>ASR GST 36ABCCA8283D1ZO · modular kitchen, office fit-out, false ceiling categories</li>
+  <li>On deploy: wire Formspree → client email → HubSpot · GA4 <code>project_enquiry_submit</code></li>
+</ul>
+
+<h2>Prospect brief — ASR Premier Modular Industries</h2>
+<p><strong>Current state:</strong> <a href="https://www.premiermodularindustries.com/">premiermodularindustries.com</a> — IndiaMART InterMESH storefront (modular kitchen, office furniture, false ceiling). Strong on GST display and per-product Get Quote; weak on owned brand and project-level qualification.</p>
+
+<div class="pitch">
+  <strong>Pitch for ASR (relative / warm intro):</strong><br>
+  “Keep IndiaMART for <em>being found</em>. Build your own site for <em>being chosen</em> — your logo, your projects, per-product quotes that land in <em>your</em> inbox and CRM, plus a proper form for office fit-out and modular kitchen projects (sq ft, timeline, location). Same conversion power as IndiaMART, none of the marketplace sameness.”
+</div>
+
+<table>
+  <tr><th>ASR pain on IndiaMART</th><th>What we would ship</th></tr>
+  <tr><td>Looks like every other Hyderabad modular seller</td><td>Branded site — project photos, finish quality, Hyderabad HQ</td></tr>
+  <tr><td>Pop-up lead form is generic</td><td>Per-product quote + project enquiry (sq ft, rooms, delivery timeline)</td></tr>
+  <tr><td>Leads live in IndiaMART</td><td>Formspree / email / optional HubSpot — ASR owns data</td></tr>
+  <tr><td>No GA4 on enquiries</td><td>Track which products and categories convert</td></tr>
+</table>
+
+<h2>Package reference</h2>
+<p>See <code>docs/consulting/Service_Price_Catalogue.html</code> — <strong>Growth ₹48,000 from</strong> covers domain, email, forms, CRM, GA4, catalogue UX, and enquiry flows similar to Maanvik P0.</p>
+
+<div class="todo">
+  <strong>Before client meeting — complete this asset:</strong>
+  <ol>
+    <li>Capture 4–6 Maanvik screenshots (desktop + mobile): trust bar, quote modal, bulk form, catalogue</li>
+    <li>Capture 2–3 ASR template screenshots: dual-model section, project enquiry form</li>
+    <li>Capture 2 ASR IndiaMART screenshots for contrast (pop-up, product grid)</li>
+    <li>Export PDF and share with BR / ASR</li>
+  </ol>
+</div>
+
+<p class="meta" style="margin-top:32px;">Draft v0.2 — Maanvik P0 live · ASR project enquiry template added. Files: <code>js/site-config.js</code>, <code>js/quote-modal.js</code>, <code>templates/ASR_Project_Enquiry_Template.html</code></p>
+
+</body>
+</html>

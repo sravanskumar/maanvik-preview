@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Digital Services &amp; Price Catalogue — Sravan</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @media print { .no-print { display: none; } body { margin: 0; } }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, -apple-system, sans-serif; max-width: 1020px; margin: 32px auto; padding: 0 24px 48px; color: #1a1a1a; line-height: 1.5; background: #fdfcfa; font-size: 13px; }
+  .header { border-bottom: 3px solid #B8860B; padding-bottom: 14px; margin-bottom: 16px; }
+  .header h1 { font-size: 22px; margin: 0 0 4px; }
+  .meta { color: #666; font-size: 12px; }
+  .intro { background: #faf7f0; border-left: 4px solid #B8860B; padding: 12px 16px; margin-bottom: 20px; }
+  h2 { font-size: 16px; color: #5a3a18; margin: 24px 0 10px; border-bottom: 2px solid #e8e4dc; padding-bottom: 6px; }
+  h3 { font-size: 14px; margin: 14px 0 8px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 12px; }
+  th, td { border: 1px solid #e0dcd4; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f5f0e8; font-weight: 600; color: #5a3a18; }
+  tr:nth-child(even) td { background: #faf7f3; }
+  .pkg { border: 2px solid #B8860B; border-radius: 10px; padding: 16px; margin: 12px 0; background: #fff; }
+  .pkg.featured { border-color: #17a2b8; background: #f8fcfd; }
+  .pkg h3 { margin: 0 0 4px; font-size: 16px; }
+  .pkg .price { font-size: 22px; font-weight: 700; color: #5a3a18; margin: 8px 0; }
+  .pkg .price span { font-size: 12px; font-weight: 400; color: #666; }
+  .pkg ul { margin: 8px 0 0; padding-left: 18px; font-size: 12px; }
+  .note { font-size: 11px; color: #666; margin-top: 8px; }
+  .print-btn { position: fixed; top: 16px; right: 16px; background: #B8860B; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 16px 0; }
+  @media (max-width: 800px) { .cols { grid-template-columns: 1fr; } }
+  .terms { background: #f0f4f8; border-radius: 8px; padding: 14px; font-size: 12px; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<div class="header">
+  <h1>Digital Services &amp; Price Catalogue</h1>
+  <div class="meta">Sravan Kumar Sindhe · SME web &amp; MarTech setup (India) · v1.0 · July 2026 · Prices excl. GST unless stated</div>
+</div>
+
+<div class="intro">
+  <strong>Who this is for:</strong> Small businesses (B2B/B2C) needing professional email, enquiry forms, CRM, analytics, and website go-live — similar to Maanvik Handicrafts.
+  <br><strong>Not included in your fee:</strong> Client-paid SaaS (Google Workspace ~₹650–750/user/mo), domain renewal, ad spend, Razorpay transaction fees.
+  <br><strong>Companion checklist:</strong> SME_Digital_Setup_Playbook.html
+</div>
+
+<h2>Package bundles (recommended)</h2>
+<div class="cols">
+  <div class="pkg">
+    <h3>Essential · Launch</h3>
+    <div class="price">₹28,000 <span>from</span></div>
+    <ul>
+      <li>Discovery + email allocation plan</li>
+      <li>Google Workspace + DNS (MX, SPF, DKIM)</li>
+      <li>orders@ + 2 Formspree forms</li>
+      <li>HubSpot CRM pipeline</li>
+      <li>GA4 property + conversion events</li>
+      <li>Deploy existing or minor site updates</li>
+    </ul>
+    <p class="note">Best when site already exists; needs professional plumbing.</p>
+  </div>
+  <div class="pkg featured">
+    <h3>Growth · Full setup ★</h3>
+    <div class="price">₹48,000 <span>from</span></div>
+    <ul>
+      <li><strong>Everything in Essential</strong></li>
+      <li>Premium website redesign (up to 10 pages)</li>
+      <li>Product catalogue (up to 150 SKUs)</li>
+      <li>WhatsApp enquiry pre-fill</li>
+      <li>Bulk quote form</li>
+      <li>AWS deploy + DNS cutover</li>
+      <li>Client progress report (EN + optional Telugu)</li>
+    </ul>
+    <p class="note">Maanvik-equivalent package. Catalogue content from client.</p>
+  </div>
+  <div class="pkg">
+    <h3>Commerce · + Payments</h3>
+    <div class="price">₹62,000 <span>from</span></div>
+    <ul>
+      <li><strong>Everything in Growth</strong></li>
+      <li>Razorpay KYC assistance</li>
+      <li>Up to 20 fixed-price checkout SKUs</li>
+      <li>Payment Links or simple cart</li>
+      <li>Order notification → orders@</li>
+    </ul>
+    <p class="note">Requires client GST + bank docs + SKU list.</p>
+  </div>
+</div>
+
+<h2>À la carte — implementation services</h2>
+<table>
+  <tr><th>Service</th><th>Scope</th><th>Price (₹)</th><th>Typical time</th></tr>
+  <tr><td><strong>Discovery workshop</strong></td><td>10 questions, tool recommendation, written summary</td><td>5,000 – 8,000</td><td>2–3 hrs</td></tr>
+  <tr><td><strong>Email &amp; DNS setup</strong></td><td>Workspace, MX, SPF, DKIM, 3–4 addresses, allocation matrix</td><td>12,000 – 18,000</td><td>1 day</td></tr>
+  <tr><td><strong>Formspree (per form)</strong></td><td>Wire form, orders@ notify, E2E test, success UX</td><td>3,000 – 5,000</td><td>2–4 hrs</td></tr>
+  <tr><td><strong>HubSpot CRM setup</strong></td><td>Account, Gmail sync, pipeline, properties, client walkthrough</td><td>6,000 – 10,000</td><td>4–6 hrs</td></tr>
+  <tr><td><strong>GA4 analytics</strong></td><td>Property, web stream, base tag, 5 conversion events, Realtime test guide</td><td>5,000 – 8,000</td><td>4–6 hrs</td></tr>
+  <tr><td><strong>Search Console</strong></td><td>Verify domain, sitemap, link to GA4</td><td>2,500 – 4,000</td><td>1–2 hrs</td></tr>
+  <tr><td><strong>Website redesign</strong></td><td>Static premium site, mobile-first, design system</td><td>25,000 – 45,000</td><td>1–3 weeks</td></tr>
+  <tr><td><strong>Product catalogue build</strong></td><td>data.js, filters, search, up to 150 SKUs (client provides data)</td><td>8,000 – 15,000</td><td>2–5 days</td></tr>
+  <tr><td><strong>Catalogue price update</strong></td><td>Import client price list, POA rules, QA pass</td><td>4,000 – 8,000</td><td>1–2 days</td></tr>
+  <tr><td><strong>WhatsApp enquiry integration</strong></td><td>CTAs, pre-fill SKU/size, floating button</td><td>3,000 – 6,000</td><td>3–5 hrs</td></tr>
+  <tr><td><strong>AWS deploy + cutover</strong></td><td>S3/CloudFront, DNS, rollback plan, smoke test</td><td>10,000 – 15,000</td><td>1 day</td></tr>
+  <tr><td><strong>Razorpay KYC assist</strong></td><td>Account, sole prop/GST, document prep, test mode</td><td>4,000 – 7,000</td><td>4–8 hrs</td></tr>
+  <tr><td><strong>Checkout SKUs (batch)</strong></td><td>Up to 20 fixed-price products + Payment Links</td><td>8,000 – 14,000</td><td>2–4 days</td></tr>
+  <tr><td><strong>Google Sheets CMS sync</strong></td><td>Sheet template, export to data.js, admin guide</td><td>10,000 – 18,000</td><td>3–5 days</td></tr>
+  <tr><td><strong>GMB — per location</strong></td><td>Listing, photos, hours, website link</td><td>4,000 – 6,000</td><td>per branch</td></tr>
+  <tr><td><strong>Client progress report</strong></td><td>One-pager HTML, EN + Telugu, PDF-ready</td><td>2,000 – 3,500</td><td>2 hrs</td></tr>
+  <tr><td><strong>Training session</strong></td><td>HubSpot, Sheets, or GA4 for owner (1 hr)</td><td>2,500 – 4,000</td><td>1 hr</td></tr>
+</table>
+
+<h2>Ongoing support (optional)</h2>
+<table>
+  <tr><th>Plan</th><th>Includes</th><th>Price / month</th></tr>
+  <tr><td><strong>Care Lite</strong></td><td>2 hrs support, form/email fixes, minor copy</td><td>₹3,500</td></tr>
+  <tr><td><strong>Care Standard</strong></td><td>5 hrs, catalogue price updates, analytics review</td><td>₹7,500</td></tr>
+  <tr><td><strong>Care Plus</strong></td><td>10 hrs, priority, seasonal campaign support</td><td>₹14,000</td></tr>
+</table>
+<p class="note">Unused hours do not roll over unless agreed in writing. Ad spend and SaaS bills billed separately.</p>
+
+<h2>Client-provided (not billable to you)</h2>
+<ul style="font-size:12px">
+  <li>Google Workspace subscription (~₹650–750/user/month)</li>
+  <li>Domain registration renewal</li>
+  <li>Product photos, price list, logo (if not in scope)</li>
+  <li>GST, Udyam, PAN, bank documents for Razorpay</li>
+  <li>WhatsApp Business phone number</li>
+  <li>Written approval before go-live</li>
+</ul>
+
+<h2>Payment terms (standard)</h2>
+<div class="terms">
+  <ul style="margin:0;padding-left:18px">
+    <li><strong>50% advance</strong> to start · <strong>50% on go-live</strong> (or milestone split for large projects)</li>
+    <li>Commerce package: 40% start · 30% pre-KYC · 30% checkout live</li>
+    <li>Quotes valid <strong>30 days</strong></li>
+    <li>Scope changes quoted separately before work proceeds</li>
+    <li>GST @ 18% added if you are GST-registered</li>
+    <li>Third-party fees (Google, AWS, Razorpay) paid directly by client</li>
+  </ul>
+</div>
+
+<h2>Quick quote builder (Maanvik reference)</h2>
+<table>
+  <tr><th>Line item</th><th>Maanvik actual</th><th>Catalogue rate</th></tr>
+  <tr><td>Website redesign + catalogue</td><td>Delivered</td><td>₹25,000</td></tr>
+  <tr><td>Infrastructure (email, DNS, forms, CRM, GA4, AWS)</td><td>Delivered</td><td>₹15,000</td></tr>
+  <tr><td>Razorpay (in progress)</td><td>Partial</td><td>₹3,000</td></tr>
+  <tr><th>Minimum total (reference)</th><th></th><th>₹43,000</th></tr>
+  <tr><th>Growth package list price</th><th></th><th>₹48,000 from</th></tr>
+</table>
+<p class="note">Use <strong>₹43,000</strong> as floor for Maanvik-like work already done; <strong>₹48,000</strong> as standard list for new similar clients (includes margin + discovery).</p>
+
+<h2>How to use with a new friend / client</h2>
+<ol style="font-size:12px">
+  <li>Send Discovery questions (Playbook Phase 0)</li>
+  <li>Pick package or build à la carte quote</li>
+  <li>Duplicate Playbook — fill client box at top</li>
+  <li>50% advance → execute Phases 1–5</li>
+  <li>Client progress one-pager at first milestone</li>
+  <li>Go-live only after catalogue sign-off</li>
+</ol>
+
+<div style="margin-top:24px;border-top:1px solid #e0dcd4;padding-top:12px;font-size:11px;color:#888">
+  Internal use · Adjust prices per client size and relationship · v1.0 · Sravan Kumar Sindhe
+</div>
+
+</body>
+</html>
