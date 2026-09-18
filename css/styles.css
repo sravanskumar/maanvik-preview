@@ -1416,6 +1416,17 @@ a {
     margin-top: 3rem;
 }
 
+.catalog__more .catalog__load-more {
+    color: var(--ink);
+    border-color: var(--line-light);
+    background: var(--paper);
+}
+
+.catalog__more .catalog__load-more:hover {
+    border-color: var(--gold-deep);
+    color: var(--gold-deep);
+}
+
 .catalog__empty {
     text-align: center;
     color: var(--muted-light);

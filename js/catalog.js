@@ -8,7 +8,8 @@
     const cfg = window.MaanvikConfig || {};
     const WHATSAPP_PHONE = cfg.whatsappPhone || "919133441188";
     const SHOW_PRICES = cfg.showIndicativePrices === true;
-    const PAGE_SIZE = 24;
+    /* Show full catalogue at once (44 designs — no need to paginate) */
+    const PAGE_SIZE = 999;
 
     function getWhatsAppEnquiryURL(productName, sku, selectedSize) {
         const message =
@@ -91,7 +92,11 @@
         countEl.textContent = filtered.length
             ? "Showing " + shown + " of " + filtered.length + " pieces"
             : "";
-        moreBtn.style.display = shown < filtered.length ? "" : "none";
+        if (moreWrap) {
+            moreWrap.hidden = shown >= filtered.length;
+        } else if (moreBtn) {
+            moreBtn.style.display = shown < filtered.length ? "" : "none";
+        }
 
         if (window.__revealObserve) window.__revealObserve();
         else grid.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
@@ -198,7 +203,8 @@
         if (!all.length) {
             emptyEl.hidden = false;
             emptyEl.textContent = "Catalogue failed to load.";
-            moreBtn.style.display = "none";
+            if (moreWrap) moreWrap.hidden = true;
+            else if (moreBtn) moreBtn.style.display = "none";
             return;
         }
         initSizeAndCta();
