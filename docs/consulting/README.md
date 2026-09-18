@@ -6,7 +6,10 @@ Reusable assets for SME digital setup engagements — based on the Maanvik imple
 |---|---|
 | [SME_Digital_Setup_Playbook.html](./SME_Digital_Setup_Playbook.html) | **Checklist** — discovery → email → forms → CRM → GA4 → site → deploy → Razorpay. Print one copy per client. |
 | [Service_Price_Catalogue.html](./Service_Price_Catalogue.html) | **Pricing** — packages (Essential / Growth / Commerce), à la carte rates, payment terms. |
+| [Digital_Operations_Retainer.html](./Digital_Operations_Retainer.html) | **Recurring ops** — email aliases, pipeline health, renewal reminders; Ops Essential / Growth / Commerce tiers. |
+| [Quarterly_Ops_Checklist.html](./Quarterly_Ops_Checklist.html) | **Ops delivery** — 90-day run sheet (email, forms, hosting, renewals); duplicate per client per quarter. |
 | [../Maanvik_Presentation_ASR_BR_Jul2026.html](../Maanvik_Presentation_ASR_BR_Jul2026.html) | **SME deck** — killer questions, 3 paths (listing / Maximiser / new), scope box, glossary, Maanvik demo |
+| [../Maanvik_Demo_Script_Jul2026.html](../Maanvik_Demo_Script_Jul2026.html) | **Speaker script** — timed demo run-of-show, killer questions, click path, three closes |
 | [../Maanvik_Intro_Handout_NewSME_English.html](../Maanvik_Intro_Handout_NewSME_English.html) | **Path C handout** — new SME intro, discovery-first (edit name before print) |
 | [../Maanvik_Offer_Handout_ASR_English.html](../Maanvik_Offer_Handout_ASR_English.html) | **Path B handout** — ASR Premier Modular · Maximiser transition (2 pages) |
 | [../Maanvik_ROI_Handout_BR_Telugu.html](../Maanvik_ROI_Handout_BR_Telugu.html) | **Path A handout** — Bhagya Raju / Maanvik · Telugu (2 pages) |
@@ -23,6 +26,7 @@ Reusable assets for SME digital setup engagements — based on the Maanvik imple
 ## Composable model (progressive upsell)
 
 - **Foundation first** — website, forms, email, customer tracking (Growth / Maanvik floor)  
+- **Add when ready** — **Digital Operations** retainer (Essential ₹2k list · founding ₹1.5k · Growth ₹4k · Commerce ₹6.5k/mo)  
 - **Add when ready** — payments, self-serve catalogue, search listings  
 - **Add when ready** — content, photography, social, ads (separate quote)  
 - **Path B** — keep IndiaMART Maximiser until renewal; phased transition, not a switch  

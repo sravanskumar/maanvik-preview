@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quarterly Digital Operations Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @media print { .no-print { display: none; } body { margin: 0; } .page-break { page-break-before: always; } }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, -apple-system, sans-serif; max-width: 1020px; margin: 32px auto; padding: 0 24px 48px; color: #1a1a1a; line-height: 1.45; background: #fdfcfa; font-size: 12px; }
+  .header { border-bottom: 3px solid #B8860B; padding-bottom: 14px; margin-bottom: 16px; }
+  .header h1 { font-size: 20px; margin: 0 0 4px; }
+  .meta { color: #666; font-size: 11px; }
+  .intro { background: #fff3cd; border-left: 4px solid #856404; padding: 10px 14px; margin-bottom: 16px; font-size: 12px; }
+  h2 { font-size: 14px; color: #5a3a18; margin: 18px 0 8px; border-bottom: 2px solid #e8e4dc; padding-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 14px; font-size: 11px; }
+  th, td { border: 1px solid #e0dcd4; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #f5f0e8; font-weight: 600; color: #5a3a18; }
+  tr:nth-child(even) td { background: #faf7f3; }
+  .chk { width: 24px; text-align: center; font-size: 14px; }
+  .tier { font-size: 9px; padding: 2px 6px; border-radius: 6px; background: #e8f4f8; color: #095a67; white-space: nowrap; }
+  .tier-g { background: #d4edda; color: #155724; }
+  .tier-c { background: #fdebd0; color: #7d4e00; }
+  .client-box { border: 2px dashed #B8860B; border-radius: 8px; padding: 12px 14px; margin: 14px 0; background: #fff; }
+  .client-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font-size: 11px; }
+  .client-grid label { display: block; font-weight: 600; color: #5a3a18; font-size: 10px; margin-bottom: 2px; }
+  .client-grid input { width: 100%; border: none; border-bottom: 1px solid #ccc; padding: 3px 0; font-size: 11px; background: transparent; }
+  .summary { background: #f0f4f8; border-radius: 8px; padding: 12px 14px; margin: 16px 0; font-size: 11px; }
+  .summary textarea { width: 100%; min-height: 72px; border: 1px solid #c5d4e8; border-radius: 6px; padding: 8px; font-family: inherit; font-size: 11px; margin-top: 6px; }
+  .pass { color: #155724; font-weight: 600; }
+  .fail { color: #8b4513; font-weight: 600; }
+  .print-btn { position: fixed; top: 16px; right: 16px; background: #B8860B; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+  .footer { margin-top: 20px; font-size: 10px; color: #888; border-top: 1px solid #e0dcd4; padding-top: 10px; }
+  @media (max-width: 700px) { .client-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<div class="header">
+  <h1>Quarterly Digital Operations Checklist</h1>
+  <div class="meta">Internal run sheet · Ops Essential / Growth / Commerce · Sravan Kumar Sindhe · v1.0 · Run every ~90 days</div>
+</div>
+
+<div class="intro">
+  <strong>How to use:</strong> Duplicate per client per quarter. Complete within 1 business day. Email client a 3-line summary if anything failed or renewals are due. Full detail: <code>Digital_Operations_Retainer.html</code>
+</div>
+
+<div class="client-box">
+  <div class="client-grid">
+    <div><label>Client / business</label><input type="text" placeholder="e.g. Maanvik Handicrafts"></div>
+    <div><label>Domain</label><input type="text" placeholder="e.g. maanvikhandicrafts.com"></div>
+    <div><label>Ops tier</label><input type="text" placeholder="Essential / Growth / Commerce"></div>
+    <div><label>Quarter ending</label><input type="text" placeholder="e.g. 31 Dec 2026"></div>
+    <div><label>Performed by</label><input type="text" value="Sravan Kumar Sindhe"></div>
+    <div><label>Date completed</label><input type="text" placeholder=""></div>
+  </div>
+</div>
+
+<h2>1 · Email &amp; aliases</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Check</th><th>Tier</th><th>Result / notes</th></tr>
+  <tr><td class="chk"></td><td>Email allocation matrix on file matches live Workspace aliases</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>orders@ receives mail · SPF/DKIM pass (send test from external Gmail)</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>billing@ / refunds@ / accounts@ / support@ exist if agreed · forward correctly</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>MX records unchanged since last quarter (compare DNS screenshot)</td><td><span class="tier">Essential+</span></td><td></td></tr>
+</table>
+
+<h2>2 · Enquiry pipeline</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Check</th><th>Tier</th><th>Result / notes</th></tr>
+  <tr><td class="chk"></td><td>Submit test on Request Quote form → lands in orders@ within 5 min</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>Submit test on bulk / contact form → correct subject line + fields</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>WhatsApp pre-fill link opens with correct SKU / message</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>HubSpot: test deal appears or manual sync path documented</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>Formspree dashboard: no failed submissions in last 90 days</td><td><span class="tier">Essential+</span></td><td></td></tr>
+</table>
+
+<h2>3 · Website &amp; hosting</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Check</th><th>Tier</th><th>Result / notes</th></tr>
+  <tr><td class="chk"></td><td>Homepage + products page load · HTTPS valid · no certificate warning</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>Primary CTAs visible: Request Quote · WhatsApp · bulk form link</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>404 / broken internal links spot-check (3 random product URLs)</td><td><span class="tier">Essential+</span></td><td></td></tr>
+</table>
+
+<h2>4 · Analytics &amp; reporting</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Check</th><th>Tier</th><th>Result / notes</th></tr>
+  <tr><td class="chk"></td><td>GA4 Realtime shows activity when you visit site</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>Key conversion events fired in last 90 days (form_submit, whatsapp_click)</td><td><span class="tier">Essential+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td><strong>Monthly snapshot sent</strong> — enquiry count GA4 + HubSpot (last 30 days)</td><td><span class="tier tier-g">Growth+</span></td><td></td></tr>
+</table>
+
+<h2>5 · Marketplace &amp; catalogue (Growth+)</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Check</th><th>Tier</th><th>Result / notes</th></tr>
+  <tr><td class="chk"></td><td>IndiaMART profile website link → owned domain (not only Maximiser URL if cutover planned)</td><td><span class="tier tier-g">Growth+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>Phone / WhatsApp on IndiaMART matches owned site footer</td><td><span class="tier tier-g">Growth+</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>Catalogue price update quota used / remaining this year</td><td><span class="tier tier-g">Growth+</span></td><td></td></tr>
+</table>
+
+<h2>6 · Payments (Commerce only)</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Check</th><th>Tier</th><th>Result / notes</th></tr>
+  <tr><td class="chk"></td><td>Razorpay test / live payment link completes · notification to orders@</td><td><span class="tier tier-c">Commerce</span></td><td></td></tr>
+  <tr><td class="chk"></td><td>refunds@ routing documented · Razorpay refund email path tested</td><td><span class="tier tier-c">Commerce</span></td><td></td></tr>
+</table>
+
+<h2>7 · Renewal calendar</h2>
+<table>
+  <tr><th class="chk">✓</th><th>Item</th><th>Expiry date</th><th>Reminder sent (60 / 30 / 7 days)</th></tr>
+  <tr><td class="chk"></td><td>Domain registration</td><td></td><td></td></tr>
+  <tr><td class="chk"></td><td>Google Workspace</td><td></td><td></td></tr>
+  <tr><td class="chk"></td><td>IndiaMART listing / Maximiser (client-owned renewal)</td><td></td><td></td></tr>
+  <tr><td class="chk"></td><td>AWS / hosting (if billed separately)</td><td></td><td></td></tr>
+</table>
+
+<h2>8 · Quarterly summary for client</h2>
+<div class="summary">
+  <strong>Overall status:</strong> <span class="pass">All clear</span> / <span class="fail">Action needed</span> (circle one after run)
+  <br><strong>Email to client (copy-paste template):</strong>
+  <textarea readonly>Subject: [Business name] — digital ops check [Quarter]
+
+Hi [Name],
+
+Quarterly check complete. Enquiry forms, orders@ email, and site are working. [Add: X enquiries last 30 days — Growth tier.] [Add: domain renews on DATE — I'll remind you again.]
+
+No action needed from you unless noted above.
+
+— Sravan</textarea>
+  <p style="margin:8px 0 0;font-size:10px;color:#666">Essential tier: send only if something failed or renewal within 60 days. Growth tier: include enquiry count monthly + this quarterly all-clear.</p>
+</div>
+
+<h2>Issues log (if any check failed)</h2>
+<table>
+  <tr><th>Issue</th><th>Fixed?</th><th>Ticket / hours used</th><th>Client notified?</th></tr>
+  <tr><td style="height:28px"></td><td></td><td></td><td></td></tr>
+  <tr><td style="height:28px"></td><td></td><td></td><td></td></tr>
+</table>
+
+<div class="footer">
+  Companion: Digital_Operations_Retainer.html · SME_Digital_Setup_Playbook.html Phase 5b · Internal use · v1.0
+</div>
+
+</body>
+</html>

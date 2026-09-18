@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maanvik Meeting — Demo Script · Jul 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  @media print { .no-print { display: none; } body { margin: 0; padding: 12mm; } .sheet { box-shadow: none; } }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, sans-serif; background: #f4f2ee; color: #1a1a1a; margin: 0; padding: 20px 16px 40px; line-height: 1.5; font-size: 13px; }
+  .sheet { max-width: 210mm; margin: 0 auto; background: #fdfcfa; padding: 24px 28px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  h1 { font-size: 20px; margin: 0 0 4px; border-bottom: 3px solid #B8860B; padding-bottom: 10px; }
+  .meta { color: #666; font-size: 11px; margin-bottom: 16px; }
+  h2 { font-size: 14px; color: #5a3a18; margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.3px; }
+  h3 { font-size: 13px; color: #095a67; margin: 14px 0 6px; }
+  .timing { display: inline-block; background: #0E0E10; color: #D4AF37; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 6px; vertical-align: middle; }
+  .say { background: #fff; border-left: 4px solid #B8860B; padding: 10px 12px; margin: 8px 0; font-size: 12.5px; }
+  .say strong { color: #5a3a18; }
+  .pause { background: #1a1a1a; color: #f5f0e8; padding: 8px 12px; margin: 8px 0; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .pause em { color: #D4AF37; font-style: normal; }
+  .do { background: #e8f4f6; border: 1px solid #9fd4dc; padding: 8px 12px; margin: 8px 0; font-size: 11.5px; border-radius: 6px; }
+  .do code { background: #fff; padding: 1px 5px; border-radius: 3px; font-size: 10.5px; }
+  .te { font-family: "Noto Sans Telugu", sans-serif; font-size: 11px; color: #5c4f3a; margin-top: 4px; }
+  .checklist { margin: 0; padding-left: 20px; }
+  .checklist li { margin-bottom: 4px; }
+  .dont { background: #fff8e8; border-left: 4px solid #E8A020; padding: 8px 12px; margin: 8px 0; font-size: 11.5px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11px; margin: 8px 0; }
+  th, td { border: 1px solid #e0dcd4; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #f5f0e8; }
+  .close-row td:first-child { font-weight: 600; white-space: nowrap; }
+  .print-btn { position: fixed; top: 16px; right: 16px; background: #B8860B; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+  .obj { font-size: 11.5px; margin: 6px 0; }
+  .obj strong { color: #5a3a18; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<div class="sheet">
+
+  <h1>Meeting demo script — rock the room</h1>
+  <div class="meta">Sravan Kumar Sindhe · Jul 2026 · ~45–50 min · BR + ASR + new SME (BR referral)<br>
+  Preview: <strong>https://sravanskumar.github.io/maanvik-preview/</strong> · Deck: <code>docs/Maanvik_Presentation_ASR_BR_Jul2026.html</code></div>
+
+  <h2>Pre-flight (15 min before)</h2>
+  <ul class="checklist">
+    <li>Open preview in Chrome — <code>index.html</code> + <code>products.html</code> in two tabs</li>
+    <li>Open deck HTML in a third tab (or PDF if exported)</li>
+    <li>Phone on silent · laptop charged · good internet</li>
+    <li>Print or PDF: BR Telugu handout · ASR transition handout · Path C intro (fill guest name after they arrive)</li>
+    <li>Optional: projector or share screen — test once</li>
+    <li>Mindset: <strong>advisor, not vendor</strong> — you built 80% of Maanvik already; ASR keeps Maximiser; guest gets demo only</li>
+  </ul>
+
+  <h2>Run of show</h2>
+  <table>
+    <tr><th>Act</th><th>Time</th><th>What</th></tr>
+    <tr><td>1 Open</td><td>3 min</td><td>Frame the room — three paths, one story</td></tr>
+    <tr><td>2 Killer questions</td><td>5 min</td><td>Pause on each — let them answer in their head</td></tr>
+    <tr><td>3 Live demo</td><td>15 min</td><td>Maanvik preview — click path below</td></tr>
+    <tr><td>4 Honest + model</td><td>5 min</td><td>IndiaMART wins · compose only what you need</td></tr>
+    <tr><td>5 Three closes</td><td>5 min</td><td>Handouts · one next step each</td></tr>
+    <tr><td>Buffer</td><td>10 min</td><td>Questions · guest intro · BR price list chat</td></tr>
+  </table>
+
+  <!-- ACT 1 -->
+  <h2>Act 1 — Open the room</h2>
+  <p><span class="timing">0:00</span></p>
+  <div class="say">
+    “Thanks everyone for making time. We all know each other — so I’ll be straight.<br><br>
+    <strong>One story for everyone:</strong> IndiaMART is brilliant for being <em>found</em>. Your own website is for being <em>chosen</em> — and making sure an enquiry lands in <em>your email and WhatsApp</em>, not only their app.<br><br>
+    Three of you, three slightly different situations — I’ll show one live demo, then give each of you a handout with <em>your</em> next step. No one-size package today.”
+  </div>
+  <div class="do">Gesture to three paths on deck if screen-sharing — or skip deck until Act 4.</div>
+
+  <!-- ACT 2 -->
+  <h2>Act 2 — Killer questions (the heart of the pitch)</h2>
+  <p><span class="timing">3:00</span></p>
+  <div class="say">
+    <strong>Question 1:</strong> “If your IndiaMART subscription stops tomorrow — can you still call everyone who enquired last year?”
+  </div>
+  <div class="pause"><em>PAUSE 4 seconds.</em> Do not answer. Look at BR, then ASR, then guest. Let the silence work.</div>
+  <div class="say">
+    “On IndiaMART, that list lives in their app. On your own site — it’s in your Gmail and your customer tracking. That’s the whole difference in one sentence.”
+  </div>
+
+  <div class="say">
+    <strong>Question 2:</strong> “Someone enquires at 11 at night. Tomorrow morning — is it in your Gmail, or only if you open IndiaMART’s app?”
+  </div>
+  <div class="pause"><em>PAUSE 3 seconds.</em></div>
+
+  <div class="say">
+    <strong>Question 3:</strong> “When a college principal or architect visits your page — do they see only you, or five competitors beside you?”
+  </div>
+  <div class="pause"><em>PAUSE 3 seconds.</em></div>
+  <div class="say">
+    “Mall versus your own showroom — IndiaMART is the mall. What I built for Maanvik is the showroom. Let me show you.”
+  </div>
+  <div class="te">ఇండియామార్ట్ = మాల్. మా సైట్ = మీ షోరూం. అభ్యర్థన మీ ఇమెయిల్ / WhatsApp కు.</div>
+
+  <!-- ACT 3 -->
+  <h2>Act 3 — Live demo (Maanvik preview)</h2>
+  <p><span class="timing">8:00</span> · Tab: <code>sravanskumar.github.io/maanvik-preview/</code></p>
+
+  <h3>3a · Trust first (30 sec)</h3>
+  <div class="do">Scroll to <strong>top bar</strong> — point at GST + Udyam numbers and <code>@maanvikhandicrafts.com</code> email.</div>
+  <div class="say">
+    “Institutional buyers look for this first — GST, Udyam, professional email. On IndiaMART you’re one of thousands. Here, it’s only Maanvik.”
+  </div>
+
+  <h3>3b · Brand &amp; homepage (1 min)</h3>
+  <div class="do">Hero section · scroll slowly through About · point to “500+ institutions” if visible.</div>
+  <div class="say">
+    “This is not a template listing. Premium brand, mobile-first — built for colleges and schools who already trust Bhagya Raju offline.”
+  </div>
+
+  <h3>3c · Catalogue (3 min)</h3>
+  <div class="do">Click <strong>Collection</strong> → <code>products.html</code> · use <strong>search</strong> (type “trophy” or a product name) · click <strong>Load more</strong> once.</div>
+  <div class="say">
+    “140 products. Search, filters, load more — buyer finds the SKU before they enquire. Prices show ‘Price on request’ until Bhagya Raju confirms the list — that’s the only blocker to go live on the real domain.”
+  </div>
+  <div class="te">BR కి: ధరా జాబితా ఇచ్చిన తర్వాత లైవ్ — ఇప్పుడు ప్రివ్యూ మాత్రమే.</div>
+
+  <h3>3d · Per-product quote (2 min) — money shot</h3>
+  <div class="do">On any product card → click <strong>Request Quote</strong> · show modal with <strong>product name, SKU, size</strong> pre-filled · do <em>not</em> submit unless you want a test email in orders@.</div>
+  <div class="say">
+    “IndiaMART: one generic box. Here: the buyer already picked the trophy and size — the email lands in <strong>orders@</strong> with everything filled. Less back-and-forth, faster quote.”
+  </div>
+
+  <h3>3e · WhatsApp (1 min)</h3>
+  <div class="do">Click <strong>Enquire on WhatsApp</strong> on a product · show pre-filled message on phone preview (or describe it).</div>
+  <div class="say">
+    “Same idea — message opens with product name and SKU. Buyer taps send; you reply from your number. Tracked in analytics.”
+  </div>
+
+  <h3>3f · Bulk enquiry (2 min) — BR differentiator</h3>
+  <div class="do">Homepage → scroll to <strong>Bulk Quote</strong> / <code>#bulk-enquiry</code> · walk through fields: event type, quantity, delivery date, customisation.</div>
+  <div class="say">
+    “This is what IndiaMART cannot do — structured bulk enquiry for awards. College says: annual day, 500 pieces, date — you quote in one pass. Same <em>idea</em> for ASR: square feet, rooms, timeline on a project form.”
+  </div>
+  <div class="do">Glance at ASR when you say modular / square feet — nod, don’t oversell ASR template live unless asked.</div>
+
+  <h3>3g · Behind the scenes (2 min) — no live login needed</h3>
+  <div class="say">
+    “What you don’t see on screen but is already working:<br>
+    · Forms → <strong>orders@maanvikhandicrafts.com</strong> (Formspree)<br>
+    · Customer tracking — Enquiry → Quoted → Confirmed → Delivered (HubSpot)<br>
+    · Visitor tracking (Google Analytics) — which button and product get clicks<br>
+    · Business email on Google Workspace — professional, not spam folder”
+  </div>
+  <div class="dont">Do <strong>not</strong> open HubSpot or GA4 live unless someone asks — keeps momentum.</div>
+
+  <h3>3h · Guest / ASR bridge (30 sec)</h3>
+  <div class="say">
+    “For our guest today — this is the <em>reference build</em>. Your industry would get different form fields; the system is the same. We decide what you need in a discovery call — not today.”
+  </div>
+
+  <!-- ACT 4 -->
+  <h2>Act 4 — Honest comparison + your model</h2>
+  <p><span class="timing">23:00</span></p>
+  <div class="say">
+    “I won’t pretend we replace IndiaMART. They win on marketplace buyers, BuyLeads, Trust Seal, call forwarding. <strong>Keep that.</strong><br><br>
+    My model is different from IndiaMART’s yearly bundle: <strong>only what you need from day one</strong>. Website and enquiry system first. Photos, social media, ads — separate quote when you’re ready. I don’t sell marketing in the base package.”
+  </div>
+  <div class="do">If showing deck: flip to <strong>scope boxes</strong> (green = build now · amber = optional Ops · grey = marketing later) · 45 seconds max.</div>
+
+  <!-- ACT 5 -->
+  <h2>Act 5 — Three closes + handouts</h2>
+  <p><span class="timing">28:00</span></p>
+  <table>
+    <tr><th>Who</th><th>Say this</th><th>Handout</th></tr>
+    <tr class="close-row">
+      <td>Bhagya Raju</td>
+      <td>“Anna, site is 80% done. I need one thing from you: <strong>price list</strong> — any format. Then catalogue update and live on maanvikhandicrafts.com. One bulk order covers the full ₹43,000. Keep IndiaMART for new buyers. After live, optional <strong>Ops Essential ₹1,500/month</strong> for you — I run a quarterly health check on orders@ and forms.”</td>
+      <td>Telugu ROI handout</td>
+    </tr>
+    <tr class="close-row">
+      <td>ASR</td>
+      <td>“You’re on Maximiser — I’m <strong>not</strong> asking you to cancel. Phase 1: discovery, business email, project form. Phase 2: build owned site in parallel. Phase 3: decide at renewal. Add <strong>Ops Growth</strong> when site is live for monthly enquiry counts. Handout has the roadmap.”</td>
+      <td>ASR transition handout</td>
+    </tr>
+    <tr class="close-row">
+      <td>Guest SME</td>
+      <td>“Today was the demo. If it’s useful, book 30 minutes discovery — I’ll learn your products and budget and quote <strong>only the modules you need</strong>. Most add Ops from go-live — nobody wants to fix email at 11pm. No pressure today.”</td>
+      <td>Path C intro (fill their name on page 1)</td>
+    </tr>
+  </table>
+  <div class="say">
+    “Glossary is on page 2 of each handout if any term is unclear — customer tracking, Google Analytics, Maximiser plan. Ask me anything.”
+  </div>
+
+  <h2>Objection handling — short answers</h2>
+  <div class="obj"><strong>“We already pay IndiaMART.”</strong> — “Good — keep it for discovery. This is your showroom, not a replacement.”</div>
+  <div class="obj"><strong>“₹43k / ₹48k is a lot.”</strong> — “One institutional order typically covers it. IndiaMART listing is similar money <em>every year</em> — this you own.”</div>
+  <div class="obj"><strong>“Who maintains email and forms after go-live?”</strong> — “Optional Digital Operations — quarterly checklist on forms, billing@, renewals. List ₹2k/month; Maanvik founding ₹1,500. Cheaper than hiring someone.”</div>
+  <div class="obj"><strong>“Can you do social media too?”</strong> — “Yes — that’s a separate quote after the website is live. I don’t bundle it so you’re not paying for what you don’t need yet.”</div>
+  <div class="obj"><strong>“ASR: why not switch now?”</strong> — “You’ve paid Maximiser — use it. We add alongside; renewal is the decision point.”</div>
+  <div class="obj"><strong>“Guest: what will it cost me?”</strong> — “Discovery first. Foundation from ₹48,000 for new clients — Maanvik was ₹43,000. Depends on modules.”</div>
+
+  <h2>Do not say</h2>
+  <div class="dont">
+    · “You wasted money on Maximiser” · “Drop IndiaMART” (to ASR) · “ASR should have called me first”<br>
+    · “Lead ownership” without explaining email · MDC / CRM / GA4 without plain English first<br>
+    · Promise marketing in base package · Push guest to sign today
+  </div>
+
+  <h2>Power phrases to repeat</h2>
+  <ul class="checklist">
+    <li><strong>“Being found”</strong> vs <strong>“being chosen”</strong></li>
+    <li><strong>“Mall vs showroom”</strong></li>
+    <li><strong>“Your email and WhatsApp”</strong> — not “lead ownership”</li>
+    <li><strong>“Only what you need from day one”</strong></li>
+    <li><strong>“Pause”</strong> after killer questions — your strongest tool</li>
+  </ul>
+
+  <h2>After the meeting (same day)</h2>
+  <ul class="checklist">
+    <li>WhatsApp BR: thank you + reminder price list + link to Telugu handout</li>
+    <li>WhatsApp ASR: thank you + offer Phase 1 discovery slot</li>
+    <li>WhatsApp guest: thank you + Maanvik preview link + offer discovery call</li>
+    <li>Note guest name + industry on Path C handout for your files</li>
+  </ul>
+
+  <p style="font-size:10px;color:#888;margin-top:20px;border-top:1px solid #e0dcd4;padding-top:10px">
+    Private speaker script — Sravan Kumar Sindhe · Jul 2026 · Not for client distribution
+  </p>
+
+</div>
+</body>
+</html>
