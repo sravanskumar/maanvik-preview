@@ -13,17 +13,17 @@
         { sku: "AW-013", img: "prd-013.jpg", cat: "medals", size: "8.5 inch (Silver)" },
         { sku: "AW-018", img: "prd-018.jpg", cat: "trophies", size: "7.5 inch (Small)" },
         { sku: "AW-024", img: "prd-024.jpg", cat: "trophies", size: "15.0 inch (Small)" },
-        { sku: "AW-029", img: "prd-029.jpg", cat: "mementoes", size: "7.5 inch (Small)" },
+        { sku: "AW-029", img: "prd-029.jpg", cat: "mementos", size: "7.5 inch (Small)" },
         { sku: "AW-031", img: "prd-031.jpg", cat: "trophies", size: "10.5 inch (Medium)" },
         { sku: "AW-033", img: "prd-033.jpg", cat: "trophies", size: "21.5 inch (Small)" },
-        { sku: "AW-037", img: "prd-037.jpg", cat: "mementoes", size: "7.0 inch (Small)" },
+        { sku: "AW-037", img: "prd-037.jpg", cat: "mementos", size: "7.0 inch (Small)" },
         { sku: "AW-041", img: "prd-041.jpg", cat: "trophies", size: "7.5 inch (Small)" },
     ];
 
     const CAT_LABEL = {
         trophies: "Trophy",
         medals: "Medal",
-        mementoes: "Memento",
+        mementos: "Memento",
     };
 
     function renderProducts() {
