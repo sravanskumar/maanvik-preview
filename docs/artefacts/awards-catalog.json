@@ -1,0 +1,1072 @@
+{
+  "source": "/Users/sravan/Downloads/maanvik awards.pdf",
+  "pageCount": 44,
+  "productCount": 44,
+  "issues": [],
+  "products": [
+    {
+      "id": 1,
+      "sku": "AW-001",
+      "name": "AW-001",
+      "image": "prd-001.jpg",
+      "img": "img/product/prd-001.jpg",
+      "pdfPage": 1,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 290
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "sku": "AW-002",
+      "name": "AW-002",
+      "image": "prd-002.jpg",
+      "img": "img/product/prd-002.jpg",
+      "pdfPage": 2,
+      "variants": [
+        {
+          "label": "12.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 12.0,
+          "price": 460
+        },
+        {
+          "label": "13.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 13.0,
+          "price": 550
+        },
+        {
+          "label": "13.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 13.0,
+          "price": 550
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "sku": "AW-003",
+      "name": "AW-003",
+      "image": "prd-003.jpg",
+      "img": "img/product/prd-003.jpg",
+      "pdfPage": 3,
+      "variants": [
+        {
+          "label": "11.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 11.0,
+          "price": 450
+        },
+        {
+          "label": "13.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 13.0,
+          "price": 650
+        },
+        {
+          "label": "13.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 13.0,
+          "price": 550
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "sku": "AW-004",
+      "name": "AW-004",
+      "image": "prd-004.jpg",
+      "img": "img/product/prd-004.jpg",
+      "pdfPage": 4,
+      "variants": [
+        {
+          "label": "7.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.0,
+          "price": 150
+        },
+        {
+          "label": "8.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.0,
+          "price": 300
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "sku": "AW-005",
+      "name": "AW-005",
+      "image": "prd-005.jpg",
+      "img": "img/product/prd-005.jpg",
+      "pdfPage": 5,
+      "variants": [
+        {
+          "label": "6.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 6.0,
+          "price": 460
+        },
+        {
+          "label": "7.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 7.0,
+          "price": 660
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "sku": "AW-006",
+      "name": "AW-006",
+      "image": "prd-006.jpg",
+      "img": "img/product/prd-006.jpg",
+      "pdfPage": 6,
+      "variants": [
+        {
+          "label": "6.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 6.0,
+          "price": 150
+        },
+        {
+          "label": "Medium",
+          "size": "Medium",
+          "heightInches": null,
+          "price": 290
+        },
+        {
+          "label": "Big",
+          "size": "Big",
+          "heightInches": null,
+          "price": 20
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "sku": "AW-007",
+      "name": "AW-007",
+      "image": "prd-007.jpg",
+      "img": "img/product/prd-007.jpg",
+      "pdfPage": 7,
+      "variants": [
+        {
+          "label": "6.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 6.5,
+          "price": 250
+        },
+        {
+          "label": "8.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.0,
+          "price": 340
+        },
+        {
+          "label": "8.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 8.0,
+          "price": 290
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "sku": "AW-008",
+      "name": "AW-008",
+      "image": "prd-008.jpg",
+      "img": "img/product/prd-008.jpg",
+      "pdfPage": 8,
+      "variants": [
+        {
+          "label": "8.0 inch (Silver)",
+          "size": "Silver",
+          "heightInches": 8.0,
+          "price": 230
+        },
+        {
+          "label": "8.0 inch (Gold)",
+          "size": "Gold",
+          "heightInches": 8.0,
+          "price": 230
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "sku": "AW-009",
+      "name": "AW-009",
+      "image": "prd-009.jpg",
+      "img": "img/product/prd-009.jpg",
+      "pdfPage": 9,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "9.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 9.0,
+          "price": 310
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "sku": "AW-010",
+      "name": "AW-010",
+      "image": "prd-010.jpg",
+      "img": "img/product/prd-010.jpg",
+      "pdfPage": 10,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 200
+        },
+        {
+          "label": "8.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 8.5,
+          "price": 180
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "sku": "AW-011",
+      "name": "AW-011",
+      "image": "prd-011.jpg",
+      "img": "img/product/prd-011.jpg",
+      "pdfPage": 11,
+      "variants": [
+        {
+          "label": "8.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 8.5,
+          "price": 240
+        },
+        {
+          "label": "9.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 9.5,
+          "price": 330
+        },
+        {
+          "label": "9.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 9.5,
+          "price": 280
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "sku": "AW-012",
+      "name": "AW-012",
+      "image": "prd-012.jpg",
+      "img": "img/product/prd-012.jpg",
+      "pdfPage": 12,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "9.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 9.0,
+          "price": 290
+        },
+        {
+          "label": "9.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 9.0,
+          "price": 200
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "sku": "AW-013",
+      "name": "AW-013",
+      "image": "prd-013.jpg",
+      "img": "img/product/prd-013.jpg",
+      "pdfPage": 13,
+      "variants": [
+        {
+          "label": "8.5 inch (Silver)",
+          "size": "Silver",
+          "heightInches": 8.5,
+          "price": 220
+        },
+        {
+          "label": "8.5 inch (Bronze)",
+          "size": "Bronze",
+          "heightInches": 8.5,
+          "price": 220
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "sku": "AW-014",
+      "name": "AW-014",
+      "image": "prd-014.jpg",
+      "img": "img/product/prd-014.jpg",
+      "pdfPage": 14,
+      "variants": [
+        {
+          "label": "6.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 6.0,
+          "price": 150
+        },
+        {
+          "label": "7.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 7.0,
+          "price": 330
+        },
+        {
+          "label": "7.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 7.0,
+          "price": 210
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "sku": "AW-015",
+      "name": "AW-015",
+      "image": "prd-015.jpg",
+      "img": "img/product/prd-015.jpg",
+      "pdfPage": 15,
+      "variants": [
+        {
+          "label": "8.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 8.0,
+          "price": 250
+        },
+        {
+          "label": "10.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 10.0,
+          "price": 310
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "sku": "AW-016",
+      "name": "AW-016",
+      "image": "prd-016.jpg",
+      "img": "img/product/prd-016.jpg",
+      "pdfPage": 16,
+      "variants": [
+        {
+          "label": "8.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 8.5,
+          "price": 300
+        },
+        {
+          "label": "9.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 9.5,
+          "price": 360
+        },
+        {
+          "label": "9.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 9.5,
+          "price": 350
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "sku": "AW-017",
+      "name": "AW-017",
+      "image": "prd-017.jpg",
+      "img": "img/product/prd-017.jpg",
+      "pdfPage": 17,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 280
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "sku": "AW-018",
+      "name": "AW-018",
+      "image": "prd-018.jpg",
+      "img": "img/product/prd-018.jpg",
+      "pdfPage": 18,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 500
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 550
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "sku": "AW-019",
+      "name": "AW-019",
+      "image": "prd-019.jpg",
+      "img": "img/product/prd-019.jpg",
+      "pdfPage": 19,
+      "variants": [
+        {
+          "label": "9.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 9.5,
+          "price": 280
+        },
+        {
+          "label": "10.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 10.5,
+          "price": 380
+        },
+        {
+          "label": "10.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 10.5,
+          "price": 350
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "sku": "AW-020",
+      "name": "AW-020",
+      "image": "prd-020.jpg",
+      "img": "img/product/prd-020.jpg",
+      "pdfPage": 20,
+      "variants": [
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 260
+        },
+        {
+          "label": "9.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 9.5,
+          "price": 180
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "sku": "AW-021",
+      "name": "AW-021",
+      "image": "prd-021.jpg",
+      "img": "img/product/prd-021.jpg",
+      "pdfPage": 21,
+      "variants": [
+        {
+          "label": "8.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 8.5,
+          "price": 280
+        },
+        {
+          "label": "9.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 9.5,
+          "price": 340
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "sku": "AW-022",
+      "name": "AW-022",
+      "image": "prd-022.jpg",
+      "img": "img/product/prd-022.jpg",
+      "pdfPage": 22,
+      "variants": [
+        {
+          "label": "5.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 5.5,
+          "price": 160
+        },
+        {
+          "label": "6.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 6.0,
+          "price": 290
+        },
+        {
+          "label": "6.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 6.0,
+          "price": 220
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "sku": "AW-023",
+      "name": "AW-023",
+      "image": "prd-023.jpg",
+      "img": "img/product/prd-023.jpg",
+      "pdfPage": 23,
+      "variants": [
+        {
+          "label": "9.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 9.0,
+          "price": 460
+        },
+        {
+          "label": "10.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 10.0,
+          "price": 660
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "sku": "AW-024",
+      "name": "AW-024",
+      "image": "prd-024.jpg",
+      "img": "img/product/prd-024.jpg",
+      "pdfPage": 24,
+      "variants": [
+        {
+          "label": "15.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 15.0,
+          "price": 1200
+        },
+        {
+          "label": "18.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 18.5,
+          "price": 1800
+        },
+        {
+          "label": "18.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 18.5,
+          "price": 150
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "sku": "AW-025",
+      "name": "AW-025",
+      "image": "prd-025.jpg",
+      "img": "img/product/prd-025.jpg",
+      "pdfPage": 25,
+      "variants": [
+        {
+          "label": "14.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 14.0,
+          "price": 1100
+        },
+        {
+          "label": "16.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 16.0,
+          "price": 1300
+        },
+        {
+          "label": "16.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 16.0,
+          "price": 1201
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "sku": "AW-026",
+      "name": "AW-026",
+      "image": "prd-026.jpg",
+      "img": "img/product/prd-026.jpg",
+      "pdfPage": 26,
+      "variants": [
+        {
+          "label": "18.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 18.0,
+          "price": 1200
+        },
+        {
+          "label": "20.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 20.5,
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "sku": "AW-027",
+      "name": "AW-027",
+      "image": "prd-027.jpg",
+      "img": "img/product/prd-027.jpg",
+      "pdfPage": 27,
+      "variants": [
+        {
+          "label": "16.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 16.0,
+          "price": 1200
+        },
+        {
+          "label": "20.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 20.0,
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "sku": "AW-028",
+      "name": "AW-028",
+      "image": "prd-028.jpg",
+      "img": "img/product/prd-028.jpg",
+      "pdfPage": 28,
+      "variants": [
+        {
+          "label": "15.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 15.0,
+          "price": 1200
+        },
+        {
+          "label": "18.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 18.0,
+          "price": 1600
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "sku": "AW-029",
+      "name": "AW-029",
+      "image": "prd-029.jpg",
+      "img": "img/product/prd-029.jpg",
+      "pdfPage": 29,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 210
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 330
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "sku": "AW-030",
+      "name": "AW-030",
+      "image": "prd-030.jpg",
+      "img": "img/product/prd-030.jpg",
+      "pdfPage": 30,
+      "variants": [
+        {
+          "label": "7.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.0,
+          "price": 200
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 360
+        },
+        {
+          "label": "8.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 8.5,
+          "price": 290
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "sku": "AW-031",
+      "name": "AW-031",
+      "image": "prd-031.jpg",
+      "img": "img/product/prd-031.jpg",
+      "pdfPage": 31,
+      "variants": [
+        {
+          "label": "10.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 10.5,
+          "price": 750
+        },
+        {
+          "label": "12.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 12.5,
+          "price": 950
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "sku": "AW-032",
+      "name": "AW-032",
+      "image": "prd-032.jpg",
+      "img": "img/product/prd-032.jpg",
+      "pdfPage": 32,
+      "variants": [
+        {
+          "label": "10.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 10.5,
+          "price": 750
+        },
+        {
+          "label": "12.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 12.5,
+          "price": 950
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "sku": "AW-033",
+      "name": "AW-033",
+      "image": "prd-033.jpg",
+      "img": "img/product/prd-033.jpg",
+      "pdfPage": 33,
+      "variants": [
+        {
+          "label": "21.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 21.5,
+          "price": 5500
+        },
+        {
+          "label": "Big",
+          "size": "Big",
+          "heightInches": null,
+          "price": 650
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "sku": "AW-034",
+      "name": "AW-034",
+      "image": "prd-034.jpg",
+      "img": "img/product/prd-034.jpg",
+      "pdfPage": 34,
+      "variants": [
+        {
+          "label": "22.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 22.5,
+          "price": 3500
+        },
+        {
+          "label": "31.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 31.0,
+          "price": 6000
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "sku": "AW-035",
+      "name": "AW-035",
+      "image": "prd-035.jpg",
+      "img": "img/product/prd-035.jpg",
+      "pdfPage": 35,
+      "variants": [
+        {
+          "label": "20.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 20.0,
+          "price": 1400
+        },
+        {
+          "label": "23.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 23.0,
+          "price": 1800
+        },
+        {
+          "label": "23.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 23.0,
+          "price": 160
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "sku": "AW-036",
+      "name": "AW-036",
+      "image": "prd-036.jpg",
+      "img": "img/product/prd-036.jpg",
+      "pdfPage": 36,
+      "variants": [
+        {
+          "label": "31.0 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 31.0,
+          "price": 1800
+        },
+        {
+          "label": "37.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 37.0,
+          "price": 2500
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "sku": "AW-037",
+      "name": "AW-037",
+      "image": "prd-037.jpg",
+      "img": "img/product/prd-037.jpg",
+      "pdfPage": 37,
+      "variants": [
+        {
+          "label": "7.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.0,
+          "price": 180
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 180
+        },
+        {
+          "label": "9.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 9.5,
+          "price": 180
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "sku": "AW-038",
+      "name": "AW-038",
+      "image": "prd-038.jpg",
+      "img": "img/product/prd-038.jpg",
+      "pdfPage": 38,
+      "variants": [
+        {
+          "label": "8.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 8.0,
+          "price": 150
+        },
+        {
+          "label": "9.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 9.5,
+          "price": 200
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "sku": "AW-039",
+      "name": "AW-039",
+      "image": "prd-039.jpg",
+      "img": "img/product/prd-039.jpg",
+      "pdfPage": 39,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "8.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 8.0,
+          "price": 280
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "sku": "AW-040",
+      "name": "AW-040",
+      "image": "prd-040.jpg",
+      "img": "img/product/prd-040.jpg",
+      "pdfPage": 40,
+      "variants": [
+        {
+          "label": "7.0 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.0,
+          "price": 150
+        },
+        {
+          "label": "9.0 inch (Big)",
+          "size": "Big",
+          "heightInches": 9.0,
+          "price": 280
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "sku": "AW-041",
+      "name": "AW-041",
+      "image": "prd-041.jpg",
+      "img": "img/product/prd-041.jpg",
+      "pdfPage": 41,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 220
+        },
+        {
+          "label": "9.5 inch (Big)",
+          "size": "Big",
+          "heightInches": 9.5,
+          "price": 290
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "sku": "AW-042",
+      "name": "AW-042",
+      "image": "prd-042.jpg",
+      "img": "img/product/prd-042.jpg",
+      "pdfPage": 42,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 290
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "sku": "AW-043",
+      "name": "AW-043",
+      "image": "prd-043.jpg",
+      "img": "img/product/prd-043.jpg",
+      "pdfPage": 43,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 290
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "sku": "AW-044",
+      "name": "AW-044",
+      "image": "prd-044.jpg",
+      "img": "img/product/prd-044.jpg",
+      "pdfPage": 44,
+      "variants": [
+        {
+          "label": "7.5 inch (Small)",
+          "size": "Small",
+          "heightInches": 7.5,
+          "price": 150
+        },
+        {
+          "label": "8.5 inch (Medium)",
+          "size": "Medium",
+          "heightInches": 8.5,
+          "price": 290
+        }
+      ]
+    }
+  ]
+}

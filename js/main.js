@@ -4,20 +4,20 @@
 (function () {
     "use strict";
 
-    /* ---- Featured products (mock catalogue — real SKUs from data.js) ---- */
+    /* ---- Featured products (from awards PDF catalogue — js/data.js) ---- */
     const PRODUCTS = [
-        { sku: "E-X334", img: "prd-1.jpg", cat: "trophies", size: "7.5 inch" },
-        { sku: "E-X335", img: "prd-2.jpg", cat: "trophies", size: "8 inch" },
-        { sku: "E-X344", img: "prd-11.jpg", cat: "trophies", size: "4 inch" },
-        { sku: "E-X347", img: "prd-14.jpg", cat: "trophies", size: "4 inch" },
-        { sku: "E-X339", img: "prd-6.jpg", cat: "medals", size: "7.5 inch" },
-        { sku: "E-X340", img: "prd-7.jpg", cat: "medals", size: "7.5 inch" },
-        { sku: "E-X341", img: "prd-8.jpg", cat: "medals", size: "7.5 inch" },
-        { sku: "E-X342", img: "prd-9.jpg", cat: "medals", size: "4 inch" },
-        { sku: "E-X336", img: "prd-3.jpg", cat: "mementoes", size: "7.5 inch" },
-        { sku: "E-X338", img: "prd-5.jpg", cat: "mementoes", size: "7.5 inch" },
-        { sku: "E-X345", img: "prd-12.jpg", cat: "mementoes", size: "4 inch" },
-        { sku: "E-X349", img: "prd-16.jpg", cat: "mementoes", size: "4 inch" },
+        { sku: "AW-001", img: "prd-001.jpg", cat: "trophies", size: "7.5 inch (Small)" },
+        { sku: "AW-002", img: "prd-002.jpg", cat: "trophies", size: "12.0 inch (Small)" },
+        { sku: "AW-011", img: "prd-011.jpg", cat: "trophies", size: "8.5 inch (Small)" },
+        { sku: "AW-008", img: "prd-008.jpg", cat: "medals", size: "8.0 inch (Silver)" },
+        { sku: "AW-013", img: "prd-013.jpg", cat: "medals", size: "8.5 inch (Silver)" },
+        { sku: "AW-018", img: "prd-018.jpg", cat: "trophies", size: "7.5 inch (Small)" },
+        { sku: "AW-024", img: "prd-024.jpg", cat: "trophies", size: "15.0 inch (Small)" },
+        { sku: "AW-029", img: "prd-029.jpg", cat: "mementoes", size: "7.5 inch (Small)" },
+        { sku: "AW-031", img: "prd-031.jpg", cat: "trophies", size: "10.5 inch (Medium)" },
+        { sku: "AW-033", img: "prd-033.jpg", cat: "trophies", size: "21.5 inch (Small)" },
+        { sku: "AW-037", img: "prd-037.jpg", cat: "mementoes", size: "7.0 inch (Small)" },
+        { sku: "AW-041", img: "prd-041.jpg", cat: "trophies", size: "7.5 inch (Small)" },
     ];
 
     const CAT_LABEL = {

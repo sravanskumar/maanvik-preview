@@ -2,8 +2,8 @@
    Maanvik — site-wide config (catalog mode, trust, forms)
    ============================================================ */
 window.MaanvikConfig = {
-    /* Set true after BR validates the price list */
-    showIndicativePrices: false,
+    /* Loaded from docs/artefacts/maanvik-awards-catalog.pdf — BR review partial OCR rows in awards-catalog.json */
+    showIndicativePrices: true,
 
     formspreeProductQuote: "https://formspree.io/f/mnjejnny",
 

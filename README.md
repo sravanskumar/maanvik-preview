@@ -43,13 +43,13 @@ python3 -m http.server 8080
 
 ```
 index.html          # homepage + bulk + contact forms
-products.html       # 140-SKU catalogue (mock data; POA until BR validates)
+products.html       # 44-design awards catalogue (from maanvik-awards-catalog.pdf)
 css/styles.css      # design system
 js/site-config.js   # POA mode flag, GST/Udyam, Formspree endpoint
 js/quote-modal.js   # per-product Request Quote modal
 js/main.js          # nav, featured products, forms
 js/catalog.js       # catalogue UI + dual CTAs
-js/data.js          # product data (E-X334…E-X473)
+js/data.js          # product data (AW-001…AW-044 from PDF extract)
 js/ga4.js           # GA4 conversion + engagement events
 assets/img/         # product & brand photography + logo
 ```
@@ -96,7 +96,7 @@ Toggle indicative prices after BR sign-off: set `showIndicativePrices: true` in 
 
 ## Before AWS go-live (still blocked)
 
-- **Bhagya Raju:** current price list + confirm 140 SKUs still active
+- **Bhagya Raju:** spot-check `docs/artefacts/awards-catalog.json` issues rows (OCR ~90%)
 - Enable real prices in `site-config.js` after validation
 - Compress images to WebP · `sitemap.xml` / `robots.txt` / LocalBusiness schema
 
