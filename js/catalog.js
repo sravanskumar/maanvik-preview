@@ -8,8 +8,7 @@
     const cfg = window.MaanvikConfig || {};
     const WHATSAPP_PHONE = cfg.whatsappPhone || "919133441188";
     const SHOW_PRICES = cfg.showIndicativePrices === true;
-    /* Show full catalogue at once (44 designs — no need to paginate) */
-    const PAGE_SIZE = 999;
+    const PAGE_SIZE = 24;
 
     function getWhatsAppEnquiryURL(productName, sku, selectedSize) {
         const message =
@@ -30,6 +29,7 @@
     const countEl = document.getElementById("count");
     const emptyEl = document.getElementById("empty");
     const moreBtn = document.getElementById("loadMore");
+    const moreWrap = document.getElementById("loadMoreWrap");
     const searchEl = document.getElementById("search");
 
     function formatPrice(price) {
@@ -92,10 +92,15 @@
         countEl.textContent = filtered.length
             ? "Showing " + shown + " of " + filtered.length + " pieces"
             : "";
+        const hasMore = shown < filtered.length;
         if (moreWrap) {
-            moreWrap.hidden = shown >= filtered.length;
-        } else if (moreBtn) {
-            moreBtn.style.display = shown < filtered.length ? "" : "none";
+            moreWrap.hidden = !hasMore;
+        }
+        if (moreBtn) {
+            moreBtn.textContent = hasMore
+                ? "Load more (" + (filtered.length - shown) + " remaining)"
+                : "Load more";
+            moreBtn.disabled = !hasMore;
         }
 
         if (window.__revealObserve) window.__revealObserve();

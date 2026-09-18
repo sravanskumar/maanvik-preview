@@ -1416,15 +1416,23 @@ a {
     margin-top: 3rem;
 }
 
-.catalog__more .catalog__load-more {
+.catalog__load-more {
     color: var(--ink);
-    border-color: var(--line-light);
-    background: var(--paper);
+    background: #fff;
+    border: 1px solid var(--ink);
+    min-width: 220px;
+    padding: 0.85rem 2rem;
 }
 
-.catalog__more .catalog__load-more:hover {
-    border-color: var(--gold-deep);
-    color: var(--gold-deep);
+.catalog__load-more:hover:not(:disabled) {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--ivory);
+}
+
+.catalog__load-more:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
 }
 
 .catalog__empty {
