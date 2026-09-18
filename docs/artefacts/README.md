@@ -5,6 +5,7 @@ Store files received during discovery here (or note Google Drive links in `BHAGY
 | File | Purpose | Status |
 |---|---|---|
 | `maanvik-awards-catalog.pdf` | Awards catalogue PDF (44 pages, products + prices) | ✅ Imported Sep 2026 |
+| `trophy-product-images.zip` | Interim product photos (`product_01`…`44` → AW-001…AW-044) | ✅ In use on preview Sep 2026 |
 | `awards-catalog.json` | Extracted SKUs, variants, prices, OCR issues | ✅ Generated — **BR to spot-check** |
 | `price-list.*` | Spreadsheet master (if separate from PDF) | Optional |
 | `checkout-skus.md` | 10–20 online checkout SKUs | Awaiting |
