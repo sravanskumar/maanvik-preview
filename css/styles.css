@@ -136,6 +136,18 @@ a {
     color: var(--gold);
 }
 
+.btn--wa {
+    background: rgba(37, 211, 102, 0.1);
+    color: #0d6b5c;
+    border-color: rgba(37, 211, 102, 0.45);
+}
+
+.btn--wa:hover {
+    background: rgba(37, 211, 102, 0.18);
+    border-color: #25d366;
+    color: #075e54;
+}
+
 .btn--sm {
     padding: 0.7rem 1.3rem;
     font-size: 0.74rem;
@@ -1361,6 +1373,24 @@ a {
 
 .pcard__cta {
     margin-top: 0;
+}
+
+/* Ghost btn defaults target dark sections; product cards need always-visible secondary CTA */
+.pcard__actions .pcard__cta.btn--wa {
+    background: rgba(37, 211, 102, 0.1);
+    color: #0d6b5c;
+    border-color: rgba(37, 211, 102, 0.45);
+}
+
+.pcard__actions .pcard__cta.btn--wa:hover {
+    background: rgba(37, 211, 102, 0.18);
+    border-color: #25d366;
+    color: #075e54;
+    transform: translateY(-1px);
+}
+
+.pcard__cta .wa-icon {
+    flex-shrink: 0;
 }
 
 .pcard__actions {
