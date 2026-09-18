@@ -197,7 +197,7 @@
         initChrome();
         if (!all.length) {
             emptyEl.hidden = false;
-            emptyEl.textContent = "Catalog failed to load.";
+            emptyEl.textContent = "Catalogue failed to load.";
             moreBtn.style.display = "none";
             return;
         }
