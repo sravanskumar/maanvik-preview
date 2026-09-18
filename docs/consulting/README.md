@@ -8,6 +8,7 @@ Reusable assets for SME digital setup engagements — based on the Maanvik imple
 | [Service_Price_Catalogue.html](./Service_Price_Catalogue.html) | **Pricing** — packages (Essential / Growth / Commerce), à la carte rates, payment terms. |
 | [Digital_Operations_Retainer.html](./Digital_Operations_Retainer.html) | **Recurring ops** — email aliases, pipeline health, renewal reminders; Ops Essential / Growth / Commerce tiers. |
 | [Quarterly_Ops_Checklist.html](./Quarterly_Ops_Checklist.html) | **Ops delivery** — 90-day run sheet (email, forms, hosting, renewals); duplicate per client per quarter. |
+| [Digital_Operations_Agreement.html](./Digital_Operations_Agreement.html) | **Ops contract template** — 1-page retainer agreement; fill client box, tier, rate, sign. |
 | [../Maanvik_Presentation_ASR_BR_Jul2026.html](../Maanvik_Presentation_ASR_BR_Jul2026.html) | **SME deck** — killer questions, 3 paths (listing / Maximiser / new), scope box, glossary, Maanvik demo |
 | [../Maanvik_Demo_Script_Jul2026.html](../Maanvik_Demo_Script_Jul2026.html) | **Speaker script** — timed demo run-of-show, killer questions, click path, three closes |
 | [../Maanvik_Intro_Handout_NewSME_English.html](../Maanvik_Intro_Handout_NewSME_English.html) | **Path C handout** — new SME intro, discovery-first (edit name before print) |
