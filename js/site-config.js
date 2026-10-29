@@ -55,4 +55,12 @@ window.MaanvikConfig = {
             "https://wa.link/tvhqvx",
         ],
     },
+
+    /* 3D illustration spike — not tied to catalogue SKUs (see trophy-3d-spike.html) */
+    showcase3d: {
+        glb: "assets/3d/showcase-trophy.glb",
+        poster: "assets/img/hero1-2.jpg",
+        title: "Sample award trophy",
+        licenseNote: "Illustration model: Trophy Cup (CC0) via grab3d.com — not a Maanvik catalogue SKU.",
+    },
 };
