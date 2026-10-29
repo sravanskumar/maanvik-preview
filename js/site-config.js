@@ -8,6 +8,8 @@ window.MaanvikConfig = {
     formspreeProductQuote: "https://formspree.io/f/mnjejnny",
 
     whatsappPhone: "919133441188",
+    /* Append public product image URL to catalogue WhatsApp pre-fill (link preview in chat). */
+    whatsappIncludeProductImage: true,
 
     gstin: "37AXPPG4759A1ZC",
     udyam: "UDYAM-AP-04-0033053",

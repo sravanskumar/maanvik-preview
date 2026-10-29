@@ -9,12 +9,36 @@
     const WHATSAPP_PHONE = cfg.whatsappPhone || "919133441188";
     const SHOW_PRICES = cfg.showIndicativePrices === true;
     const PAGE_SIZE = 24;
+    const WA_INCLUDE_IMAGE = cfg.whatsappIncludeProductImage !== false;
 
-    function getWhatsAppEnquiryURL(productName, sku, selectedSize) {
-        const message =
+    function siteBaseUrl() {
+        if (cfg.siteBaseUrl) {
+            return String(cfg.siteBaseUrl).replace(/\/$/, "");
+        }
+        const path = window.location.pathname || "/";
+        const slash = path.lastIndexOf("/");
+        const dir = slash >= 0 ? path.slice(0, slash + 1) : "/";
+        return window.location.origin + dir.replace(/\/$/, "");
+    }
+
+    function absoluteImageUrl(relativePath) {
+        if (!relativePath) {
+            return "";
+        }
+        const path = relativePath.indexOf("assets/") === 0
+            ? relativePath
+            : "assets/" + String(relativePath).replace(/^\//, "");
+        return siteBaseUrl() + "/" + path.replace(/^\//, "");
+    }
+
+    function getWhatsAppEnquiryURL(productName, sku, selectedSize, imagePath) {
+        let message =
             "Hi Maanvik! I am interested in " + productName +
             " (SKU: " + sku + ", Size: " + selectedSize +
             "). Please share pricing and availability.";
+        if (WA_INCLUDE_IMAGE && imagePath) {
+            message += "\n\n" + absoluteImageUrl(imagePath);
+        }
         return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
     }
 
@@ -54,10 +78,11 @@
                 );
             })
             .join("");
-        const waUrl = getWhatsAppEnquiryURL(item.name, item.name, first.label);
         const imgPath = assetPath(item.img);
+        const waUrl = getWhatsAppEnquiryURL(item.name, item.name, first.label, imgPath);
         return (
-            '<article class="pcard reveal" data-id="' + item.id + '" data-sku="' + item.name + '">' +
+            '<article class="pcard reveal" data-id="' + item.id + '" data-sku="' + item.name +
+            '" data-img="' + imgPath + '">' +
             '<div class="pcard__img"><img loading="lazy" src="' + imgPath +
             '" alt="' + item.name + '"></div>' +
             '<div class="pcard__body">' +
@@ -121,8 +146,9 @@
             const sku = card.dataset.sku || "";
             const sizeLabel = size.textContent.trim();
             const cta = card.querySelector(".pcard__cta");
+            const imgPath = card.dataset.img || "";
             if (cta) {
-                cta.href = getWhatsAppEnquiryURL(sku, sku, sizeLabel);
+                cta.href = getWhatsAppEnquiryURL(sku, sku, sizeLabel, imgPath);
             }
             const quoteBtn = card.querySelector(".pcard__quote");
             if (quoteBtn) {
